@@ -1,0 +1,37 @@
+{
+  "name": "医未ADHD康复系统",
+  "description": "平板每日训练客户端",
+  "appid": "",
+  "versionName": "1.0.1",
+  "versionCode": 101,
+  "vueVersion": "3",
+  "transformPx": false,
+  "app-plus": {
+    "usingComponents": true,
+    "splashscreen": {
+      "alwaysShowBeforeRender": true,
+      "waiting": true,
+      "autoclose": true
+    },
+    "distribute": {
+      "android": {
+        "permissions": [
+          "<uses-permission android:name=\"android.permission.INTERNET\"/>"
+        ]
+      },
+      "ios": {}
+    },
+    "screenOrientation": [
+      "portrait-primary",
+      "portrait-secondary",
+      "landscape-primary",
+      "landscape-secondary"
+    ]
+  },
+  "h5": {
+    "router": {
+      "mode": "hash"
+    },
+    "title": "医未ADHD康复系统"
+  }
+}

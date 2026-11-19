@@ -1,0 +1,72 @@
+/* Global styles for 守护花朵 */
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html, body, #app {
+  width: 100%; height: 100%; overflow: hidden;
+  font-family: 'Noto Sans SC', 'Fredoka', -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+  color: #fff;
+  -webkit-font-smoothing: antialiased;
+  user-select: none;
+  background: #0b1220;
+}
+button { font-family: inherit; cursor: pointer; border: none; outline: none; }
+img { -webkit-user-drag: none; user-drag: none; }
+
+.fade-enter-active, .fade-leave-active { transition: opacity .35s ease, transform .35s ease; }
+.fade-enter, .fade-leave-to { opacity: 0; transform: translateY(8px); }
+
+/* Buttons */
+.btn {
+  position: relative;
+  display: inline-flex; align-items: center; justify-content: center;
+  padding: 1.05em 2.4em;
+  border-radius: 999px;
+  font-weight: 800;
+  letter-spacing: .05em;
+  font-size: 2.2vmin;
+  color: #fff;
+  background: linear-gradient(135deg,#38b26b,#1f7a44);
+  box-shadow: 0 12px 32px -8px rgba(31,122,68,.6), inset 0 -3px 0 rgba(0,0,0,.15), inset 0 2px 0 rgba(255,255,255,.25);
+  transition: transform .12s ease, box-shadow .2s ease, filter .2s ease;
+}
+.btn:hover { transform: translateY(-2px); filter: brightness(1.08); }
+.btn:active { transform: translateY(1px); box-shadow: 0 4px 10px -6px rgba(0,0,0,.6), inset 0 -1px 0 rgba(0,0,0,.15); }
+.btn.ghost { background: rgba(20,32,50,.6); box-shadow: inset 0 0 0 1.5px rgba(255,255,255,.35); }
+.btn.warn { background: linear-gradient(135deg,#f6a23a,#d3781a); box-shadow: 0 8px 24px -8px rgba(211,120,26,.55), inset 0 -3px 0 rgba(0,0,0,.15), inset 0 2px 0 rgba(255,255,255,.25); }
+.btn.danger { background: linear-gradient(135deg,#ef5350,#c62828); box-shadow: 0 8px 24px -8px rgba(198,40,40,.55), inset 0 -3px 0 rgba(0,0,0,.15), inset 0 2px 0 rgba(255,255,255,.25); }
+
+/* Panel/card */
+.card {
+  background: rgba(18, 30, 46, .78);
+  backdrop-filter: blur(18px);
+  border: 1px solid rgba(255,255,255,.08);
+  box-shadow: 0 30px 80px -20px rgba(0,0,0,.6), inset 0 1px 0 rgba(255,255,255,.06);
+  border-radius: 24px;
+}
+
+/* Modal overlay */
+.overlay {
+  position: absolute; inset: 0;
+  background: radial-gradient(ellipse at center, rgba(0,0,0,.35), rgba(0,0,0,.75));
+  display: flex; align-items: center; justify-content: center;
+  z-index: 50;
+  animation: overlayIn .3s ease;
+}
+@keyframes overlayIn { from { opacity: 0 } to { opacity: 1 } }
+
+/* Scrollbars inside cards */
+.scroll { overflow-y: auto; scrollbar-width: thin; scrollbar-color: rgba(255,255,255,.25) transparent; }
+.scroll::-webkit-scrollbar { width: 8px; }
+.scroll::-webkit-scrollbar-thumb { background: rgba(255,255,255,.2); border-radius: 4px; }
+
+/* HUD chip — solid bg (backdrop-filter is very expensive over animated content) */
+.chip {
+  display: inline-flex; align-items: center; gap: .5em;
+  padding: .55em 1em; border-radius: 999px;
+  background: rgba(15, 25, 40, .78);
+  border: 1px solid rgba(255,255,255,.12);
+  font-weight: 700; letter-spacing: .04em;
+  box-shadow: 0 8px 24px -12px rgba(0,0,0,.6);
+}
+.chip .icon {
+  width: 1.2em; height: 1.2em; display: inline-flex; align-items: center; justify-content: center;
+}

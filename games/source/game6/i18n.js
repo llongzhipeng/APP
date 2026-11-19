@@ -1,0 +1,223 @@
+export const translations = {
+  zh: {
+    gameTitle: '数字快捕',
+    startGame: '开始游戏',
+    rules: '规则介绍',
+    history: '历史记录',
+    skipGame: '跳过游戏',
+    langToggle: 'EN',
+
+    // Tutorial
+    tutorialTitle: '游戏教程',
+    prev: '上一步',
+    next: '下一步',
+    skip: '跳过',
+    startGame2: '开始游戏',
+    tutorialSteps: [
+      {
+        title: '欢迎来到数字快捕！',
+        desc: '屏幕上会出现许多带有数字和字母的气泡，你需要根据屏幕顶部显示的题目要求，刺破指定的气泡。',
+        icon: '🎯',
+      },
+      {
+        title: '如何操作',
+        desc: '点击正确的气泡即可将其刺破并获得分数。点击错误的气泡不会有任何反应，请仔细辨别！',
+        icon: '👆',
+      },
+      {
+        title: '智能难度调整',
+        desc: '每30秒系统会自动统计你的正确率：正确率90%以上自动升级，70%以下自动降级，帮助你保持最佳挑战状态。',
+        icon: '⚡',
+      },
+      {
+        title: '计分规则',
+        desc: '每刺破一个正确气泡得分 = 5 × 难度系数。难度越高，得分越多！共6个难度等级，努力挑战最高分！',
+        icon: '🏆',
+      },
+    ],
+
+    // Duration
+    selectDuration: '选择训练时长',
+    min1: '1 分钟',
+    min3: '3 分钟',
+    min5: '5 分钟',
+
+    // Game HUD
+    difficulty: '难度',
+    score: '得分',
+    timeLeft: '剩余时间',
+    taskLabel: '任务',
+    tasks: [
+      '刺破所有显示数字的气泡',
+      '刺破所有显示数字的气泡',
+      '刺破所有蓝色气泡',
+      '刺破所有蓝色气泡',
+      '刺破蓝色且显示字母的气泡',
+      '刺破蓝色且显示字母的气泡',
+    ],
+
+    // Result
+    gameOver: '游戏结束',
+    finalScore: '最终得分',
+    totalCount: '总次数',
+    successCount: '成功次数',
+    failCount: '失败次数',
+    successRate: '成功率',
+    avgReaction: '平均反应时长',
+    msUnit: 'ms',
+    playAgain: '再玩一次',
+    backHome: '返回首页',
+    quitGame: '退出',
+    quitConfirm: '确定要退出游戏吗？当前进度将不会保存。',
+    quitCancel: '继续游戏',
+    quitConfirmBtn: '退出游戏',
+
+    // Rules
+    rulesTitle: '规则介绍',
+    rulesBack: '返回',
+    rulesSection1: '游戏介绍',
+    rulesDesc1: '数字快捕主要训练信息加工处理能力、简单计算和执行能力。根据题目要求尽可能多地刺破屏幕中的指定气泡。',
+    rulesSection2: '难度分级',
+    rulesCols: ['难度', '气球颜色', '题目要求', '移动速度', '难度系数'],
+    rulesRows: [
+      ['1', '蓝色', '刺破显示数字的气球', '慢速', '1'],
+      ['2', '蓝色', '刺破显示数字的气球', '中速', '1.5'],
+      ['3', '蓝色和白色', '刺破蓝色的气球', '慢速', '2'],
+      ['4', '蓝色和白色', '刺破蓝色的气球', '中速', '2.5'],
+      ['5', '蓝色和白色', '刺破显示字母的蓝色气球', '慢速', '3'],
+      ['6', '蓝色和白色', '刺破显示字母的蓝色气球', '中速', '3.5'],
+    ],
+    rulesSection3: '智能调整规则',
+    rulesDesc3: '每30秒统计一次当前时间段内操作正确率：正确率90%以上→难度升级，70%以下→难度降低，其余不变。',
+    rulesSection4: '计分规则',
+    rulesDesc4: '难度1答对一题得5分，后续每答对1题的分数 = 5 × 难度系数。最终得分为所有答对题目的总分。',
+
+    // History
+    historyTitle: '历史记录',
+    historyEmpty: '暂无训练记录',
+    historyBack: '返回',
+    clearHistory: '清除记录',
+    hDate: '训练时间',
+    hProject: '训练项目',
+    hDifficulty: '难度',
+    hDuration: '时长',
+    hTotal: '总次数',
+    hSuccess: '成功',
+    hFail: '失败',
+    hRate: '成功率',
+    hAvgTime: '平均反应',
+    hScore: '得分',
+    projectName: '数字快捕',
+  },
+
+  en: {
+    gameTitle: 'Number Quick Catch',
+    startGame: 'Start Game',
+    rules: 'Game Rules',
+    history: 'History',
+    skipGame: 'Skip Game',
+    langToggle: '中',
+
+    // Tutorial
+    tutorialTitle: 'Tutorial',
+    prev: 'Previous',
+    next: 'Next',
+    skip: 'Skip',
+    startGame2: 'Start Game',
+    tutorialSteps: [
+      {
+        title: 'Welcome to Number Quick Catch!',
+        desc: 'Bubbles with numbers and letters will float up on screen. Pop the correct bubbles according to the task shown at the top.',
+        icon: '🎯',
+      },
+      {
+        title: 'How to Play',
+        desc: 'Tap the correct bubble to pop it and earn points. Tapping a wrong bubble has no effect — be precise!',
+        icon: '👆',
+      },
+      {
+        title: 'Smart Difficulty',
+        desc: 'Every 30 seconds the system checks your accuracy. Above 90% → difficulty increases. Below 70% → difficulty decreases. Stay challenged!',
+        icon: '⚡',
+      },
+      {
+        title: 'Scoring',
+        desc: 'Points per correct bubble = 5 × difficulty coefficient. Higher difficulty means more points per bubble. Aim for level 6!',
+        icon: '🏆',
+      },
+    ],
+
+    // Duration
+    selectDuration: 'Select Training Duration',
+    min1: '1 Minute',
+    min3: '3 Minutes',
+    min5: '5 Minutes',
+
+    // Game HUD
+    difficulty: 'Level',
+    score: 'Score',
+    timeLeft: 'Time Left',
+    taskLabel: 'Task',
+    tasks: [
+      'Pop all number bubbles',
+      'Pop all number bubbles',
+      'Pop all blue bubbles',
+      'Pop all blue bubbles',
+      'Pop blue bubbles with letters',
+      'Pop blue bubbles with letters',
+    ],
+
+    // Result
+    gameOver: 'Game Over',
+    finalScore: 'Final Score',
+    totalCount: 'Total',
+    successCount: 'Success',
+    failCount: 'Failed',
+    successRate: 'Accuracy',
+    avgReaction: 'Avg Reaction',
+    msUnit: 'ms',
+    playAgain: 'Play Again',
+    backHome: 'Home',
+    quitGame: 'Quit',
+    quitConfirm: 'Are you sure you want to quit? Current progress will not be saved.',
+    quitCancel: 'Keep Playing',
+    quitConfirmBtn: 'Quit Game',
+
+    // Rules
+    rulesTitle: 'Game Rules',
+    rulesBack: 'Back',
+    rulesSection1: 'About the Game',
+    rulesDesc1: 'Number Quick Catch trains information processing, calculation, and execution abilities. Pop as many correct bubbles as you can!',
+    rulesSection2: 'Difficulty Levels',
+    rulesCols: ['Level', 'Bubble Colors', 'Task', 'Speed', 'Coefficient'],
+    rulesRows: [
+      ['1', 'Blue', 'Pop number bubbles', 'Slow', '1'],
+      ['2', 'Blue', 'Pop number bubbles', 'Medium', '1.5'],
+      ['3', 'Blue & White', 'Pop blue bubbles', 'Slow', '2'],
+      ['4', 'Blue & White', 'Pop blue bubbles', 'Medium', '2.5'],
+      ['5', 'Blue & White', 'Pop blue bubbles with letters', 'Slow', '3'],
+      ['6', 'Blue & White', 'Pop blue bubbles with letters', 'Medium', '3.5'],
+    ],
+    rulesSection3: 'Difficulty Adjustment',
+    rulesDesc3: 'Every 30 seconds: above 90% accuracy → level up, below 70% → level down, otherwise unchanged.',
+    rulesSection4: 'Scoring',
+    rulesDesc4: 'Points per correct bubble = 5 × difficulty coefficient. Final score = sum of all correct pops.',
+
+    // History
+    historyTitle: 'Training History',
+    historyEmpty: 'No training records yet',
+    historyBack: 'Back',
+    clearHistory: 'Clear All',
+    hDate: 'Date',
+    hProject: 'Project',
+    hDifficulty: 'Level',
+    hDuration: 'Duration',
+    hTotal: 'Total',
+    hSuccess: 'Success',
+    hFail: 'Failed',
+    hRate: 'Accuracy',
+    hAvgTime: 'Avg Time',
+    hScore: 'Score',
+    projectName: 'Number Quick Catch',
+  },
+}

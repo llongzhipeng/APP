@@ -1,0 +1,138 @@
+<template>
+  <div class="result-page">
+    <div class="card">
+      <div class="crown">★</div>
+      <h1 class="title">{{ t('resultTitle') }}</h1>
+      <div class="verdict">{{ verdict }}</div>
+
+      <div class="score-num">{{ animatedScore }}</div>
+      <div class="score-label">{{ t('finalScore') }}</div>
+
+      <div class="stats-row">
+        <div class="stat">
+          <div class="lab">{{ t('difficulty') }}</div>
+          <div class="val">L{{ result.maxLevel }}</div>
+        </div>
+        <div class="stat">
+          <div class="lab">{{ t('colTotal') }}</div>
+          <div class="val">{{ result.total }}</div>
+        </div>
+        <div class="stat">
+          <div class="lab">{{ t('accuracy') }}</div>
+          <div class="val">{{ result.rate }}%</div>
+        </div>
+        <div class="stat">
+          <div class="lab">{{ t('avgTime') }}</div>
+          <div class="val">{{ result.avgReact }}s</div>
+        </div>
+      </div>
+
+      <div class="btn-row">
+        <button class="btn" @click="$emit('go', 'home')">{{ t('backHome') }}</button>
+        <button class="btn primary" @click="$emit('go', 'duration')">{{ t('playAgain') }}</button>
+      </div>
+    </div>
+  </div>
+</template>
+
+<script>
+import { t } from '../data/i18n.js'
+export default {
+  name: 'ResultScreen',
+  props: ['lang', 'result'],
+  data() { return { animatedScore: 0 } },
+  computed: {
+    verdict() {
+      const r = this.result.rate
+      if (r >= 85) return this.t('verdictA')
+      if (r >= 60) return this.t('verdictB')
+      return this.t('verdictC')
+    }
+  },
+  mounted() {
+    const target = this.result.score
+    const dur = 1200, start = performance.now()
+    const anim = () => {
+      const p = Math.min(1, (performance.now() - start) / dur)
+      const ease = 1 - Math.pow(1 - p, 3)
+      this.animatedScore = Math.round(target * ease)
+      if (p < 1) requestAnimationFrame(anim)
+    }
+    requestAnimationFrame(anim)
+  },
+  methods: { t(k, p) { return t(this.lang, k, p) } }
+}
+</script>
+
+<style scoped>
+.result-page {
+  width: 100%; height: 100%;
+  display: flex; align-items: center; justify-content: center;
+  background: linear-gradient(135deg, #f6f2ea 0%, #e8ddc8 100%);
+  padding: 4vmin;
+}
+.card {
+  width: 70vmin;
+  background: #fff;
+  border-radius: 3vmin;
+  border: 0.3vmin solid #b08b4f;
+  padding: 5vmin;
+  text-align: center;
+  box-shadow: 0 1.5vmin 4vmin rgba(122,90,44,.2);
+  position: relative;
+}
+.crown {
+  width: 10vmin; height: 10vmin;
+  margin: -10vmin auto 2vmin;
+  background: linear-gradient(135deg, #f7c04d, #d97742);
+  color: #fff;
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 5vmin;
+  box-shadow: 0 0.8vmin 2vmin rgba(217,119,66,.4);
+  animation: crownIn .9s cubic-bezier(.2,.7,.3,1.4);
+}
+@keyframes crownIn {
+  0% { opacity: 0; transform: scale(0) rotate(-120deg); }
+  70% { transform: scale(1.15) rotate(10deg); }
+  100% { opacity: 1; transform: scale(1) rotate(0); }
+}
+.title { font-size: 4.5vmin; color: #7a3a1e; margin-bottom: 1vmin; letter-spacing: 0.3vmin; }
+.verdict { font-size: 2.4vmin; color: #8a6a3a; margin-bottom: 2vmin; letter-spacing: 0.2vmin; }
+.score-num {
+  font-size: 12vmin;
+  font-weight: 800;
+  color: #d97742;
+  line-height: 1;
+  text-shadow: 0 0.5vmin 0 rgba(217,119,66,.15);
+  font-variant-numeric: tabular-nums;
+}
+.score-label { font-size: 2.4vmin; color: #8a6a3a; margin-bottom: 3vmin; }
+.stats-row {
+  display: flex;
+  justify-content: space-around;
+  padding: 2vmin 0;
+  border-top: 0.15vmin dashed #d0b48a;
+  border-bottom: 0.15vmin dashed #d0b48a;
+  margin-bottom: 3vmin;
+}
+.stat { text-align: center; }
+.stat .lab { font-size: 1.9vmin; color: #8a6a3a; margin-bottom: 0.5vmin; }
+.stat .val { font-size: 3.4vmin; font-weight: 700; color: #7a3a1e; }
+.btn-row { display: flex; gap: 2vmin; justify-content: center; }
+.btn {
+  padding: 1.8vmin 4vmin;
+  font-size: 2.4vmin;
+  background: #fff;
+  border: 0.25vmin solid #b08b4f;
+  color: #7a5a2c;
+  border-radius: 1.5vmin;
+  cursor: pointer;
+  font-weight: 600;
+  min-width: 22vmin;
+  transition: all .18s;
+}
+.btn:hover { background: #fff8ec; transform: translateY(-0.3vmin); }
+.btn.primary { background: linear-gradient(135deg, #d97742, #b04e1e); color: #fff; border-color: #a34418; }
+.btn.primary:hover { background: linear-gradient(135deg, #e28855, #bd5a24); }
+</style>

@@ -1,0 +1,212 @@
+/* ============================================================
+   Rhythm Tap — Professional design system
+   Warm, calm palette suitable for elderly / MCI users
+   Everything uses clamp()-based fluid scaling.
+   ============================================================ */
+
+:root {
+  /* Palette */
+  --bg-0: #0f1730;
+  --bg-1: #172244;
+  --bg-2: #1e2c56;
+  --surface: rgba(255, 255, 255, 0.06);
+  --surface-strong: rgba(255, 255, 255, 0.10);
+  --border: rgba(255, 255, 255, 0.14);
+  --border-strong: rgba(255, 255, 255, 0.22);
+
+  --ink: #f4f6ff;
+  --ink-mid: #c9d0ee;
+  --ink-dim: #8e97c4;
+
+  --accent: #ffb547;         /* warm amber */
+  --accent-2: #ff8a3d;
+  --left: #4fc3f7;           /* left-hand cyan */
+  --left-2: #29b6f6;
+  --right: #ff8a80;          /* right-hand coral */
+  --right-2: #ff5c5c;
+  --good: #66d19e;
+  --warn: #ffcf5c;
+  --bad: #ff6b6b;
+
+  /* Fluid scale — root font size scales with viewport (matches newG01 vmin conventions) */
+  --fs-root: clamp(16px, 1.4vmin + 10px, 28px);
+
+  /* Radius / spacing */
+  --r-sm: 8px;
+  --r-md: 14px;
+  --r-lg: 22px;
+  --r-xl: 32px;
+
+  /* Shadows */
+  --shadow-soft: 0 10px 30px rgba(0,0,0,.35), 0 2px 6px rgba(0,0,0,.25);
+  --shadow-inset: inset 0 1px 0 rgba(255,255,255,.12);
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+
+/* 不在此强制改 html/body overflow，避免污染主应用；由 .app-shell 自行铺满 */
+
+html { font-size: var(--fs-root); }
+
+/* 游戏根壳：固定铺满可视区，避免与主应用 #app 冲突、适配平板安全区 */
+.app-shell {
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  height: 100dvh;
+  overflow: hidden;
+  box-sizing: border-box;
+  padding:
+    env(safe-area-inset-top, 0)
+    env(safe-area-inset-right, 0)
+    env(safe-area-inset-bottom, 0)
+    env(safe-area-inset-left, 0);
+  background:
+    radial-gradient(1200px 800px at 15% 10%, #223270 0%, transparent 60%),
+    radial-gradient(1000px 700px at 85% 90%, #2c1e5c 0%, transparent 55%),
+    linear-gradient(160deg, var(--bg-0), var(--bg-1) 55%, var(--bg-2));
+  color: var(--ink);
+  font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Hiragino Sans GB",
+               "Microsoft YaHei", "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
+  touch-action: manipulation;
+}
+
+body {
+  /* 嵌入路由时不覆盖主应用 body 背景；独立运行时 .app-shell 自带背景 */
+  -webkit-tap-highlight-color: transparent;
+}
+
+button {
+  font: inherit;
+  color: inherit;
+  border: none;
+  background: none;
+  cursor: pointer;
+}
+
+/* Buttons */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5em;
+  padding: 0.9em 1.9em;
+  border-radius: 999px;
+  font-weight: 600;
+  font-size: clamp(1rem, 2vmin, 1.4rem);
+  letter-spacing: 0.02em;
+  border: 1px solid var(--border);
+  background: var(--surface);
+  color: var(--ink);
+  backdrop-filter: blur(8px);
+  transition: transform .15s ease, box-shadow .2s ease, background .2s ease, border-color .2s ease;
+  box-shadow: var(--shadow-inset);
+  white-space: nowrap;
+}
+.btn:hover { border-color: var(--border-strong); }
+.btn:active { transform: translateY(1px) scale(.99); }
+.btn:disabled { opacity: .4; cursor: not-allowed; }
+
+.btn-primary {
+  background: linear-gradient(135deg, var(--accent), var(--accent-2));
+  color: #2a1a05;
+  border-color: transparent;
+  box-shadow: 0 8px 24px rgba(255, 138, 61, .35), var(--shadow-inset);
+}
+.btn-primary:hover {
+  filter: brightness(1.05);
+  border-color: transparent;
+}
+.btn-ghost { background: transparent; border-color: var(--border-strong); }
+.btn-ghost:hover { background: transparent; border-color: var(--ink-mid); }
+.btn-danger {
+  background: linear-gradient(135deg, #ff6b6b, #d94848);
+  color: #fff;
+  border-color: transparent;
+}
+.btn-lg {
+  padding: 1.05em 2.4em;
+  font-size: clamp(1.15rem, 2.4vmin, 1.7rem);
+}
+
+/* Card */
+.card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--r-lg);
+  backdrop-filter: blur(14px);
+  box-shadow: var(--shadow-soft), var(--shadow-inset);
+}
+
+/* Header title */
+.h-title {
+  font-size: clamp(1.8rem, 4vmin, 3rem);
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  background: linear-gradient(180deg, #fff, #dbe3ff 80%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+/* Scrollbar (for history table) */
+::-webkit-scrollbar { width: 10px; height: 10px; }
+::-webkit-scrollbar-thumb { background: rgba(255,255,255,.15); border-radius: 8px; }
+::-webkit-scrollbar-track { background: transparent; }
+
+/* Modal overlay */
+.overlay {
+  position: fixed; inset: 0;
+  background: rgba(6, 10, 26, 0.65);
+  backdrop-filter: blur(6px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 100;
+  padding: max(1rem, env(safe-area-inset-top)) max(1rem, env(safe-area-inset-right))
+           max(1rem, env(safe-area-inset-bottom)) max(1rem, env(safe-area-inset-left));
+  box-sizing: border-box;
+}
+
+.modal {
+  width: min(90vw, 720px);
+  max-height: min(88dvh, 88vh);
+  overflow: auto;
+  padding: clamp(1.2rem, 2vmin, 2rem);
+  box-sizing: border-box;
+}
+
+/* Fade transition */
+.fade-enter-active, .fade-leave-active { transition: opacity .25s ease; }
+.fade-enter, .fade-leave-to { opacity: 0; }
+.fade-enter-to, .fade-leave { opacity: 1; }
+
+/* Utility */
+.center-col {
+  display: flex; flex-direction: column;
+  align-items: center; justify-content: center;
+}
+.row { display: flex; align-items: center; }
+.gap-1 { gap: .5rem; } .gap-2 { gap: 1rem; } .gap-3 { gap: 1.5rem; } .gap-4 { gap: 2rem; }
+.grow { flex: 1 1 auto; }
+
+/* App shell — full viewport（定义见上方 .app-shell） */
+
+/* Top bar (used on home) */
+.topbar {
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: clamp(.8rem, 2vmin, 1.4rem) clamp(1rem, 3vmin, 2rem);
+  z-index: 20;
+}
+
+/* Accessible focus */
+:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }

@@ -1,0 +1,23 @@
+{
+  "name": "adhd-training-app",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "postinstall": "npm ci --prefix games --no-audit --no-fund",
+    "dev:h5": "node games/build.mjs h5 && uni",
+    "build:h5": "node games/build.mjs h5 && uni build",
+    "build:app": "node games/build.mjs app && uni build -p app"
+  },
+  "dependencies": {
+    "@dcloudio/uni-app": "3.0.0-alpha-5030720261117001",
+    "@dcloudio/uni-app-plus": "3.0.0-alpha-5030720261117001",
+    "@dcloudio/uni-components": "3.0.0-alpha-5030720261117001",
+    "@dcloudio/uni-h5": "3.0.0-alpha-5030720261117001",
+    "vue": "3.4.21"
+  },
+  "devDependencies": {
+    "@dcloudio/types": "3.4.31",
+    "@dcloudio/vite-plugin-uni": "3.0.0-alpha-5030720261117001",
+    "vite": "5.2.8"
+  }
+}

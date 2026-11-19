@@ -1,0 +1,11 @@
+{
+  "name": "training-game-build",
+  "private": true,
+  "type": "module",
+  "dependencies": {
+    "@vitejs/plugin-vue2": "2.3.4",
+    "file-saver": "2.0.5",
+    "vite": "5.2.8",
+    "vue": "2.7.16"
+  }
+}

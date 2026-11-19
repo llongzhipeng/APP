@@ -1,0 +1,8 @@
+node_modules/
+dist/
+.env
+.env.local
+
+src/static/web/training/
+src/hybrid/html/training/
+android/.signing/

@@ -1,0 +1,19 @@
+{
+  "pages": [
+    { "path": "pages/login/index", "style": { "navigationStyle": "custom" } },
+    { "path": "pages/today/index", "style": { "navigationStyle": "custom", "enablePullDownRefresh": true } },
+    {
+      "path": "pages/game/index",
+      "style": {
+        // #ifdef H5
+        "navigationStyle": "custom",
+        // #endif
+        "navigationBarTitleText": "训练游戏"
+      }
+    }
+  ],
+  "globalStyle": {
+    "navigationBarTitleText": "医未ADHD康复系统",
+    "backgroundColor": "#f3f7fa"
+  }
+}

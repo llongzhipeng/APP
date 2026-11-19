@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="TrainingTheme" parent="android:style/Theme.Material.Light.NoActionBar">
+        <item name="android:colorAccent">#006FA6</item>
+        <item name="android:windowBackground">#F3F7FA</item>
+        <item name="android:windowLightStatusBar">true</item>
+        <item name="android:windowLightNavigationBar">true</item>
+        <item name="android:statusBarColor">#F3F7FA</item>
+        <item name="android:navigationBarColor">#F3F7FA</item>
+        <item name="android:windowSoftInputMode">adjustResize</item>
+    </style>
+</resources>

@@ -1,0 +1,497 @@
+/* 全局样式重置 */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Microsoft YaHei", Roboto, sans-serif;
+}
+
+html, body {
+  width: 100%;
+  height: 100%;
+}
+
+body {
+  background: #f5f5f5 url('./public/image/background.jpg') center / cover no-repeat fixed;
+  color: #333;
+  min-height: 100vh;
+  min-height: 100dvh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+  overflow: hidden;
+}
+
+#app {
+  width: 100%;
+  max-width: 800px;
+  height: 95vh;
+  height: 95dvh;
+  max-height: 900px;
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  overflow: hidden;
+}
+
+.lang-switch {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+}
+
+/* 按钮样式 */
+.btn {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: all 0.2s ease;
+}
+
+.btn-primary {
+  background-color: #4A90E2;
+  color: white;
+}
+
+.btn-primary:hover {
+  background-color: #357abd;
+  transform: scale(1.02);
+}
+
+.btn-primary:disabled {
+  background-color: #99b9e9;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.btn-secondary {
+  background-color: #f5f5f5;
+  color: #333;
+  border: 1px solid #ddd;
+}
+
+.btn-secondary:hover {
+  background-color: #e9e9e9;
+}
+
+.btn-secondary:disabled {
+  background-color: #fafafa;
+  color: #999;
+  cursor: not-allowed;
+  border-color: #eee;
+}
+
+/* 通用布局 */
+.container {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
+  min-height: 0;
+}
+
+.title {
+  text-align: center;
+  margin-bottom: 15px;
+  color: #4A90E2;
+  font-size: 22px;
+  flex-shrink: 0;
+}
+
+.flex-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 10px 0;
+  /* 新增：适配小屏幕换行 */
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* 新增：默认占满行高 */
+  width: 100%;
+}
+
+/* 矩阵样式 - 核心修改 */
+.matrix-container {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  justify-content: center;
+  align-items: center;
+  width: fit-content;
+  margin: 0 auto;
+}
+
+/* 每行的样式 */
+.matrix-container > div {
+  display: flex;
+  gap: 6px;
+  align-items: center;
+  justify-content: center;
+}
+
+.matrix-cell {
+  background-color: #f0f0f0;
+  border: 2px solid #ddd;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  position: relative;
+}
+
+/* 自适应矩阵尺寸 */
+.matrix-size-2 .matrix-cell { width: 60px; height: 60px; }
+.matrix-size-3 .matrix-cell { width: 55px; height: 55px; }
+.matrix-size-4 .matrix-cell { width: 50px; height: 50px; }
+.matrix-size-5 .matrix-cell { width: 45px; height: 45px; }
+.matrix-size-6 .matrix-cell { width: 40px; height: 40px; }
+
+/* 单元格状态 - 增强交互反馈 */
+.matrix-cell.active {
+  background-color: #4A90E2 !important;
+  border-color: #357abd !important;
+  /* 新增：亮起动画 */
+  animation: lightUp 0.2s linear forwards;
+}
+
+.matrix-cell.clicked {
+  background-color: #999;
+  border-color: #666;
+  /* 新增：点击动画 */
+  animation: clickFeedback 0.1s linear forwards;
+}
+
+/* 新增：单元格禁用状态（序列展示/验证中） */
+.matrix-cell[disabled] {
+  cursor: not-allowed;
+  opacity: 0.7;
+  pointer-events: none;
+}
+
+.matrix-cell:hover:not([disabled]) {
+  background-color: #e8e8e8;
+  border-color: #ccc;
+}
+
+.matrix-cell:focus {
+  outline: 2px solid #4A90E2;
+  outline-offset: 2px;
+}
+
+/* 新增：动画关键帧 */
+@keyframes lightUp {
+  0% { opacity: 0.8; transform: scale(0.95); }
+  100% { opacity: 1; transform: scale(1); }
+}
+
+@keyframes clickFeedback {
+  0% { transform: scale(0.95); }
+  100% { transform: scale(1); }
+}
+
+/* 弹窗样式 - 优化层级和动画 */
+.modal-mask {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  /* 新增：淡入动画 */
+  animation: fadeIn 0.3s ease;
+}
+
+.modal-content {
+  background: white;
+  border-radius: 8px;
+  padding: 20px;
+  width: 90%;
+  max-width: 500px;
+  /* 新增：弹窗动画 */
+  animation: slideUp 0.3s ease;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+}
+
+.modal-title {
+  font-size: 20px;
+  margin-bottom: 15px;
+  color: #4A90E2;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #eee;
+}
+
+.modal-body {
+  margin-bottom: 20px;
+  line-height: 1.6;
+  /* 新增：防止内容溢出 */
+  max-height: 70vh;
+  overflow-y: auto;
+}
+
+.modal-footer {
+  text-align: right;
+  /* 新增：上边框分隔 */
+  padding-top: 10px;
+  border-top: 1px solid #eee;
+}
+
+/* 结果卡片样式 - 优化视觉层次 */
+.result-card {
+  background: #f8f9fa;
+  border-radius: 8px;
+  padding: 20px;
+  margin: 20px 0;
+  /* 新增：阴影增强层次感 */
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  /* 新增：自适应高度 */
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.result-item {
+  margin: 10px 0;
+  font-size: 16px;
+  /* 新增：行高优化 */
+  line-height: 1.5;
+}
+
+.result-label {
+  display: inline-block;
+  width: 120px;
+  color: #666;
+  /* 新增：右对齐，排版更整齐 */
+  text-align: right;
+  margin-right: 10px;
+}
+
+.result-value {
+  font-weight: bold;
+  color: #4A90E2;
+}
+
+/* 表格样式 - 优化响应式 */
+.record-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 20px 0;
+  /* 新增：表格容器溢出滚动 */
+  display: block;
+  overflow-x: auto;
+}
+
+.record-table th, .record-table td {
+  border: 1px solid #ddd;
+  padding: 8px 12px;
+  text-align: center;
+  /* 新增：最小宽度，防止挤压 */
+  min-width: 80px;
+}
+
+.record-table th {
+  background-color: #4A90E2;
+  color: white;
+  /* 新增：粘性表头 */
+  position: sticky;
+  top: 0;
+}
+
+.record-table tr:nth-child(even) {
+  background-color: #f8f9fa;
+}
+
+.record-table tr:hover {
+  background-color: #f0f7ff;
+}
+
+/* 提示样式 - 优化动画 */
+.notice {
+  position: fixed;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #4A90E2;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 6px;
+  z-index: 999;
+  /* 优化动画曲线 */
+  animation: slideInOut 2.6s cubic-bezier(0.19, 1, 0.22, 1);
+  /* 新增：防止文字溢出 */
+  white-space: nowrap;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+@keyframes slideInOut {
+  0% { top: -50px; opacity: 0; }
+  10% { top: 20px; opacity: 1; }
+  90% { top: 20px; opacity: 1; }
+  100% { top: -50px; opacity: 0; }
+}
+
+/* 答题结果全屏反馈 */
+.answer-feedback {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+  pointer-events: none;
+  animation: feedbackFadeIn 0.2s ease;
+}
+
+.answer-feedback.correct {
+  background: rgba(76, 175, 80, 0.95);
+}
+
+.answer-feedback.wrong {
+  background: rgba(244, 67, 54, 0.95);
+}
+
+.feedback-icon {
+  font-size: 120px;
+  font-weight: bold;
+  color: white;
+  margin-bottom: 20px;
+  animation: feedbackBounce 0.5s ease;
+}
+
+.feedback-text {
+  font-size: 36px;
+  font-weight: bold;
+  color: white;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+}
+
+@keyframes feedbackFadeIn {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+@keyframes feedbackBounce {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.2); }
+}
+
+/* 新增：淡入/上滑动画 */
+@keyframes fadeIn {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+@keyframes slideUp {
+  0% { transform: translateY(20px); opacity: 0; }
+  100% { transform: translateY(0); opacity: 1; }
+}
+
+/* 新增：响应式适配 - 小屏幕（平板/手机） */
+@media (max-width: 768px) {
+  body {
+    padding: 5px;
+  }
+
+  #app {
+    padding: 15px;
+    height: 98vh;
+    height: 98dvh;
+    border-radius: 8px;
+  }
+
+  .title {
+    font-size: 18px;
+    margin-bottom: 10px;
+  }
+
+  .btn {
+    padding: 8px 16px;
+    font-size: 14px;
+  }
+
+  .matrix-size-2 .matrix-cell { width: 55px; height: 55px; }
+  .matrix-size-3 .matrix-cell { width: 50px; height: 50px; }
+  .matrix-size-4 .matrix-cell { width: 45px; height: 45px; }
+  .matrix-size-5 .matrix-cell { width: 38px; height: 38px; }
+  .matrix-size-6 .matrix-cell { width: 33px; height: 33px; }
+
+  .matrix-container {
+    gap: 5px;
+  }
+
+  .matrix-container > div {
+    gap: 5px;
+  }
+
+  .result-label {
+    width: 100px;
+  }
+
+  .lang-switch {
+    top: 10px;
+    right: 10px;
+  }
+
+  .lang-switch .btn {
+    padding: 6px 12px;
+    font-size: 12px;
+  }
+}
+
+@media (max-width: 480px) {
+  #app {
+    padding: 10px;
+    border-radius: 6px;
+  }
+
+  .title {
+    font-size: 16px;
+  }
+
+  .btn {
+    padding: 6px 12px;
+    font-size: 13px;
+  }
+
+  .matrix-size-2 .matrix-cell { width: 50px; height: 50px; }
+  .matrix-size-3 .matrix-cell { width: 45px; height: 45px; }
+  .matrix-size-4 .matrix-cell { width: 40px; height: 40px; }
+  .matrix-size-5 .matrix-cell { width: 34px; height: 34px; }
+  .matrix-size-6 .matrix-cell { width: 29px; height: 29px; }
+
+  .matrix-container {
+    gap: 4px;
+  }
+
+  .matrix-container > div {
+    gap: 4px;
+  }
+
+  .feedback-icon {
+    font-size: 80px;
+  }
+
+  .feedback-text {
+    font-size: 24px;
+  }
+}
