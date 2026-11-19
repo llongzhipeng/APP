@@ -1,4 +1,4 @@
-import { replayInstructions, stopTrainingAudio } from './audio/cues.js'
+import { replayInstructions } from './audio/cues.js'
 import { leave, skip } from './session.js'
 
 export function installGameControls() {
@@ -35,10 +35,10 @@ export function installGameControls() {
     panel.open = false
     if (action === 'replay') {
       replayInstructions()
+    } else if (action === 'skip') {
+      skip()
     } else {
-      stopTrainingAudio()
-      if (action === 'skip') skip()
-      else leave()
+      leave()
     }
   })
   document.addEventListener('pointerdown', event => {

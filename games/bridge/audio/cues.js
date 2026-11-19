@@ -6,18 +6,58 @@ let lastTutorialClip = ''
 let tutorialTimer
 let voice
 let voiceTimer
-let sound
-let lastSoundAt = 0
+let audioContext
+const effects = new Map()
+const effectSources = new Map()
 let attempts = 0
 let successes = 0
 let failures = 0
 let flushPending = false
+let stopped = false
 
 function play(clip, previous) {
   previous?.pause()
   const player = new Audio(`../training-audio/${clip}.mp3`)
   player.play().catch(() => {})
   return player
+}
+
+function prepareEffects() {
+  const AudioContext = window.AudioContext || window.webkitAudioContext
+  if (!AudioContext) return
+  audioContext ??= new AudioContext()
+  for (const [name, effect] of effects) {
+    effect.buffer ??= fetch(effect.player.src)
+      .then(response => {
+        if (!response.ok) throw new Error('Unable to load training sound')
+        return response.arrayBuffer()
+      })
+      .then(data => audioContext.decodeAudioData(data))
+      .catch(() => null)
+  }
+  // A tap also unlocks audio in WebViews that require a user gesture.
+  audioContext.resume().catch(() => {})
+}
+
+async function playEffect(name) {
+  const effect = effects.get(name)
+  const buffer = await effect.buffer
+  if (stopped) return
+  if (buffer && audioContext.state === 'running') {
+    const source = audioContext.createBufferSource()
+    source.buffer = buffer
+    source.connect(audioContext.destination)
+    effectSources.get(name)?.stop()
+    effectSources.set(name, source)
+    source.onended = () => {
+      source.disconnect()
+      if (effectSources.get(name) === source) effectSources.delete(name)
+    }
+    source.start()
+    return
+  }
+  effect.player.currentTime = 0
+  effect.player.play().catch(() => {})
 }
 
 function cancelVoice() {
@@ -66,7 +106,13 @@ export function endTutorialNarration() {
 
 export function initializeTrainingAudio(directory) {
   tutorial = tutorials[directory]
+  for (const name of ['correct', 'incorrect']) {
+    const player = new Audio(`../training-audio/${name}.mp3`)
+    player.preload = 'auto'
+    effects.set(name, { player })
+  }
   document.addEventListener('click', event => {
+    if (audioContext?.state !== 'running') prepareEffects()
     if (!tutorialOpen) return
     const button = event.target.closest?.('button,[role="button"]')
     const label = button?.textContent?.trim() || ''
@@ -78,13 +124,17 @@ export function initializeTrainingAudio(directory) {
     }
   }, true)
   window.addEventListener('pagehide', stopTrainingAudio)
+  window.addEventListener('pageshow', () => { stopped = false })
 }
 
 export function stopTrainingAudio() {
+  stopped = true
   endTutorialNarration()
   clearTimeout(tutorialTimer)
   cancelVoice()
-  sound?.pause()
+  for (const effect of effects.values()) effect.player.pause()
+  for (const source of effectSources.values()) source.stop()
+  effectSources.clear()
 }
 
 function queueOutcome() {
@@ -97,9 +147,9 @@ function queueOutcome() {
     failures = 0
     attempts = 0
     flushPending = false
-    if ((!passed && !failed) || tutorialOpen || Date.now() - lastSoundAt < 120) return
-    lastSoundAt = Date.now()
-    sound = play(passed ? 'correct' : 'incorrect', sound)
+    if ((!passed && !failed) || stopped) return
+    endTutorialNarration()
+    playEffect(failed ? 'incorrect' : 'correct')
   })
 }
 
@@ -115,7 +165,8 @@ export function trainingMutation(kind, before, value, after) {
   const delta = Number(after) - Number(before)
   if (!Number.isFinite(delta) || delta === 0) return value
   if (kind === 'level') {
-    if (tutorialOpen) return value
+    if (stopped) return value
+    endTutorialNarration()
     clearTimeout(voiceTimer)
     voiceTimer = setTimeout(() => { voice = play(delta > 0 ? 'up' : 'down', voice) }, 270)
   } else if (kind === 'decrease-failure' ? delta < 0 : delta > 0) {

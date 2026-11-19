@@ -180,8 +180,7 @@ export default {
 
     // 返回
     const handleBack = () => {
-      leavePbGameWindow();
-        emit('back');
+      if (leavePbGameWindow()) emit('back');
     };
 
     // 监听游戏结束
