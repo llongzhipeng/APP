@@ -3,12 +3,14 @@ package cn.yiwei.tablettraining;
 import android.app.Activity;
 import android.graphics.Color;
 import android.graphics.Insets;
+import android.media.AudioManager;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.view.ViewGroup;
 import android.view.WindowInsets;
 import android.webkit.MimeTypeMap;
+import android.webkit.WebChromeClient;
 import android.webkit.WebResourceRequest;
 import android.webkit.WebResourceResponse;
 import android.webkit.WebSettings;
@@ -29,6 +31,7 @@ public final class TrainingActivity extends Activity {
     @Override
     protected void onCreate(Bundle state) {
         super.onCreate(state);
+        setVolumeControlStream(AudioManager.STREAM_MUSIC);
         FrameLayout root = new FrameLayout(this);
         root.setBackgroundColor(Color.rgb(243, 247, 250));
         if (Build.VERSION.SDK_INT >= 35) {
@@ -47,6 +50,8 @@ public final class TrainingActivity extends Activity {
         settings.setAllowFileAccess(false);
         settings.setAllowContentAccess(false);
         settings.setMixedContentMode(WebSettings.MIXED_CONTENT_NEVER_ALLOW);
+        // Several games use JavaScript confirmation dialogs when leaving a round.
+        web.setWebChromeClient(new WebChromeClient());
         web.setWebViewClient(new WebViewClient() {
             @Override
             public WebResourceResponse shouldInterceptRequest(WebView view, WebResourceRequest request) {
@@ -78,7 +83,10 @@ public final class TrainingActivity extends Activity {
         }
         try {
             InputStream file = getAssets().open("web" + path);
-            return new WebResourceResponse(mimeType(path), "UTF-8", file);
+            String type = mimeType(path);
+            String encoding = type.startsWith("text/") || type.equals("application/javascript")
+                || type.equals("application/json") ? "UTF-8" : null;
+            return new WebResourceResponse(type, encoding, file);
         } catch (IOException ignored) {
             return missingAsset();
         }
@@ -89,6 +97,7 @@ public final class TrainingActivity extends Activity {
         String extension = dot < 0 ? "" : path.substring(dot + 1).toLowerCase(Locale.ROOT);
         if (extension.equals("js")) return "application/javascript";
         if (extension.equals("json")) return "application/json";
+        if (extension.equals("mp3")) return "audio/mpeg";
         String type = MimeTypeMap.getSingleton().getMimeTypeFromExtension(extension);
         return type == null ? "application/octet-stream" : type;
     }
