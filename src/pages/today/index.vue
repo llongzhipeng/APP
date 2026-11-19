@@ -230,7 +230,6 @@ function openPractice(game) {
 @media (min-width: 900px) and (orientation: landscape) {
   .workspace { display: grid; grid-template-columns: 182px minmax(0, 1fr); }
   .sidebar { display: flex; flex-direction: column; justify-content: flex-start; align-items: stretch; padding: 18px 12px; border-right: 1px solid #dde5f1; border-bottom: 0; }
-  .sidebar .brand { font-size: 13px; gap: 6px; white-space: nowrap; }
   .workspace-nav { flex-direction: column; margin-top: 23px; gap: 5px; }
   .nav-item { justify-content: flex-start; padding-left: 12px; }
   .training-grid { grid-template-columns: repeat(4, minmax(0, 1fr)); }

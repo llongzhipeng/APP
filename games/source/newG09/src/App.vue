@@ -167,6 +167,7 @@
 </template>
 
 <script>
+import { trainingOutcome as playMissCue } from '@/audio/cues.js'
 import { resolveImage } from './assets'
 const DIFFICULTIES = [
   { holes:4, spawnInterval:3000, displayDuration:2500, coefficient:1,   bg:resolveImage('/image/1.jpg') },
@@ -337,7 +338,10 @@ export default {
         expireAt: now + this.curDiff.displayDuration,
         expireTimer: null,
       };
-      mole.expireTimer = setTimeout(() => { this.removeMole(id); }, this.curDiff.displayDuration);
+      mole.expireTimer = setTimeout(() => {
+        if (!isMine && !mole.hitting) playMissCue(false);
+        this.removeMole(id);
+      }, this.curDiff.displayDuration);
       this.activeMoles.push(mole);
       if (!isMine) {
         this.totalMoles++;

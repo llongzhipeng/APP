@@ -5,6 +5,7 @@ import { fileURLToPath } from 'node:url'
 import { createRequire } from 'node:module'
 import vue2 from '@vitejs/plugin-vue2'
 import { build } from 'vite'
+import { installCueHooks } from './cue-hooks.mjs'
 
 const root = dirname(fileURLToPath(import.meta.url))
 const bridge = join(root, 'bridge')
@@ -16,7 +17,7 @@ const output = resolve(root, platform === 'app' ? '../src/hybrid/html/training' 
 const sdkFile = 'uni.webview.1.5.8.js'
 const assetURL = (path) => './' + path.split('/public/')[1]
 
-function adaptOriginalFiles(game, directory) {
+function adaptOriginalFiles(game, directory, cueStats) {
   return {
     name: 'original-game-compatibility',
     enforce: 'pre',
@@ -25,7 +26,8 @@ function adaptOriginalFiles(game, directory) {
       // The original Vue CLI projects load these files through Webpack require.
       // These original wrappers pass an average in milliseconds to their shared helper.
       const usesMillisecondAverages = directory.startsWith('newG') && Number(directory.slice(4)) <= 21
-      const adapted = usesMillisecondAverages ? code.replace(/\btoPbGameSeconds\b/g, 'msToPbGameSeconds') : code
+      const source = usesMillisecondAverages ? code.replace(/\btoPbGameSeconds\b/g, 'msToPbGameSeconds') : code
+      const adapted = installCueHooks(source, id, directory, cueStats)
       return adapted
         .replace(/@import url\(['"]https:\/\/fonts\.googleapis\.com\/[^'"]+['"]\);/g, '')
         .replace(/url\(~@\/views\/game\/[^/]+\/public\//g, 'url(./')
@@ -41,10 +43,12 @@ function adaptOriginalFiles(game, directory) {
 await rm(output, { recursive: true, force: true })
 await mkdir(output, { recursive: true })
 if (platform === 'app') await cp(join(bridge, sdkFile), join(output, sdkFile))
+await cp(join(bridge, 'audio/clips'), join(output, 'training-audio'), { recursive: true })
 const directories = (await readdir(source)).filter(name => /^(?:game\d+|newG\d+)$/.test(name))
   .sort((a, b) => a.localeCompare(b, 'en', { numeric: true }))
 for (const directory of directories) {
   const newGame = directory.startsWith('newG')
+  const cueStats = new Set()
   const game = join(source, directory)
   const outDir = join(output, directory)
   const app = join(game, newGame ? 'src/App.vue' : 'App.vue')
@@ -59,9 +63,13 @@ for (const directory of directories) {
       return `import Vue from 'vue';
         import App from ${JSON.stringify(app)};
         import { initializeGameBridge } from ${JSON.stringify(join(bridge, 'session.js'))};
+        import { initializeTrainingAudio } from ${JSON.stringify(join(bridge, 'audio/cues.js'))};
+        import { installGameControls } from ${JSON.stringify(join(bridge, 'controls.js'))};
         Vue.config.productionTip = false;
+        initializeTrainingAudio(${JSON.stringify(directory)});
         initializeGameBridge();
         new Vue({ render: h => h(App) }).$mount('#app');
+        installGameControls();
       `
     },
   }
@@ -79,7 +87,7 @@ for (const directory of directories) {
         { find: '@', replacement: bridge },
       ],
     },
-    plugins: [adaptOriginalFiles(game, directory), vue2(), virtualEntry],
+    plugins: [adaptOriginalFiles(game, directory, cueStats), vue2(), virtualEntry],
     build: {
       target: 'es2018',
       outDir,
@@ -105,5 +113,5 @@ for (const directory of directories) {
 <body><div id="app"></div><script src="./game.js"></script>${sdk}</body></html>`
   await writeFile(join(outDir, 'index.html'), html)
   if (!existsSync(join(outDir, 'game.js'))) throw new Error('Missing game bundle ' + directory)
-  console.log('Built ' + directory)
+  console.log('Built ' + directory + ' · cues: ' + [...cueStats].sort().join(', '))
 }

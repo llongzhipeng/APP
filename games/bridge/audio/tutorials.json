@@ -1,0 +1,723 @@
+{
+  "game1": {
+    "overview": "game1",
+    "steps": [
+      {
+        "anchor": "① 观察：记住方块点亮顺序",
+        "clip": "game1-step-1"
+      }
+    ]
+  },
+  "game2": {
+    "overview": "game2",
+    "steps": []
+  },
+  "game3": {
+    "overview": "game3",
+    "steps": [
+      {
+        "anchor": "请找出以下物品中的足球",
+        "clip": "game3-step-1"
+      }
+    ]
+  },
+  "game4": {
+    "overview": "game4",
+    "steps": [
+      {
+        "anchor": "认识目标值",
+        "clip": "game4-step-1"
+      },
+      {
+        "anchor": "选择卡片",
+        "clip": "game4-step-2"
+      },
+      {
+        "anchor": "卡片消失与刷新",
+        "clip": "game4-step-3"
+      },
+      {
+        "anchor": "智能难度调整",
+        "clip": "game4-step-4"
+      }
+    ]
+  },
+  "game5": {
+    "overview": "game5",
+    "steps": [
+      {
+        "anchor": "系统会显示需要购买的商品名称，请仔细记住它们！",
+        "clip": "game5-step-1"
+      },
+      {
+        "anchor": "从货架上找到并选择所需商品，注意记住价格！",
+        "clip": "game5-step-2"
+      },
+      {
+        "anchor": "记住商品价格，计算总价，然后从4个选项中选择正确答案",
+        "clip": "game5-step-3"
+      }
+    ]
+  },
+  "game6": {
+    "overview": "game6",
+    "steps": [
+      {
+        "anchor": "屏幕上会出现许多带有数字和字母的气泡，你需要根据屏幕顶部显示的题目要求，刺破指定的气泡。",
+        "clip": "game6-step-1"
+      },
+      {
+        "anchor": "点击正确的气泡即可将其刺破并获得分数。点击错误的气泡不会有任何反应，请仔细辨别！",
+        "clip": "game6-step-2"
+      }
+    ]
+  },
+  "game7": {
+    "overview": "game7",
+    "steps": [
+      {
+        "anchor": "屏幕中央会出现一个颜色词（红/绿/蓝/黄），请判断文字的字体颜色（而非文字含义），并点击下方对应的颜色按钮。",
+        "clip": "game7-step-1"
+      }
+    ]
+  },
+  "game8": {
+    "overview": "game8",
+    "steps": [
+      {
+        "anchor": "屏幕中间会显示4~5张参考卡片，屏幕下方有一张目标卡片。根据顶部显示的规则（颜色 / 数量 / 形状），从参考卡片中选出与目标卡片相匹配的一张。",
+        "clip": "game8-step-1"
+      }
+    ]
+  },
+  "game9": {
+    "overview": "game9",
+    "steps": [
+      {
+        "anchor": "请按照数字出现的顺序依次输入",
+        "clip": "game9-step-1"
+      },
+      {
+        "anchor": "请按照数字出现的逆序依次输入",
+        "clip": "game9-step-2"
+      }
+    ]
+  },
+  "game10": {
+    "overview": "game10",
+    "steps": [
+      {
+        "anchor": "路径消失后，点击格子来重现路径（蓝色高亮引导）。",
+        "clip": "game10-step-1"
+      }
+    ]
+  },
+  "game11": {
+    "overview": "game11",
+    "steps": []
+  },
+  "game12": {
+    "overview": "game12",
+    "steps": []
+  },
+  "game13": {
+    "overview": "game13",
+    "steps": []
+  },
+  "game14": {
+    "overview": "game14",
+    "steps": [
+      {
+        "anchor": "看图片，选择正确的类别",
+        "clip": "game14-step-1"
+      },
+      {
+        "anchor": "找出与其他3个不同的那一个，点击它",
+        "clip": "game14-step-2"
+      }
+    ]
+  },
+  "game15": {
+    "overview": "game15",
+    "steps": [
+      {
+        "anchor": "用铲子点击化石消失的位置",
+        "clip": "game15-step-1"
+      }
+    ]
+  },
+  "game16": {
+    "overview": "game16",
+    "steps": []
+  },
+  "game18": {
+    "overview": "game18",
+    "steps": [
+      {
+        "anchor": "判断该面孔是否出现过",
+        "clip": "game18-step-1"
+      }
+    ]
+  },
+  "game19": {
+    "overview": "game19",
+    "steps": [
+      {
+        "anchor": "先点击左侧一张图片（高亮选中）",
+        "clip": "game19-step-1"
+      },
+      {
+        "anchor": "再点击右侧关联图片完成配对",
+        "clip": "game19-step-2"
+      }
+    ]
+  },
+  "game20": {
+    "overview": "game20",
+    "steps": [
+      {
+        "anchor": "屏幕下方显示目标物",
+        "clip": "game20-step-1"
+      },
+      {
+        "anchor": "点击与目标物相同的物品",
+        "clip": "game20-step-2"
+      }
+    ]
+  },
+  "game21": {
+    "overview": "game21",
+    "steps": [
+      {
+        "anchor": "小鱼出现，记住它们身上的数字！",
+        "clip": "game21-step-1"
+      },
+      {
+        "anchor": "数字隐藏了，凭记忆找到顺序！",
+        "clip": "game21-step-2"
+      },
+      {
+        "anchor": "按数字从小到大依次点击小鱼！",
+        "clip": "game21-step-3"
+      }
+    ]
+  },
+  "game22": {
+    "overview": "game22",
+    "steps": [
+      {
+        "anchor": "屏幕上显示物体图片",
+        "clip": "game22-step-1"
+      }
+    ]
+  },
+  "game23": {
+    "overview": "game23",
+    "steps": [
+      {
+        "anchor": "挂锁上有形状镂空的锁孔，选择钥匙齿板形状与锁孔一致的那把",
+        "clip": "game23-step-1"
+      }
+    ]
+  },
+  "game24": {
+    "overview": "game24",
+    "steps": [
+      {
+        "anchor": "观察左侧目标积木的形状",
+        "clip": "game24-step-1"
+      }
+    ]
+  },
+  "game25": {
+    "overview": "game25",
+    "steps": [
+      {
+        "anchor": "选择数量最多的一项！",
+        "clip": "game25-step-1"
+      }
+    ]
+  },
+  "newG01": {
+    "overview": "newG01",
+    "steps": []
+  },
+  "newG02": {
+    "overview": "newG02",
+    "steps": [
+      {
+        "anchor": "② 按顺序点击词语放入句子带",
+        "clip": "newG02-step-1"
+      }
+    ]
+  },
+  "newG03": {
+    "overview": "newG03",
+    "steps": []
+  },
+  "newG04": {
+    "overview": "newG04",
+    "steps": []
+  },
+  "newG05": {
+    "overview": "newG05",
+    "steps": [
+      {
+        "anchor": "点击顾客点过的所有菜品（顺序不限）",
+        "clip": "newG05-step-1"
+      }
+    ]
+  },
+  "newG06": {
+    "overview": "newG06",
+    "steps": [
+      {
+        "anchor": "步骤 1：仔细观察并记忆卡牌图案及位置",
+        "clip": "newG06-step-1"
+      },
+      {
+        "anchor": "步骤 2：卡牌翻回背面，凭记忆点击两张相同图案的卡牌",
+        "clip": "newG06-step-2"
+      }
+    ]
+  },
+  "newG07": {
+    "overview": "newG07",
+    "steps": [
+      {
+        "anchor": "第一步：记住黑羊的位置（3 秒）",
+        "clip": "newG07-step-1"
+      },
+      {
+        "anchor": "第二步：羊群消失后，点击黑羊所在的位置",
+        "clip": "newG07-step-2"
+      }
+    ]
+  },
+  "newG08": {
+    "overview": "newG08",
+    "steps": []
+  },
+  "newG09": {
+    "overview": "newG09",
+    "steps": []
+  },
+  "newG10": {
+    "overview": "newG10",
+    "steps": [
+      {
+        "anchor": "系统会显示购物清单里的物品，请仔细记住！",
+        "clip": "newG10-step-1"
+      },
+      {
+        "anchor": "点击物品也可放入购物车，再次点击可取消",
+        "clip": "newG10-step-2"
+      },
+      {
+        "anchor": "选完全部物品后点击\"确认购物\"或等待时间结束",
+        "clip": "newG10-step-3"
+      }
+    ]
+  },
+  "newG11": {
+    "overview": "newG11",
+    "steps": []
+  },
+  "newG12": {
+    "overview": "newG12",
+    "steps": [
+      {
+        "anchor": "第一步：屏幕会展示一张面孔，请仔细观察面部情绪",
+        "clip": "newG12-step-1"
+      },
+      {
+        "anchor": "第三步：从下方选项中选择正确的情绪",
+        "clip": "newG12-step-2"
+      },
+      {
+        "anchor": "选择正确将得到分数，让我们开始训练吧！",
+        "clip": "newG12-step-3"
+      }
+    ]
+  },
+  "newG13": {
+    "overview": "newG13",
+    "steps": [
+      {
+        "anchor": "屏幕上会出现要购票的人群和票价",
+        "clip": "newG13-step-1"
+      },
+      {
+        "anchor": "根据题目要求计算总价",
+        "clip": "newG13-step-2"
+      },
+      {
+        "anchor": "在下方选项中选择正确答案",
+        "clip": "newG13-step-3"
+      }
+    ]
+  },
+  "newG14": {
+    "overview": "newG14",
+    "steps": [
+      {
+        "anchor": "仔细听广播播报的数字，按听到的顺序依次输入",
+        "clip": "newG14-step-1"
+      },
+      {
+        "anchor": "仔细听广播播报的数字，按听到的逆序依次输入",
+        "clip": "newG14-step-2"
+      }
+    ]
+  },
+  "newG15": {
+    "overview": "newG15",
+    "steps": []
+  },
+  "newG17": {
+    "overview": "newG17",
+    "steps": [
+      {
+        "anchor": "第一步：观察花园中的小狗",
+        "clip": "newG17-step-1"
+      }
+    ]
+  },
+  "newG19": {
+    "overview": "newG19",
+    "steps": []
+  },
+  "newG20": {
+    "overview": "newG20",
+    "steps": [
+      {
+        "anchor": "点击相邻方格移动货车，规划最短路线",
+        "clip": "newG20-step-1"
+      }
+    ]
+  },
+  "newG21": {
+    "overview": "newG21",
+    "steps": []
+  },
+  "newG22": {
+    "overview": "newG22",
+    "steps": [
+      {
+        "anchor": "使用键盘 ← ↑ → 键，或点击屏幕下方按钮切换赛道。",
+        "clip": "newG22-step-1"
+      }
+    ]
+  },
+  "newG23": {
+    "overview": "newG23",
+    "steps": []
+  },
+  "newG24": {
+    "overview": "newG24",
+    "steps": [
+      {
+        "anchor": "第一步：米字格中会出现一个黑色汉字，请集中注意力记住它。",
+        "clip": "newG24-step-1"
+      },
+      {
+        "anchor": "第三步：屏幕两侧会出现候选偏旁，请把正确的偏旁拖到米字格里。",
+        "clip": "newG24-step-2"
+      }
+    ]
+  },
+  "newG25": {
+    "overview": "newG25",
+    "steps": [
+      {
+        "anchor": "屏幕中会出现彩色靶心，请注意目标颜色。",
+        "clip": "newG25-step-1"
+      },
+      {
+        "anchor": "点击对应颜色的靶心即可完成打击。",
+        "clip": "newG25-step-2"
+      }
+    ]
+  },
+  "newG26": {
+    "overview": "newG26",
+    "steps": [
+      {
+        "anchor": "平板端请直接触摸左右两侧",
+        "clip": "newG26-step-1"
+      }
+    ]
+  },
+  "newG27": {
+    "overview": "newG27",
+    "steps": [
+      {
+        "anchor": "进入房间，仔细观察被高亮的物品，记住它的位置、颜色和数量。",
+        "clip": "newG27-step-1"
+      },
+      {
+        "anchor": "倒计时结束后，房间将会消失，屏幕将出现题目。",
+        "clip": "newG27-step-2"
+      }
+    ]
+  },
+  "newG28": {
+    "overview": "newG28",
+    "steps": [
+      {
+        "anchor": "第一步：观察厨房，找到闪烁高亮的安全隐患。",
+        "clip": "newG28-step-1"
+      },
+      {
+        "anchor": "第二步：直接点击隐患位置进行识别。",
+        "clip": "newG28-step-2"
+      }
+    ]
+  },
+  "newG29": {
+    "overview": "newG29",
+    "steps": [
+      {
+        "anchor": "用鼠标点击红色陨石即可摧毁它。",
+        "clip": "newG29-step-1"
+      },
+      {
+        "anchor": "灰色陨石是友好的，请勿点击它！",
+        "clip": "newG29-step-2"
+      }
+    ]
+  },
+  "newG31": {
+    "overview": "newG31",
+    "steps": [
+      {
+        "anchor": "第二步：记住敲击的顺序和音调",
+        "clip": "newG31-step-1"
+      },
+      {
+        "anchor": "第三步：按相同顺序点击瓶子复现旋律",
+        "clip": "newG31-step-2"
+      }
+    ]
+  },
+  "newG32": {
+    "overview": "newG32",
+    "steps": [
+      {
+        "anchor": "高等难度：点击非三角形中的数字",
+        "clip": "newG32-step-1"
+      }
+    ]
+  },
+  "newG33": {
+    "overview": "newG33",
+    "steps": [
+      {
+        "anchor": "① 观察场景中的物品与虚拟人物的所在位置。",
+        "clip": "newG33-step-1"
+      },
+      {
+        "anchor": "② 阅读题目：请以指定人物的视角判断物品的方向。",
+        "clip": "newG33-step-2"
+      },
+      {
+        "anchor": "③ 从四个方向选项中选择正确答案。",
+        "clip": "newG33-step-3"
+      }
+    ]
+  },
+  "newG34": {
+    "overview": "newG34",
+    "steps": []
+  },
+  "newG35": {
+    "overview": "newG35",
+    "steps": []
+  },
+  "newG36": {
+    "overview": "newG36",
+    "steps": [
+      {
+        "anchor": "课堂上，老师会依次朗读一组词语，请仔细聆听。",
+        "clip": "newG36-step-1"
+      },
+      {
+        "anchor": "按照老师朗读的先后顺序，牢牢记住每一个词。",
+        "clip": "newG36-step-2"
+      },
+      {
+        "anchor": "在下方按钮中，按老师的朗读顺序依次点击相同词语。",
+        "clip": "newG36-step-3"
+      }
+    ]
+  },
+  "newG37": {
+    "overview": "newG37",
+    "steps": [
+      {
+        "anchor": "观察上方规则屏，明确本题的分类要求。",
+        "clip": "newG37-step-1"
+      },
+      {
+        "anchor": "请将绿色放入对应分类桶",
+        "clip": "newG37-step-2"
+      }
+    ]
+  },
+  "newG38": {
+    "overview": "newG38",
+    "steps": [
+      {
+        "anchor": "👆 从下方选项中选择正确数字",
+        "clip": "newG38-step-1"
+      }
+    ]
+  },
+  "newG39": {
+    "overview": "newG39",
+    "steps": [
+      {
+        "anchor": "虫子会从四周爬向花朵，鼠标点击将其消灭，每只 +5 分。",
+        "clip": "newG39-step-1"
+      },
+      {
+        "anchor": "周边树木会随机起火，点击火焰将其扑灭，每处 +10 分。",
+        "clip": "newG39-step-2"
+      }
+    ]
+  },
+  "newG40": {
+    "overview": "newG40",
+    "steps": [
+      {
+        "anchor": "仔细观察 A 侧亮点位置，闪烁位置就是应该在 B 侧选择的答案。",
+        "clip": "newG40-step-1"
+      }
+    ]
+  },
+  "newG41": {
+    "overview": "newG41",
+    "steps": []
+  },
+  "newG42": {
+    "overview": "newG42",
+    "steps": [
+      {
+        "anchor": "仔细记住人物的姓名、年龄、性别、职业等信息。",
+        "clip": "newG42-step-1"
+      }
+    ]
+  },
+  "newG43": {
+    "overview": "newG43",
+    "steps": [
+      {
+        "anchor": "第一步：观察展示的图片碎片，记住它的花纹或颜色特征。",
+        "clip": "newG43-step-1"
+      },
+      {
+        "anchor": "第二步：屏幕会出现蝴蝶，点击蝴蝶完成干扰任务。",
+        "clip": "newG43-step-2"
+      },
+      {
+        "anchor": "第三步：从若干张完整图片中选择与碎片对应的那一张。",
+        "clip": "newG43-step-3"
+      }
+    ]
+  },
+  "newG44": {
+    "overview": "newG44",
+    "steps": [
+      {
+        "anchor": "观察题目要求的目标时间，如 3:00",
+        "clip": "newG44-step-1"
+      },
+      {
+        "anchor": "按住时针或分针，直接拖动它们旋转",
+        "clip": "newG44-step-2"
+      },
+      {
+        "anchor": "把指针拖到目标位置，然后点击\"提交答案\"",
+        "clip": "newG44-step-3"
+      },
+      {
+        "anchor": "高难度下容错范围极小，请精准对位！",
+        "clip": "newG44-step-4"
+      }
+    ]
+  },
+  "newG45": {
+    "overview": "newG45",
+    "steps": [
+      {
+        "anchor": "游戏中，请从四个选项中选出正确的展开图案。",
+        "clip": "newG45-step-1"
+      }
+    ]
+  },
+  "newG46": {
+    "overview": "newG46",
+    "steps": [
+      {
+        "anchor": "游戏开始后左右两侧会呈现一组物体，其中有若干处不同。仔细比对每一个细节。",
+        "clip": "newG46-step-1"
+      },
+      {
+        "anchor": "发现不同后，直接在任意一侧点击该物体。命中会显示绿色对勾并加分。",
+        "clip": "newG46-step-2"
+      },
+      {
+        "anchor": "点错位置会震动提示，并扣除 2 秒回合时间；超时未完成会显示未找到的位置。",
+        "clip": "newG46-step-3"
+      }
+    ]
+  },
+  "newG47": {
+    "overview": "newG47",
+    "steps": [
+      {
+        "anchor": "进入房间，仔细观察被高亮的物品位于房间的哪个位置区。",
+        "clip": "newG47-step-1"
+      },
+      {
+        "anchor": "请回忆刚才花瓶出现的位置？",
+        "clip": "newG47-step-2"
+      }
+    ]
+  },
+  "newG48": {
+    "overview": "newG48",
+    "steps": [
+      {
+        "anchor": "用鼠标或手指拖动下方的收集器，去接住开心的星星。",
+        "clip": "newG48-step-1"
+      }
+    ]
+  },
+  "newG49": {
+    "overview": "newG49",
+    "steps": [
+      {
+        "anchor": "第一步：观察厨房场景，识别出现的安全隐患。",
+        "clip": "newG49-step-1"
+      },
+      {
+        "anchor": "请选择正确的处理方式",
+        "clip": "newG49-step-2"
+      }
+    ]
+  },
+  "newG50": {
+    "overview": "newG50",
+    "steps": []
+  },
+  "newG51": {
+    "overview": "newG51",
+    "steps": [
+      {
+        "anchor": "② 观察中间的图片，思考它们的正确顺序",
+        "clip": "newG51-step-1"
+      }
+    ]
+  }
+}

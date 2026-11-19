@@ -59,7 +59,6 @@ async function submit() {
 <template>
   <view class="topbar">
     <view class="topbar-inner">
-      <Brand />
       <view class="language">
         <button class="language-option" :class="{ current: !english }" @click="english = false; error = ''">中</button>
         <button class="language-option" :class="{ current: english }" @click="english = true; error = ''">EN</button>
@@ -68,7 +67,7 @@ async function submit() {
   </view>
   <view class="login">
     <view class="login-intro">
-      <view class="hero-mark"><image src="/static/icons/brain-white.png" mode="aspectFit" /></view>
+      <Brand class="hero-mark" />
       <text class="subtitle">{{ copy.subtitle }}</text>
       <text class="headline">{{ copy.title }}</text>
       <text class="description">{{ copy.description }}</text>
@@ -104,14 +103,13 @@ async function submit() {
 </template>
 
 <style scoped>
-.language { display: flex; gap: 2px; padding: 3px; border: 1px solid #cfE3ed; border-radius: 8px; background: #eef6fa; }
+.language { margin-left: auto; display: flex; gap: 2px; padding: 3px; border: 1px solid #cfE3ed; border-radius: 8px; background: #eef6fa; }
 .language-option { display: flex; align-items: center; justify-content: center; margin: 0; min-width: 37px; min-height: 30px; border-radius: 5px; background: transparent; color: #385e71; font-weight: 700; font-size: 12px; }
 .language-option.current { background: #3658d3; color: #fff; }
 .login { width: calc(100% - 36px); max-width: 426px; margin: 0 auto; padding: 58px 0 34px; display: flex; flex-direction: column; align-items: center; }
 .login-intro { display: flex; flex-direction: column; align-items: center; }
 .login-fields { width: 100%; }
-.hero-mark { display: flex; align-items: center; justify-content: center; width: 90px; height: 90px; border-radius: 24px; background: linear-gradient(145deg, #526ef5, #2b49b2); box-shadow: 0 10px 24px #2446ac2d; margin-bottom: 24px; }
-.hero-mark image { width: 50px; height: 50px; }
+.hero-mark { margin-bottom: 20px; }
 .subtitle { color: #326c87; font-size: 13px; font-weight: 650; text-align: center; }
 .headline { color: #233b75; font-size: 36px; font-weight: 800; line-height: 1.2; margin: 7px 0 10px; text-align: center; }
 .description { color: #486575; font-size: 15px; text-align: center; line-height: 1.5; }
@@ -141,11 +139,10 @@ async function submit() {
 @media (min-width: 900px) and (orientation: landscape) {
   .login { width: calc(100% - 96px); max-width: 936px; min-height: calc(100vh - 88px); display: grid; grid-template-columns: 1fr 1fr; gap: clamp(36px, 7vw, 96px); padding: 40px 0; }
   .login-intro { align-items: flex-start; }
-  .hero-mark { width: 104px; height: 104px; margin-bottom: 28px; }
-  .hero-mark image { width: 58px; height: 58px; }
+  .hero-mark { margin-bottom: 27px; }
   .subtitle, .headline, .description { text-align: left; }
   .headline { font-size: 49px; }
   .form { margin-top: 0; }
 }
-@media (max-width: 520px) { .login { padding-top: 35px; } .hero-mark { width: 76px; height: 76px; margin-bottom: 19px; border-radius: 20px; } .hero-mark image { width: 43px; height: 43px; } .headline { font-size: 31px; } .form { padding: 17px; } }
+@media (max-width: 520px) { .login { padding-top: 35px; } .hero-mark { margin-bottom: 17px; } .headline { font-size: 31px; } .form { padding: 17px; } }
 </style>

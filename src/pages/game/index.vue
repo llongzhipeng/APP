@@ -1,7 +1,7 @@
 <script setup>
 import { ref } from 'vue'
 import { onBackPress, onLoad, onUnload } from '@dcloudio/uni-app'
-import { findGame, gameURL } from '../../services/games'
+import { catalogCategory, findGame, games, gameURL } from '../../services/games'
 import { completeTask, getSession, getTodayPlan, logout } from '../../services/training'
 
 const task = ref(null)
@@ -18,6 +18,7 @@ let savePromise
 let saved = false
 let leaving = false
 let promptOpen = false
+let skipping = false
 
 onLoad(async ({ plan, task: taskId, practice }) => {
   // #ifdef H5
@@ -63,7 +64,9 @@ onUnload(() => {
 })
 
 onBackPress(({ from }) => {
-  if (from === 'navigateBack' || leaving || !result || saved) return false
+  if (from === 'navigateBack' || leaving) return false
+  if (skipping) return true
+  if (!result || saved) return false
   requestBack()
   return true
 })
@@ -88,9 +91,9 @@ function onWebViewMessage(event) {
 }
 
 function onGameMessage(data) {
-  if (leaving || !data || data.source !== 'training-game' || data.channel !== channel || data.gameType !== game?.key) return
+  if (leaving || skipping || !data || data.source !== 'training-game' || data.channel !== channel || data.gameType !== game?.key) return
   if (practiceMode.value && data.type === 'finished') status.value = '练习结束'
-  if (!practiceMode.value && (data.type === 'finished' || data.type === 'exit') && data.result && !result) {
+  if (!practiceMode.value && (data.type === 'finished' || data.type === 'exit' || data.type === 'skip') && data.result && !result) {
     const { score, durationSeconds } = data.result
     if (Number.isFinite(score) && Number.isFinite(durationSeconds) && durationSeconds >= 0) {
       result = data.result
@@ -98,6 +101,7 @@ function onGameMessage(data) {
     }
   }
   if (data.type === 'exit') requestBack()
+  else if (data.type === 'skip') skipTask()
 }
 
 function saveResult() {
@@ -127,7 +131,7 @@ function goBack() {
 }
 
 async function requestBack() {
-  if (leaving || promptOpen) return
+  if (leaving || promptOpen || skipping) return
   if (!result || saved || await saveResult()) {
     goBack()
     return
@@ -147,19 +151,53 @@ async function requestBack() {
     fail() { promptOpen = false },
   })
 }
+
+async function skipTask() {
+  if (leaving || promptOpen || skipping) return
+  skipping = true
+  try {
+    if (result && !await saveResult()) return
+    let destination
+    if (practiceMode.value) {
+      const category = catalogCategory(game)
+      const next = games.slice(games.indexOf(game) + 1).find(item => catalogCategory(item) === category)
+      if (next) destination = `/pages/game/index?practice=${encodeURIComponent(next.key)}`
+    } else {
+      const latest = await getTodayPlan(session)
+      const index = latest.tasks.findIndex(item => item.id === task.value.id)
+      if (String(latest.id) === String(planId) && index !== -1) {
+        const next = latest.tasks.slice(index + 1).find(item => !item.completed && findGame(item.gameKey))
+        if (next) {
+          destination = `/pages/game/index?plan=${encodeURIComponent(planId)}&task=${encodeURIComponent(next.id)}`
+        }
+      }
+    }
+    if (!destination) {
+      goBack()
+      return
+    }
+    leaving = true
+    uni.redirectTo({
+      url: destination,
+      fail: () => {
+        leaving = false
+        goBack()
+      },
+    })
+  } catch {
+    goBack()
+  } finally {
+    skipping = false
+  }
+}
+
 </script>
 
 <template>
   <!-- #ifdef H5 -->
   <view class="game-shell">
-    <view class="game-bar topbar">
-      <view class="topbar-inner">
-        <button class="secondary" @click="requestBack">{{ practiceMode ? '返回全部训练' : '返回今日训练' }}</button>
-        <text>{{ task?.title || '训练游戏' }}</text>
-        <text v-if="status" class="status">{{ status }}</text>
-      </view>
-    </view>
     <iframe v-if="url" id="training-game-frame" allow="autoplay" :src="url" :title="task.title" />
+    <text v-if="url && status && status !== '已记录本次训练' && status !== '练习结束'" class="status" role="status">{{ status }}</text>
     <view v-if="!url" class="state">
       <text v-if="error" class="error" role="alert">{{ error }}</text>
       <text v-else>正在加载训练任务…</text>
@@ -180,9 +218,7 @@ async function requestBack() {
 
 <style scoped>
 .game-shell { display: flex; flex-direction: column; height: 100vh; height: 100dvh; }
-.game-bar { flex: 0 0 auto; }
-.game-bar .topbar-inner { min-height: 50px; padding-top: 6px; padding-bottom: 6px; font-weight: 750; }
-.status { font-size: 12px; color: #315e73; }
+.status { position: fixed; left: 50%; bottom: 9px; transform: translateX(-50%); pointer-events: none; padding: 5px 9px; border-radius: 7px; background: #19335de8; color: #fff; font-size: 12px; }
 #training-game-frame { display: block; width: 100%; min-height: 0; flex: 1 1 0; border: 0; }
 .state { display: grid; gap: 12px; justify-items: center; text-align: center; padding: 28px 16px; }
 </style>

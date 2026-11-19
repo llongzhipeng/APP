@@ -70,3 +70,7 @@ export function submitRecord(record) {
 export function leave() {
   emit('exit', latestResult ? { result: latestResult } : {})
 }
+
+export function skip() {
+  emit('skip', latestResult ? { result: latestResult } : {})
+}
