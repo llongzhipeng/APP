@@ -786,13 +786,13 @@ html, body, #app {
 }
 .tutorial-body { flex: 1; display: flex; align-items: center; justify-content: center; width: 100%; }
 .demo-scene { display: flex; flex-direction: column; align-items: center; gap: 30px; }
-.demo-store { position: relative; }
+.demo-store { display: flex; align-items: center; gap: 24px; }
 .demo-customer { width: 260px; height: 260px; object-fit: contain; background: #fffde7; border-radius: 20px; padding: 12px; border: 4px solid #ffb74d; }
 .demo-bubble {
-  position: absolute; top: -20px; left: 100%; margin-left: 20px;
+  max-width: 340px;
   background: #fff; padding: 12px 20px; border-radius: 20px;
   border: 3px solid #ff8a65; color: #6d4c41; font-size: 18px;
-  white-space: nowrap;
+  white-space: normal;
 }
 .demo-options { display: flex; gap: 16px; flex-wrap: wrap; justify-content: center; }
 .tutorial-controls { display: flex; gap: 20px; margin-top: 24px; }
