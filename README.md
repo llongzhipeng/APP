@@ -14,7 +14,7 @@
 
 ## Android 平板安装
 
-交付的 `yiwei-training-tablet.apk` 是预览签名包，适用于 Android 8.0 及以上。支持横屏和竖屏。安装后可使用演示账号立即体验。该预览包使用本地演示方案，连接真实后台需要设置服务地址并重新签名打包。
+交付的 `yiwei-training-tablet.apk` 是预览签名包，适用于 Android 8.0 及以上。支持横屏和竖屏。安装后使用医生提供的训练码与 PIN 登录开发服。登录、读取今日计划和保存记录需要网络。
 
 ## 运行和打包
 
@@ -25,7 +25,7 @@ npm ci
 npm run dev:h5
 ```
 
-打开终端显示的地址，点击「填入演示账号」后选择「开始训练」。演示账号为 `DEMO-2026-001`，PIN 为 `123456`。演示模式将全部已接入游戏放在今日任务中，进度按设备本地日期保存。
+打开终端显示的地址，使用训练码与 PIN 登录。需要本地演示时，在编译前于 .env.local 设置 `VITE_TRAINING_DEMO=true`，然后点击「填入演示账号」。演示账号为 `DEMO-2026-001`，PIN 为 `123456`。演示模式将全部已接入游戏放在今日任务中，进度按设备本地日期保存。
 
 | 命令 | 产物 |
 | --- | --- |
@@ -38,32 +38,15 @@ npm run dev:h5
 
 ## 对接后台
 
-将 `.env.example` 复制为 `.env.local`，把 `VITE_API_BASE_URL` 设置为 HTTPS API 根地址，再编译。配置地址后，登录、计划及结果全部走后台接口。登录后 API 请求携带 `Authorization: Bearer <token>`。H5 跨域部署时需要允许对应来源、方法和请求头。
+默认地址为 `https://attentiondev.drbrain.net/drain-doctor-service`。可通过 `.env.local` 的 `VITE_API_BASE_URL` 切换服务，修改后需重新构建。接口位于 `src/services/training.js`。登录后的请求携带 `Authorization: Bearer <token>`。
 
-接口集中在 `src/services/training.js`。URL 和字段可按现有后台调整。以下为当前工程的直接 JSON 约定。
+| 方法与路径 | 请求 | 处理 |
+| --- | --- | --- |
+| `POST /login/pin` | JSON 字符串字段 `code`、`pin`，保留前导零 | HTTP 成功且响应体 `code` 为 200 后读取 `data.token` 和档案号（`archive` 或 `archiveId`） |
+| `GET /pbgamerecord/plan/today` | 查询参数 `archiveId`，由服务端确定今天的日期 | 按 `data` 数组的顺序展示任务。游戏用 `gameType` 匹配，起始难度取 `level`。状态取 `status`，0 为未完成，1 为已完成 |
+| `POST /pbgamerecord/add` | JSON 包含 `archiveId`、`trainType`、`gameType`、`minTime`、`maxTime`、`avgTime`、`score`、`difficultyLevel`、`successCount`、`failCount`、`trainDuration` | 响应体 `code` 为 200 后提示已保存，返回清单时重新获取后台状态 |
 
-| 方法与路径 | 请求和响应 |
-| --- | --- |
-| `POST /api/v1/auth/training-login` | 发送 `{ trainingCode, pin }`，返回 `{ token, patient: { id, name, mrn } }` |
-| `GET /api/v1/training/plans/today` | 返回 `{ id, date, tasks }`，日期格式为 `YYYY-MM-DD`，无任务时返回 `tasks: []` |
-| `PUT /api/v1/training/plans/{planId}/tasks/{taskId}/result` | 接收 `{ gameType, trainType, score, durationSeconds, difficultyLevel, successCount, failCount, minTime, maxTime, avgTime }`，返回 200 或 204。同一方案和任务的重试应按同一资源处理 |
-
-任务示例：
-
-```json
-{
-  "id": "task-001",
-  "gameKey": "jyjz",
-  "title": "记忆矩阵",
-  "category": "记忆力",
-  "difficulty": 2,
-  "estimatedMinutes": 3,
-  "durationSeconds": 180,
-  "completed": false
-}
-```
-
-`gameKey` 使用原游戏短码，映射见 `src/services/games.js`，比如 `jyjz` 为记忆矩阵，`szqb` 为数字快捕。也支持原目录名，如 `game6`。可选字段 `durationSeconds` 优先于 `estimatedMinutes`。后者用于清单的预计时长。客户端按方案提供开始难度和训练时长，游戏内的动态难度机制沿用原逻辑。客户端在进入今日训练、从游戏返回、手动刷新或下拉时请求方案。后端接到结果后应在新的方案响应中把对应任务的 `completed` 设为 `true`。
+计划时长 `duration`、已训练时长 `completeDuration` 和上报时长 `trainDuration` 均以分钟计。游戏内部沿用各自的计时方式，提交时将游戏桥接层给出的秒数换算为接口要求的整数分钟。已完成任务显示后台的 `updateTime`，界面标为“状态更新于”。服务端未提供单独的完成时间戳。接口约定见 [ShowDoc](https://www.showdoc.com.cn/p/2678bc99f0568a0fd0d25dcafd65e10d)。
 
 ## 游戏来源和适配
 
