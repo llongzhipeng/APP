@@ -2,7 +2,7 @@
 import { ref } from 'vue'
 import { onBackPress, onLoad, onUnload } from '@dcloudio/uni-app'
 import { catalogCategory, findGame, games, gameURL } from '../../services/games'
-import { completeTask, getSession, getTodayPlan, logout } from '../../services/training'
+import { completeTask, getSession, getTodayPlan, isDemoSession, logout } from '../../services/training'
 
 const task = ref(null)
 const url = ref('')
@@ -33,6 +33,7 @@ onLoad(async ({ plan, task: taskId, practice }) => {
   }
   try {
     if (practice) {
+      if (!isDemoSession(session)) throw new Error('请使用演示账号进入自由练习')
       game = findGame(practice)
       if (!game) throw new Error('这个游戏尚未接入，请返回全部训练。')
       practiceMode.value = true
