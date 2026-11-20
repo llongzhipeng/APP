@@ -51,6 +51,7 @@ const definitions = [
   ['newG27', 'jyzbtxj', '记忆藏宝图（细节）', '记忆力'],
   ['newG28', 'aqcfsb', '安全厨房（识别）', '执行能力'],
   ['newG29', 'xhshz', '星海守护者', '执行能力'],
+  ['newG30', 'bqblbd', '表情便利店', '社会能力'],
   ['newG31', 'yjfzj', '音阶复制机', '记忆力'],
   ['newG32', 'ktxx', '课堂学习', '执行能力'],
   ['newG33', 'sjzh', '视角转换', '视空间能力'],
@@ -72,6 +73,7 @@ const definitions = [
   ['newG49', 'aqcfwd', '安全厨房（问答）', '执行能力'],
   ['newG50', 'cytk', '成语填空', '语言能力'],
   ['newG51', 'ghdr', '规划达人', '执行能力'],
+  ['newG52', 'ysdx', '眼神读心', '社会能力'],
 ]
 
 export const games = definitions.map(([source, key, title, category, oldKey]) => ({

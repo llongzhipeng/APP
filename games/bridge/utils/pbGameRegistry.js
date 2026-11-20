@@ -13,6 +13,6 @@ const types = {
   shhd: 'implement', kjjx: 'space', tktxj: 'implement', rwda: 'memory',
   ptds: 'memory', szszs: 'attention', zhzt: 'space', hyjj: 'space',
   jyzbtwz: 'memory', qxsjzl: 'society', aqcfwd: 'attention', cytk: 'language',
-  ghdr: 'attention',
+  ghdr: 'attention', bqblbd: 'society', ysdx: 'society',
 }
 export const getTrainTypeForGame = key => types[key] || 'abstract'

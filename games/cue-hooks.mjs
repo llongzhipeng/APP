@@ -55,6 +55,7 @@ const hooks = {
   newG27: ['this.stats.correct', 'this.stats.wrong', 'this.difficulty'],
   newG28: ['this.session.correct', 'this.session.wrong', 'this.level'],
   newG29: ['', '', 'this.level'],
+  newG30: ['this.windowStats.correct', '', 'this.difficulty', 'this.windowStats.total'],
   newG31: ['this.stats.success', 'this.stats.fail', 'this.level'],
   newG32: ['this.success', 'this.fail', 'this.level'],
   newG33: ['this.correctCount', 'this.wrongCount', 'this.level'],
@@ -76,6 +77,7 @@ const hooks = {
   newG49: ['this.session.correct', 'this.session.wrong', 'this.level'],
   newG50: ['this.stats.correct', 'this.stats.fail', 'this.level'],
   newG51: ['this.correctCount', 'this.wrongCount', 'this.difficulty'],
+  newG52: ['this.sessionStats.correct', 'this.sessionStats.wrong', 'this.difficulty'],
 }
 
 const adaptiveAssignment = /(?:\b(?:newLevel|nextLevel|pendingLevel|pendingDifficulty|pendingDifficultyIndex)\b|[+-]\s*1\b)/

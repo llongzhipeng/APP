@@ -504,6 +504,27 @@
       }
     ]
   },
+  "newG30": {
+    "overview": "newG30",
+    "steps": [
+      {
+        "anchor": "这位客人是什么表情？",
+        "clip": "newG30-step-1"
+      },
+      {
+        "anchor": "点击你认为正确的选项",
+        "clip": "newG30-step-2"
+      },
+      {
+        "anchor": "答对了！获得分数。",
+        "clip": "newG30-step-3"
+      },
+      {
+        "anchor": "答错则不得分，继续下一位客人。",
+        "clip": "newG30-step-4"
+      }
+    ]
+  },
   "newG31": {
     "overview": "newG31",
     "steps": [
@@ -734,6 +755,23 @@
       {
         "anchor": "② 观察中间的图片，思考它们的正确顺序",
         "clip": "newG51-step-1"
+      }
+    ]
+  },
+  "newG52": {
+    "overview": "newG52",
+    "steps": [
+      {
+        "anchor": "示例1：全脸出现，从 3 个情绪选项中选择正确的一项。",
+        "clip": "newG52-step-1"
+      },
+      {
+        "anchor": "示例2：下半张脸被遮挡，观察上半张脸和眼睛判断情绪。",
+        "clip": "newG52-step-2"
+      },
+      {
+        "anchor": "示例3：仅显示眼睛区域，靠眼神判断情绪，红色为错误，绿色为正确。",
+        "clip": "newG52-step-3"
       }
     ]
   }
