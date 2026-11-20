@@ -95,7 +95,7 @@ function openPractice(game) {
         <view class="avatar"><image class="icon" src="/static/icons/person.png" mode="aspectFit" /></view>
         <view class="account-details">
           <text class="patient">{{ session.patient.name }}</text>
-          <text v-if="session.patient.mrn" class="mrn">病历号 {{ session.patient.mrn }}</text>
+          <text v-if="session.patient.storeNo" class="outpatient-number">门诊号 {{ session.patient.storeNo }}</text>
         </view>
         <button class="exit language-toggle" aria-label="切换训练语言 / Switch training language" @click="switchLanguage">{{ language === 'en' ? 'Training · English' : '训练语言 · 中文' }}</button>
         <button class="exit" @click="logout">退出</button>
@@ -185,7 +185,7 @@ function openPractice(game) {
 .avatar .icon { width: 18px; height: 18px; }
 .account-details { display: flex; flex-direction: column; gap: 1px; overflow-wrap: anywhere; }
 .patient { color: #213857; font-size: 13px; font-weight: 700; }
-.mrn { color: #5c6c86; font-size: 11px; }
+.outpatient-number { color: #5c6c86; font-size: 11px; }
 .exit { min-height: 44px; padding: 8px; margin: 0; line-height: 1.3; color: #405a93; background: transparent; font-size: 13px; }
 .content { padding: 24px 24px 40px; max-width: 1440px; margin: 0 auto; }
 .heading, .progress-summary, .section-heading { display: flex; justify-content: space-between; align-items: center; gap: 10px; }

@@ -55,15 +55,20 @@ export async function signIn(trainingCode, pin) {
   let session
   if (isDemo) {
     if (trainingCode.toUpperCase() !== demoCode || pin !== demoPin) throw new Error('训练码或 PIN 不正确')
-    session = { token: 'local-demo', patient: { id: 'demo', name: '演示用户', mrn: 'DEMO-001' } }
+    session = { token: 'local-demo', patient: { id: 'demo', name: '演示用户', storeNo: 'DEMO-001' } }
   } else {
     const data = await request('/login/pin', 'POST', { code: trainingCode, pin })
+    const user = data?.user
     const archive = data?.archive
     const id = data?.archiveId ?? (typeof archive === 'object' ? archive?.id : archive)
     if (!/^\d+$/.test(String(id)) || !Number.isSafeInteger(Number(id)) || typeof data?.token !== 'string' || !data.token.trim()) {
       throw new Error('登录返回的令牌或患者档案号无效')
     }
-    session = { token: data.token, patient: { id: Number(id), name: archive?.name || '档案号 ' + id } }
+    const storeNo = String(user?.storeNo ?? '').trim()
+    session = {
+      token: data.token,
+      patient: { id: Number(id), name: user?.name?.trim() || archive?.name || '档案号 ' + id, storeNo },
+    }
   }
   uni.setStorageSync(sessionKey, session)
 }
