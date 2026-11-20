@@ -76,9 +76,9 @@ function normalizeTask(row) {
   const game = findGame(type) || games.find(item => item.title === type)
   const duration = Number(row.duration)
   const trained = Number(row.completeDuration ?? 0)
-  const level = Number(row.level)
-  if (row.duration == null || row.level == null || ![0, 1, '0', '1'].includes(row.status) ||
-      !Number.isInteger(duration) || duration < 0 || !Number.isInteger(trained) || trained < 0 || !Number.isInteger(level)) {
+  const level = row.level == null ? null : Number(row.level)
+  if (row.duration == null || ![0, 1, '0', '1'].includes(row.status) ||
+      !Number.isInteger(duration) || duration < 0 || !Number.isInteger(trained) || trained < 0 || (level !== null && !Number.isInteger(level))) {
     throw new Error('今日计划中的时长、难度或状态无效')
   }
   return {
