@@ -2,8 +2,8 @@
   "name": "医未ADHD康复系统",
   "description": "平板每日训练客户端",
   "appid": "",
-  "versionName": "1.0.9",
-  "versionCode": 109,
+  "versionName": "1.0.10",
+  "versionCode": 110,
   "vueVersion": "3",
   "transformPx": false,
   "app-plus": {
