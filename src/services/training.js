@@ -98,7 +98,7 @@ export async function getTodayPlan(session) {
   const date = dayKey()
   if (!isDemo) {
     const archiveId = session.patient.id
-    const rows = await request('/pbgamerecord/plan/today', 'GET', { archiveId }, session.token)
+    const rows = (await request('/pbgamerecord/plan/today', 'GET', { archiveId }, session.token)) ?? []
     if (!Array.isArray(rows)) throw new Error('今日计划返回格式异常，请刷新重试')
     return { id: archiveId + '-' + date, date, tasks: rows.map(normalizeTask) }
   }
