@@ -2,8 +2,8 @@
   "name": "儿童认知康复训练系统",
   "description": "平板每日训练客户端",
   "appid": "",
-  "versionName": "1.0.15",
-  "versionCode": 115,
+  "versionName": "1.0.16",
+  "versionCode": 116,
   "vueVersion": "3",
   "transformPx": false,
   "app-plus": {
