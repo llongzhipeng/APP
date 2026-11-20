@@ -1,3 +1,4 @@
+import { bindTrainingLanguage } from '@/language.js'
 import Vue from 'vue'
 
 export const store = Vue.observable({
@@ -139,3 +140,5 @@ export function saveHistory (rec) {
   localStorage.setItem('sg_history', JSON.stringify(trimmed))
   store.history = trimmed
 }
+
+bindTrainingLanguage(() => store.lang, value => { store.lang = value })

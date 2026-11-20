@@ -38,6 +38,7 @@ export default { name: 'Game23App' }
 </script>
 
 <script setup>
+import { bindTrainingLanguage } from '@/language.js'
 import { ref, onMounted, getCurrentInstance } from '@vue/composition-api'
 import { applyBatchTutorialEntry, afterBatchTutorial } from '@/utils/pbGameBatchEntry'
 import { resolveArchiveId, submitPbGameEndRecord, orZero, toPbGameSeconds } from '@/views/game/utils/pbGameAppHelper'
@@ -53,7 +54,8 @@ const GAME_TYPE = 'yspp' // 钥匙匹配
 const instance = getCurrentInstance()
 const archiveId = ref(resolveArchiveId(instance.proxy.$route)) // 患者档案 ID
 const screen = ref('home') // 当前界面
-const lang = ref('zh') // 语言
+const lang = ref('zh')
+bindTrainingLanguage(() => lang.value, value => { lang.value = value }) // 语言
 const gameDuration = ref(60) // 训练时长（秒）
 const showRules = ref(false) // 规则弹窗
 const showHistory = ref(false) // 历史弹窗

@@ -4,11 +4,20 @@ import { onLoad } from '@dcloudio/uni-app'
 import Brand from '../../components/Brand.vue'
 import { demoCode, demoPin, getSession, isDemo, signIn } from '../../services/training'
 
+import { getTrainingLanguage, setTrainingLanguage } from '../../services/language'
+
+const language = ref(getTrainingLanguage())
 const code = ref('')
 const pin = ref('')
 const error = ref('')
 const busy = ref(false)
-const english = ref(false)
+const english = computed({
+  get: () => language.value === 'en',
+  set: enabled => {
+    language.value = enabled ? 'en' : 'zh'
+    setTrainingLanguage(language.value)
+  },
+})
 const copy = computed(() => english.value ? {
   subtitle: 'ADHD Assessment & Rehabilitation',
   title: 'Welcome to training',

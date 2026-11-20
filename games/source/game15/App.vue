@@ -55,6 +55,7 @@ export default {
 </script>
 
 <script setup>
+import { bindTrainingLanguage } from '@/language.js'
 import { ref, computed, watch, getCurrentInstance, onMounted } from '@vue/composition-api'
 import { applyBatchTutorialEntry, afterBatchTutorial } from '@/utils/pbGameBatchEntry'
 import HomePage from './components/HomePage.vue'
@@ -69,6 +70,7 @@ import messages from './i18n.js'
 
 const screen = ref('home')
 const lang = ref('zh')
+bindTrainingLanguage(() => lang.value, value => { lang.value = value })
 const t = computed(() => messages[lang.value] || messages.zh)
 const gameDuration = ref(60)
 const showRules = ref(false)

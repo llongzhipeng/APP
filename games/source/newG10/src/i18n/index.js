@@ -1,3 +1,4 @@
+import { bindTrainingLanguage } from '@/language.js'
 import { reactive } from '@vue/composition-api'
 
 const messages = {
@@ -221,3 +222,5 @@ export function useI18n() {
 }
 
 export default i18n
+
+bindTrainingLanguage(() => i18n.locale, value => { i18n.locale = value })

@@ -56,6 +56,7 @@
 </template>
 
 <script>
+import { bindTrainingLanguage } from '@/language.js'
 import { ref ,getCurrentInstance, onMounted} from '@vue/composition-api'
 import { applyBatchTutorialEntry, afterBatchTutorial } from '@/utils/pbGameBatchEntry'
 import { translations } from './i18n.js'
@@ -86,6 +87,7 @@ export default {
   components: { HomePage, TutorialModal, DurationSelector, GamePage, ResultModal, HistoryPage, RulesPage },
   setup() {
     const lang = ref('zh')
+    bindTrainingLanguage(() => lang.value, value => { lang.value = value })
     const view = ref('home')
     const duration = ref(60)
     const result = ref(null)

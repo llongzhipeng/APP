@@ -1,3 +1,4 @@
+import { bindTrainingLanguage } from '@/language.js'
 import Vue from 'vue'
 
 export const store = Vue.observable({
@@ -170,3 +171,5 @@ export function t(key) {
 export function toggleLang() {
   store.lang = store.lang === 'zh' ? 'en' : 'zh'
 }
+
+bindTrainingLanguage(() => store.lang, value => { store.lang = value })

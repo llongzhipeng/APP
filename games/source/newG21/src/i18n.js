@@ -1,3 +1,4 @@
+import { bindTrainingLanguage } from '@/language.js'
 import Vue from 'vue'
 
 export const LANG_KEY = 'starLine_lang'
@@ -174,3 +175,5 @@ export function t(key, params) {
 export function currentLang() {
   return state.lang
 }
+
+bindTrainingLanguage(() => state.lang, value => { state.lang = value })

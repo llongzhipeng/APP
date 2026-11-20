@@ -1,3 +1,4 @@
+import { bindTrainingLanguage } from '@/language.js'
 // Simple reactive i18n store shared across components.
 import Vue from 'vue'
 
@@ -233,3 +234,5 @@ export function t(key) {
 }
 
 export default { i18n, setLang, t }
+
+bindTrainingLanguage(() => i18n.lang, setLang)

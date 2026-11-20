@@ -1,3 +1,4 @@
+import { bindTrainingLanguage } from '@/language.js'
 import Vue from 'vue'
 
 export const messages = {
@@ -196,3 +197,5 @@ export function t(key) {
 export function emotionLabel(emotion) {
   return emotion[i18n.lang]
 }
+
+bindTrainingLanguage(() => i18n.lang, setLang)

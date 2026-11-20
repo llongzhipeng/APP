@@ -38,6 +38,7 @@ export default { name: 'Game19App' }
 </script>
 
 <script setup>
+import { bindTrainingLanguage } from '@/language.js'
 import { ref, onMounted, getCurrentInstance } from '@vue/composition-api'
 import { applyBatchTutorialEntry, afterBatchTutorial } from '@/utils/pbGameBatchEntry'
 import { resolveArchiveId, submitPbGameEndRecord, orZero, toPbGameSeconds } from '@/views/game/utils/pbGameAppHelper'
@@ -54,6 +55,7 @@ const instance = getCurrentInstance()
 const archiveId = ref(resolveArchiveId(instance.proxy.$route))
 const screen = ref('home')
 const lang = ref('zh')
+bindTrainingLanguage(() => lang.value, value => { lang.value = value })
 const gameDuration = ref(60)
 const showRules = ref(false)
 const showHistory = ref(false)

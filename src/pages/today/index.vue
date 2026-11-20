@@ -1,4 +1,5 @@
 <script setup>
+import { getTrainingLanguage, setTrainingLanguage } from '../../services/language'
 import { computed, ref } from 'vue'
 import { onPullDownRefresh, onShow } from '@dcloudio/uni-app'
 import Brand from '../../components/Brand.vue'
@@ -13,6 +14,11 @@ const openingTask = ref(false)
 const error = ref('')
 const view = ref('today')
 const category = ref(trainingCategories[0][0])
+const language = ref(getTrainingLanguage())
+function switchLanguage() {
+  language.value = language.value === 'zh' ? 'en' : 'zh'
+  setTrainingLanguage(language.value)
+}
 const tasks = computed(() => plan.value?.tasks ?? [])
 const nextTask = computed(() => tasks.value.find(task => !task.completed))
 const canOpenTask = computed(() => !busy.value && !error.value && !openingTask.value)
@@ -94,6 +100,7 @@ function openPractice(game) {
             <text class="patient">{{ session.patient.name }}</text>
             <text v-if="session.patient.mrn" class="mrn">病历号 {{ session.patient.mrn }}</text>
           </view>
+          <button class="exit language-toggle" aria-label="切换训练语言 / Switch training language" @click="switchLanguage">{{ language === 'en' ? 'Training · English' : '训练语言 · 中文' }}</button>
           <button class="exit" @click="logout">退出</button>
         </view>
       </view>

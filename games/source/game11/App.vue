@@ -38,6 +38,7 @@
 </template>
 
 <script>
+import { bindTrainingLanguage } from '@/language.js'
 import { ref, computed ,getCurrentInstance,provide, onMounted} from '@vue/composition-api'
 import { applyBatchTutorialEntry, afterBatchTutorial } from '@/utils/pbGameBatchEntry'
 import zh from './locales/zh'
@@ -78,6 +79,7 @@ export default {
     provide('archiveId', archiveId);
     const screen = ref('home')
     const lang = ref('zh')
+    bindTrainingLanguage(() => lang.value, value => { lang.value = value })
     const selectedDuration = ref(60)
     const showRulesModal = ref(false)
     const showHistoryModal = ref(false)

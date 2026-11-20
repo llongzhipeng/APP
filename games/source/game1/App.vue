@@ -58,6 +58,7 @@
 </template>
 
 <script>
+import { bindTrainingLanguage } from '@/language.js'
 import { ref, provide, computed, getCurrentInstance, onMounted } from '@vue/composition-api';
 import { applyBatchTutorialEntry } from '@/utils/pbGameBatchEntry';
 
@@ -294,6 +295,7 @@ export default {
     const archiveId = ref(resolveArchiveId(instance.proxy.$route));
 
     const lang = ref('zh');
+    bindTrainingLanguage(() => lang.value, value => { lang.value = value })
     const t = (key, ...args) => {
       const path = key.split('.');
       let cur = messages[lang.value];

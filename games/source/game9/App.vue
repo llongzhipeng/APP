@@ -45,6 +45,7 @@
 </template>
 
 <script>
+import { bindTrainingLanguage } from '@/language.js'
 import { ref, computed, onMounted, onUnmounted,getCurrentInstance } from '@vue/composition-api'
 import { translations } from './i18n.js'
 import { saveHistory } from './gameConfig.js'
@@ -103,6 +104,7 @@ export default {
     })
 
     const lang = ref('zh')
+    bindTrainingLanguage(() => lang.value, value => { lang.value = value })
     const t = computed(() => translations[lang.value])
 
     const screen = ref('home') // home | duration | game | gameover

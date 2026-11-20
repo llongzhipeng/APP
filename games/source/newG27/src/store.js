@@ -1,3 +1,4 @@
+import { bindTrainingLanguage } from '@/language.js'
 // 全局状态、难度配置、题库、历史记录
 import Vue from 'vue'
 
@@ -123,3 +124,5 @@ function shuffle(arr) {
   }
   return a
 }
+
+bindTrainingLanguage(() => store.lang, setLang)

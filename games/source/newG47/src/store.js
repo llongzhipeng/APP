@@ -1,3 +1,4 @@
+import { bindTrainingLanguage } from '@/language.js'
 // 全局状态、难度配置、位置题库、历史记录
 import Vue from 'vue'
 
@@ -109,3 +110,5 @@ function shuffle(arr) {
 }
 
 export function posById(id) { return POSITIONS.find(p => p.id === id) }
+
+bindTrainingLanguage(() => store.lang, setLang)

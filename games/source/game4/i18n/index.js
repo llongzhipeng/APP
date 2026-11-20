@@ -1,3 +1,4 @@
+import { bindTrainingLanguage } from '@/language.js'
 /**
  * 国际化配置模块
  */
@@ -65,3 +66,5 @@ export default {
   t,
   getCurrentLanguage
 };
+
+bindTrainingLanguage(() => i18nState.currentLanguage, setLanguage)
