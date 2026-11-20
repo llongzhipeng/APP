@@ -2,7 +2,7 @@
 import { computed, ref } from 'vue'
 import { onLoad } from '@dcloudio/uni-app'
 import Brand from '../../components/Brand.vue'
-import { demoCode, demoPin, getSession, isDemo, signIn } from '../../services/training'
+import { demoCode, demoOnly, demoPin, getSession, signIn } from '../../services/training'
 
 import { getTrainingLanguage, setTrainingLanguage } from '../../services/language'
 
@@ -101,7 +101,7 @@ async function submit() {
         <text v-if="error" class="error" role="alert">{{ error }}</text>
         <button class="primary" :disabled="busy" @click="submit">{{ busy ? copy.loading : copy.start }}</button>
       </view>
-      <view v-if="isDemo" class="demo">
+      <view v-if="demoOnly" class="demo">
         <view>
           <text class="demo-title">{{ copy.demo }}</text>
           <text class="demo-credentials">{{ demoCode }} · {{ demoPin }}</text>

@@ -2,10 +2,14 @@ import { catalogCategory, findGame, games } from './games'
 
 const defaultUrl = 'https://attentiondev.drbrain.net/drain-doctor-service'
 const baseUrl = (import.meta.env.VITE_API_BASE_URL || defaultUrl).trim().replace(/\/+$/, '')
-export const isDemo = import.meta.env.VITE_TRAINING_DEMO === 'true'
+export const demoOnly = import.meta.env.VITE_TRAINING_DEMO === 'true'
 export const demoCode = 'DEMO-2026-001'
 export const demoPin = '123456'
-const sessionKey = isDemo ? 'training-session:demo' : 'training-pin-session:' + baseUrl
+const sessionKey = demoOnly ? 'training-session:demo' : 'training-pin-session:' + baseUrl
+
+export function isDemoSession(session) {
+  return session?.token === 'local-demo' && session.patient?.id === 'demo'
+}
 
 export function dayKey(date = new Date()) {
   const month = String(date.getMonth() + 1).padStart(2, '0')
@@ -62,8 +66,9 @@ function request(path, method, data, token) {
 
 export async function signIn(trainingCode, pin) {
   let session
-  if (isDemo) {
-    if (trainingCode.toUpperCase() !== demoCode || pin !== demoPin) throw invalidPinError()
+  const isDemoCode = trainingCode.toUpperCase() === demoCode
+  if (demoOnly || isDemoCode) {
+    if (!isDemoCode || pin !== demoPin) throw invalidPinError()
     session = { token: 'local-demo', patient: { id: 'demo', name: '演示用户', storeNo: 'DEMO-001' } }
   } else {
     const data = await request('/login/pin', 'POST', { code: trainingCode, pin })
@@ -110,7 +115,7 @@ function demoProgressKey(planId) {
 
 export async function getTodayPlan(session) {
   const date = dayKey()
-  if (!isDemo) {
+  if (!isDemoSession(session)) {
     const archiveId = session.patient.id
     const rows = (await request('/pbgamerecord/plan/today', 'GET', { archiveId }, session.token)) ?? []
     if (!Array.isArray(rows)) throw new Error('今日计划返回格式异常，请刷新重试')
@@ -142,7 +147,7 @@ function metric(value, integer = false) {
 }
 
 export async function completeTask(session, planId, task, result) {
-  if (!isDemo) {
+  if (!isDemoSession(session)) {
     const game = findGame(task.gameKey)
     if (!game) throw new Error('任务对应的游戏无效')
     const record = {

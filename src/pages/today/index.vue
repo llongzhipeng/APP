@@ -5,7 +5,7 @@ import { onLoad, onPullDownRefresh, onShow, onUnload } from '@dcloudio/uni-app'
 import Brand from '../../components/Brand.vue'
 import TrainingCard from '../../components/TrainingCard.vue'
 import { catalogCategory, games, trainingCategories } from '../../services/games'
-import { dayKey, getSession, getTodayPlan, isDemo, logout } from '../../services/training'
+import { dayKey, getSession, getTodayPlan, isDemoSession, logout } from '../../services/training'
 
 const session = ref(null)
 const plan = ref(null)
@@ -13,7 +13,7 @@ const busy = ref(false)
 const openingTask = ref(false)
 const error = ref('')
 const view = ref('today')
-const showTrainingLibrary = false
+const isDemo = computed(() => isDemoSession(session.value))
 const category = ref(trainingCategories[0][0])
 const language = ref(getTrainingLanguage())
 function switchLanguage() {
@@ -138,7 +138,7 @@ function openPractice(game) {
           </view>
           <view class="heading-actions">
             <button class="secondary" :disabled="busy" @click="refresh">{{ busy ? '刷新中…' : '刷新方案' }}</button>
-            <button v-if="showTrainingLibrary" class="secondary" @click="view = 'library'">全部训练</button>
+            <button v-if="isDemo" class="secondary" @click="view = 'library'">全部训练</button>
           </view>
         </view>
         <view v-if="syncing || syncNotice" class="sync-notice" role="status">
