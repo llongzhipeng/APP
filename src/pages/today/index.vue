@@ -85,114 +85,100 @@ function openPractice(game) {
 
 <template>
   <view class="workspace">
-    <view class="sidebar">
-      <Brand compact />
-      <view class="workspace-nav">
-        <button class="nav-item" :class="{ selected: view === 'today' }" @click="view = 'today'">
-          <image class="icon" src="/static/icons/clock.png" mode="aspectFit" />
-          今日训练
-        </button>
-        <button class="nav-item" :class="{ selected: view === 'library' }" @click="view = 'library'">
-          <image class="icon" src="/static/icons/brain.png" mode="aspectFit" />
-          全部训练
-        </button>
+    <view class="workspace-header">
+      <view class="workspace-brand">
+        <Brand compact />
+        <text class="workspace-title">儿童认知康复训练系统</text>
+      </view>
+      <view v-if="session" class="account">
+        <view class="avatar"><image class="icon" src="/static/icons/person.png" mode="aspectFit" /></view>
+        <view class="account-details">
+          <text class="patient">{{ session.patient.name }}</text>
+          <text v-if="session.patient.mrn" class="mrn">病历号 {{ session.patient.mrn }}</text>
+        </view>
+        <button class="exit language-toggle" aria-label="切换训练语言 / Switch training language" @click="switchLanguage">{{ language === 'en' ? 'Training · English' : '训练语言 · 中文' }}</button>
+        <button class="exit" @click="logout">退出</button>
       </view>
     </view>
 
-    <view class="workspace-main">
-      <view class="workspace-header">
-        <text class="workspace-title">训练工作台</text>
-        <view v-if="session" class="account">
-          <view class="avatar"><image class="icon" src="/static/icons/person.png" mode="aspectFit" /></view>
-          <view class="account-details">
-            <text class="patient">{{ session.patient.name }}</text>
-            <text v-if="session.patient.mrn" class="mrn">病历号 {{ session.patient.mrn }}</text>
+    <view class="content">
+      <template v-if="view === 'today'">
+        <view class="heading">
+          <view>
+            <text class="date">{{ dateText }}</text>
+            <text class="headline">今日训练</text>
           </view>
-          <button class="exit language-toggle" aria-label="切换训练语言 / Switch training language" @click="switchLanguage">{{ language === 'en' ? 'Training · English' : '训练语言 · 中文' }}</button>
-          <button class="exit" @click="logout">退出</button>
-        </view>
-      </view>
-
-      <view class="content">
-        <template v-if="view === 'today'">
-          <view class="heading">
-            <view>
-              <text class="date">{{ dateText }}</text>
-              <text class="headline">今日训练</text>
-            </view>
+          <view class="heading-actions">
             <button class="secondary" :disabled="busy" @click="refresh">{{ busy ? '刷新中…' : '刷新方案' }}</button>
+            <button class="secondary" @click="view = 'library'">全部训练</button>
           </view>
-          <view v-if="plan" class="progress-card">
-            <view class="progress-summary">
-              <view>
-                <text class="stat-label">今日完成进度</text>
-                <view class="total"><text class="count">{{ completed }}</text><text>/ {{ tasks.length }} 项</text></view>
-              </view>
-              <view class="time-stat">
-                <text class="stat-label">剩余时长</text>
-                <view class="minutes">{{ Number(remaining.toFixed(2)) }} <text>分钟</text></view>
-              </view>
-            </view>
-            <view class="progress-line">
-              <view class="progress-track" role="progressbar" :aria-valuenow="percent" aria-valuemin="0" aria-valuemax="100">
-                <view class="progress-fill" :style="{ width: percent + '%' }" />
-              </view>
-              <text class="progress-label">{{ percent }}%</text>
-            </view>
-          </view>
-          <view class="section">
-            <view class="section-heading">
-              <view class="section-title">
-                <text>今日训练任务</text>
-                <text v-if="isDemo" class="demo-note">演示方案</text>
-              </view>
-              <button class="primary quick-start" :disabled="!canOpenTask || !nextTask" @click="openTask(nextTask)">一键启动</button>
-            </view>
-            <view v-if="error" class="empty" role="alert">{{ error }}</view>
-            <view v-else-if="busy && !plan" class="empty">正在加载今日方案…</view>
-            <view v-else-if="!tasks.length" class="empty">今天暂无训练任务</view>
-            <view v-else class="daily-list">
-              <TrainingCard v-for="task in tasks" :key="task.id" task-row :game-key="task.gameKey" :title="task.title"
-                :note="taskNote(task)"
-                :completed="task.completed" :disabled="task.completed || !task.playable || !canOpenTask" @select="openTask(task)" />
-            </view>
-          </view>
-        </template>
-
-        <template v-else>
-          <view class="heading">
+        </view>
+        <view v-if="plan" class="progress-card">
+          <view class="progress-summary">
             <view>
-              <text class="headline">全部训练</text>
-              <text class="library-description">按能力选择游戏进行自由练习</text>
+              <text class="stat-label">今日完成进度</text>
+              <view class="total"><text class="count">{{ completed }}</text><text>/ {{ tasks.length }} 项</text></view>
+            </view>
+            <view class="time-stat">
+              <text class="stat-label">剩余时长</text>
+              <view class="minutes">{{ Number(remaining.toFixed(2)) }} <text>分钟</text></view>
             </view>
           </view>
-          <view class="section">
-            <scroll-view scroll-x class="category-scroll">
-              <view class="category-bar">
-                <button v-for="[key, label] in trainingCategories" :key="key"
-                  class="category-tab" :class="{ active: category === key }" @click="category = key">{{ label }}</button>
-              </view>
-            </scroll-view>
-            <view class="training-grid library-grid">
-              <TrainingCard v-for="game in library" :key="game.key" :game-key="game.key" :title="game.title" @select="openPractice(game)" />
+          <view class="progress-line">
+            <view class="progress-track" role="progressbar" :aria-valuenow="percent" aria-valuemin="0" aria-valuemax="100">
+              <view class="progress-fill" :style="{ width: percent + '%' }" />
             </view>
+            <text class="progress-label">{{ percent }}%</text>
           </view>
-        </template>
-      </view>
+        </view>
+        <view class="section">
+          <view class="section-heading">
+            <view class="section-title">
+              <text>今日训练任务</text>
+              <text v-if="isDemo" class="demo-note">演示方案</text>
+            </view>
+            <button class="primary quick-start" :disabled="!canOpenTask || !nextTask" @click="openTask(nextTask)">一键启动</button>
+          </view>
+          <view v-if="error" class="empty" role="alert">{{ error }}</view>
+          <view v-else-if="busy && !plan" class="empty">正在加载今日方案…</view>
+          <view v-else-if="!tasks.length" class="empty">今天暂无训练任务</view>
+          <view v-else class="daily-list">
+            <TrainingCard v-for="task in tasks" :key="task.id" task-row :game-key="task.gameKey" :title="task.title"
+              :note="taskNote(task)"
+              :completed="task.completed" :disabled="task.completed || !task.playable || !canOpenTask" @select="openTask(task)" />
+          </view>
+        </view>
+      </template>
+
+      <template v-else>
+        <view class="heading">
+          <view>
+            <text class="headline">全部训练</text>
+            <text class="library-description">按能力选择游戏进行自由练习</text>
+          </view>
+          <button class="secondary" @click="view = 'today'">返回今日训练</button>
+        </view>
+        <view class="section">
+          <scroll-view scroll-x class="category-scroll">
+            <view class="category-bar">
+              <button v-for="[key, label] in trainingCategories" :key="key"
+                class="category-tab" :class="{ active: category === key }" @click="category = key">{{ label }}</button>
+            </view>
+          </scroll-view>
+          <view class="training-grid library-grid">
+            <TrainingCard v-for="game in library" :key="game.key" :game-key="game.key" :title="game.title" @select="openPractice(game)" />
+          </view>
+        </view>
+      </template>
     </view>
   </view>
 </template>
 
 <style scoped>
 .workspace { min-height: 100vh; background: #f1f5fc; color: #172846; }
-.sidebar { padding: 10px 18px; background: #fff; border-bottom: 1px solid #dde5f1; display: flex; align-items: center; justify-content: space-between; gap: 10px; }
-.workspace-nav { display: flex; gap: 6px; }
-.nav-item { min-height: 44px; border-radius: 8px; padding: 7px 11px; display: flex; align-items: center; justify-content: center; gap: 8px; margin: 0; font-weight: 650; font-size: 14px; line-height: 1.2; white-space: nowrap; background: transparent; color: #4a5e7b; }
-.nav-item.selected { color: #264cce; background: #eaf0ff; }
-.nav-item .icon { width: 17px; height: 17px; }
-.workspace-main { min-width: 0; }
 .workspace-header { display: flex; min-height: 59px; align-items: center; justify-content: space-between; gap: 12px; padding: 8px 24px; background: #fff; border-bottom: 1px solid #dde5f1; }
-.workspace-title { color: #273b5c; font-size: 16px; font-weight: 750; }
+.workspace-brand { display: flex; align-items: center; gap: 14px; }
+.workspace-title { color: #273b5c; font-size: 18px; line-height: 1.35; font-weight: 750; }
 .account { display: flex; align-items: center; gap: 8px; }
 .avatar { display: grid; place-items: center; width: 36px; height: 36px; flex-shrink: 0; border-radius: 50%; background: #edf2ff; }
 .avatar .icon { width: 18px; height: 18px; }
@@ -202,7 +188,9 @@ function openPractice(game) {
 .exit { min-height: 44px; padding: 8px; margin: 0; line-height: 1.3; color: #405a93; background: transparent; font-size: 13px; }
 .content { padding: 24px 24px 40px; max-width: 1440px; margin: 0 auto; }
 .heading, .progress-summary, .section-heading { display: flex; justify-content: space-between; align-items: center; gap: 10px; }
-.heading { margin-bottom: 16px; }
+.heading { margin-bottom: 16px; flex-wrap: wrap; }
+.heading-actions { display: flex; flex-wrap: wrap; gap: 8px; }
+.heading .secondary { margin: 0; }
 .heading .secondary { min-height: 44px; color: #2949ac; background: #fff; border: 1px solid #d9e4f4; }
 .date, .library-description { display: block; color: #536686; font-size: 14px; line-height: 1.6; }
 .headline { display: block; color: #233b75; font-size: 27px; font-weight: 800; line-height: 1.25; }
@@ -237,16 +225,18 @@ function openPractice(game) {
 .category-tab.active { background: #fff; color: #284fca; border-bottom-color: #466af0; }
 .training-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; padding: 12px; }
 .empty { padding: 26px 14px; text-align: center; color: #5b6c87; }
-@media (max-width: 500px) { .sidebar { padding: 8px 10px; } .nav-item { font-size: 12px; gap: 5px; } .nav-item .icon { display: none; } .content, .workspace-header { padding-left: 13px; padding-right: 13px; } .avatar { display: none; } }
+@media (max-width: 640px) {
+  .workspace-header { flex-wrap: wrap; gap: 2px 12px; }
+  .content, .workspace-header { padding-left: 13px; padding-right: 13px; }
+  .workspace-brand { gap: 8px; }
+  .workspace-title { font-size: 16px; }
+  .avatar { display: none; }
+}
 @media (min-width: 670px) {
   .training-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); padding: 14px; gap: 12px; }
   .content { padding-top: 26px; }
 }
 @media (min-width: 900px) and (orientation: landscape) {
-  .workspace { display: grid; grid-template-columns: 182px minmax(0, 1fr); }
-  .sidebar { display: flex; flex-direction: column; justify-content: flex-start; align-items: stretch; padding: 18px 12px; border-right: 1px solid #dde5f1; border-bottom: 0; }
-  .workspace-nav { flex-direction: column; margin-top: 23px; gap: 5px; }
-  .nav-item { justify-content: flex-start; padding-left: 12px; }
   .training-grid { grid-template-columns: repeat(4, minmax(0, 1fr)); }
 }
 @media (min-width: 1200px) and (orientation: landscape) {

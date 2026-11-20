@@ -19,14 +19,12 @@ const english = computed({
   },
 })
 const copy = computed(() => english.value ? {
-  subtitle: 'ADHD Assessment & Rehabilitation',
-  title: 'Welcome to training',
+  title: 'Pediatric Cognitive Rehabilitation System',
   description: 'Enter the training code and PIN from your clinician.',
   code: 'Training code', pin: 'PIN', start: 'Start training', loading: 'Signing in…',
   demo: 'Demo access', fill: 'Use demo credentials', required: 'Enter your training code and PIN.',
 } : {
-  subtitle: '医未医疗 ADHD 评估与康复系统',
-  title: '欢迎训练',
+  title: '儿童认知康复训练系统',
   description: '请输入医生提供的训练码和 PIN',
   code: '训练码', pin: 'PIN 密码', start: '开始训练', loading: '登录中…',
   demo: '演示登录', fill: '填入演示账号', required: '请输入训练码和 PIN。',
@@ -77,7 +75,6 @@ async function submit() {
   <view class="login">
     <view class="login-intro">
       <Brand class="hero-mark" />
-      <text class="subtitle">{{ copy.subtitle }}</text>
       <text class="headline">{{ copy.title }}</text>
       <text class="description">{{ copy.description }}</text>
     </view>
@@ -119,7 +116,6 @@ async function submit() {
 .login-intro { display: flex; flex-direction: column; align-items: center; }
 .login-fields { width: 100%; }
 .hero-mark { margin-bottom: 20px; }
-.subtitle { color: #326c87; font-size: 13px; font-weight: 650; text-align: center; }
 .headline { color: #233b75; font-size: 36px; font-weight: 800; line-height: 1.2; margin: 7px 0 10px; text-align: center; }
 .description { color: #486575; font-size: 15px; text-align: center; line-height: 1.5; }
 .form { width: 100%; margin-top: 28px; padding: 22px; border: 1px solid #dce8ef; border-radius: 20px; background: #fff; display: flex; flex-direction: column; gap: 15px; box-shadow: 0 5px 24px #123d5410; }
@@ -136,9 +132,9 @@ async function submit() {
 .demo-credentials { margin-top: 3px; font-size: 12px; color: #446273; }
 @media (min-width: 680px) {
   .login { max-width: 490px; padding: 68px 0 40px; }
-  .headline { font-size: 42px; }
+  .headline { font-size: 38px; }
   .description { font-size: 17px; }
-  .subtitle, .label { font-size: 15px; }
+  .label { font-size: 15px; }
   .form { padding: 27px; gap: 19px; }
   .field-box, .field-box input { min-height: 54px; }
   .field-box input { font-size: 17px; }
@@ -149,8 +145,8 @@ async function submit() {
   .login { width: calc(100% - 96px); max-width: 936px; min-height: calc(100vh - 88px); display: grid; grid-template-columns: 1fr 1fr; gap: clamp(36px, 7vw, 96px); padding: 40px 0; }
   .login-intro { align-items: flex-start; }
   .hero-mark { margin-bottom: 27px; }
-  .subtitle, .headline, .description { text-align: left; }
-  .headline { font-size: 49px; }
+  .headline, .description { text-align: left; }
+  .headline { font-size: clamp(34px, 3.6vw, 44px); }
   .form { margin-top: 0; }
 }
 @media (max-width: 520px) { .login { padding-top: 35px; } .hero-mark { margin-bottom: 17px; } .headline { font-size: 31px; } .form { padding: 17px; } }
