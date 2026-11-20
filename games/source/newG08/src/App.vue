@@ -49,7 +49,7 @@
     </div>
 
     <!-- Tutorial -->
-    <div v-if="phase==='tutorial'" class="overlay">
+    <div v-if="phase==='tutorial'" class="overlay tutorial-overlay">
       <div class="modal tutorial">
         <div class="tut-body">
           <!-- Step 0: number seq, blank at end -->
@@ -556,7 +556,10 @@ th{background:#16213e;color:#5b8dee}
 .rules-table td:first-child{font-weight:bold;color:#f39c12}
 
 /* tutorial */
-.modal.tutorial{min-width:32em}
+.tutorial-overlay{background:#e5efdf}
+.modal.tutorial{min-width:32em;background:#f8fff5;color:#253c2c;border:1px solid #cbdcc8}
+.modal.tutorial h2{color:#245d45}
+.modal.tutorial .opt-card:not(.highlight){color:#eaf3ff}
 .tut-body{padding:1.2em 0}
 .tut-demo{display:flex;flex-direction:column;align-items:center;gap:1.4em}
 .tut-nav{display:flex;gap:.9em;justify-content:center;margin-top:1.4em;flex-wrap:wrap}
@@ -583,16 +586,20 @@ th{background:#16213e;color:#5b8dee}
 .q-mark{color:#f39c12;font-size:1.1em}
 
 /* game */
-.game{padding:1em 1em 2em;justify-content:flex-start}
+.game{padding:1em 1em 2em;justify-content:flex-start;background:linear-gradient(145deg,#f3faee,#e3efdd);color:#253c2c}
 .game-header{
   width:100%;display:flex;align-items:center;justify-content:space-between;
-  background:#1a2a40;border-radius:.8em;padding:.9em 1.4em;margin-bottom:1.2em;
+  background:#fcfffa;border:1px solid #cbdcc8;border-radius:.8em;padding:.9em 1.4em;margin-bottom:1.2em;
   gap:1em;
 }
 .hud{display:flex;gap:1.8em;font-size:1.15em}
-.hud span{color:#aaa}
-.hud b{color:#5b8dee}
-.rule-text{flex:1;text-align:center;color:#ccc;font-size:1.15em;padding:0 .8em}
+.hud span{color:#435c4b}
+.hud b{color:#245d45}
+.rule-text{flex:1;text-align:center;color:#314d3c;font-size:1.15em;padding:0 .8em}
+.game .seq-card { background:#fafff8; border-color:#9cb49b; color:#284735; }
+.game .seq-card.blank { background:#fff1d3; border-color:#bc8c43; color:#744c16; }
+.game .seq-card.filled.correct { background:#dcf4e3; border-color:#2c7b51; color:#1b5b3b; }
+.game .seq-card.filled.wrong { background:#f9e4e5; border-color:#b75b60; color:#8c2639; }
 .game-body{
   flex:1;display:flex;flex-direction:column;align-items:center;
   justify-content:center;gap:1.8em;width:100%;padding-bottom:1em;
@@ -601,13 +608,13 @@ th{background:#16213e;color:#5b8dee}
 .opt-btn{
   display:flex;align-items:center;justify-content:center;
   min-height:3.2em;padding:.6em;border:2px solid #6a8ec4;
-  border-radius:.7em;background:#2a4370;color:#eaf3ff;
+  border-radius:.7em;background:#fafff8;color:#284735;
   box-shadow:0 2px 6px rgba(0,0,0,.35);
   cursor:pointer;font-size:1.5em;font-weight:bold;transition:.15s;
 }
-.opt-btn:hover:not(:disabled){background:#345590;border-color:#8fb0e0}
-.opt-btn.correct{border-color:#27ae60;background:#1a3a2a;color:#2ecc71}
-.opt-btn.wrong{border-color:#c0392b;background:#3a1a1a;color:#e74c3c}
+.opt-btn:hover:not(:disabled){background:#e5f3e1;border-color:#7ba182}
+.opt-btn.correct{border-color:#2c7b51;background:#dcf4e3;color:#1b5b3b}
+.opt-btn.wrong{border-color:#b75b60;background:#f9e4e5;color:#8c2639}
 .opt-btn:disabled{cursor:default}
 
 /* blocks (levels 4-6) */

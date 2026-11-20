@@ -1,6 +1,6 @@
 const types = {
   sslk: 'capacity', ystz: 'attention', mzxh: 'spatial', dtqq: 'spatial',
-  bdx: 'abstract', qbqz: 'spatial', wpgl: 'abstract', hylx: 'abstract', mjmy: 'memory',
+  bdx: 'abstract', qbqz: 'spatial', wpgl: 'abstract', hylx: 'abstract', spotdiff: 'visual', mjmy: 'memory',
   lxds: 'memory', zlss: 'attention', szlx: 'memory', mcgf: 'memory', yspp: 'memory', jmtz: 'memory', slbj: 'memory',
   hmtz: 'memory', lccj: 'language', syz: 'capacity', yshy: 'memory', ctdc: 'memory',
   jyfp: 'memory', xzhy: 'memory', slzt: 'abstract', dds: 'implement', gwqd: 'memory', xzxm: 'implement',

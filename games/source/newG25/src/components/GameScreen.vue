@@ -465,16 +465,16 @@ export default {
 
 <style scoped>
 .game { position: relative; width: 100%; height: 100%; overflow: hidden; cursor: none;
-  display: flex; flex-direction: column;
+  display: flex; flex-direction: column; color: #492d38;
 }
 .bg { position: absolute; inset: 0; z-index: 0; overflow: hidden;
-  background: radial-gradient(ellipse at 50% 0%, #2a1420 0%, #0a0510 60%), linear-gradient(180deg, #1a0a18, #0a0510);
+  background: radial-gradient(ellipse at 50% 0%, #fff9e9, transparent 66%), linear-gradient(180deg, #fff2f6, #f4dce7);
 }
 .ceiling {
   position: absolute; top: 0; left: 0; right: 0; height: 15%;
   background:
-    repeating-linear-gradient(90deg, rgba(0,0,0,.7) 0 8vmin, transparent 8vmin 10vmin),
-    linear-gradient(180deg, rgba(0,0,0,.8), transparent);
+    repeating-linear-gradient(90deg, rgba(113,61,83,.055) 0 8vmin, transparent 8vmin 10vmin),
+    linear-gradient(180deg, rgba(113,61,83,.10), transparent);
 }
 .spot { position: absolute; top: -5%; left: 50%; transform: translateX(-50%);
   width: 90vmin; height: 90vmin;
@@ -483,19 +483,14 @@ export default {
 }
 .crowd { position: absolute; left: 0; right: 0; bottom: 15%; height: 20%;
   background:
-    radial-gradient(ellipse 3vmin 3.5vmin at 10% 100%, #050205 60%, transparent 62%),
-    radial-gradient(ellipse 3vmin 3.5vmin at 25% 95%, #0a0308 60%, transparent 62%),
-    radial-gradient(ellipse 3vmin 3.5vmin at 40% 100%, #050205 60%, transparent 62%),
-    radial-gradient(ellipse 3vmin 3.5vmin at 55% 95%, #0a0308 60%, transparent 62%),
-    radial-gradient(ellipse 3vmin 3.5vmin at 70% 100%, #050205 60%, transparent 62%),
-    radial-gradient(ellipse 3vmin 3.5vmin at 85% 95%, #0a0308 60%, transparent 62%),
-    linear-gradient(180deg, transparent, rgba(0,0,0,.5) 70%);
+    repeating-linear-gradient(90deg, transparent 0 11%, rgba(153,95,116,.12) 11% 12%),
+    linear-gradient(180deg, transparent, rgba(153,95,116,.12) 85%);
   opacity: .6;
 }
 .floor { position: absolute; left: 0; right: 0; bottom: 0; height: 15%;
-  background: linear-gradient(180deg, #1a0a18, #0a0510);
+  background: linear-gradient(180deg, #f3dce6, #ead2de);
   border-top: 0.3vmin solid rgba(255,255,255,.08);
-  box-shadow: 0 -2vmin 4vmin rgba(0,0,0,.6) inset;
+  box-shadow: 0 -2vmin 4vmin rgba(113,61,83,.08) inset;
 }
 .rope { display: none; }
 
@@ -516,30 +511,30 @@ export default {
   box-shadow: 0 0.6vmin 2vmin rgba(0,0,0,.4);
   max-width: 70vw;
 }
-.hud-task .task-title { color: #ff8a99; font-size: 1.2vmin; letter-spacing: 0.5vmin; font-weight: 800; text-align: center; }
+.hud-task .task-title { color: #8c344f; font-size: 1.2vmin; letter-spacing: 0.5vmin; font-weight: 800; text-align: center; }
 .hud-task .task-content { display: flex; align-items: center; justify-content: center; gap: 1.5vmin; margin-top: 0.3vmin; }
 .hud-task .task-glove { width: 3.6vmin; height: 4vmin; filter: drop-shadow(0 0.4vmin 0.8vmin var(--tc)); flex-shrink: 0; }
-.hud-task .task-txt { color: #fff; font-size: 2vmin; font-weight: 800; letter-spacing: 0.15vmin;
+.hud-task .task-txt { color: #492d38; font-size: 2vmin; font-weight: 800; letter-spacing: 0.15vmin;
   font-family: 'Bebas Neue','Impact',sans-serif; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
 .hud-task .task-target { display: flex; gap: 0.4vmin; flex-shrink: 0; }
 .hud-task .chip { width: 1.6vmin; height: 1.6vmin; border-radius: 50%; }
 .stat {
-  background: linear-gradient(180deg, rgba(255,255,255,.08), rgba(255,255,255,.02));
+  background: #fffafc;
   border: 0.2vmin solid rgba(255,255,255,.12); border-radius: 1.2vmin;
   padding: 1.2vmin 2vmin; backdrop-filter: blur(1vmin);
   min-width: 18vmin;
   box-shadow: 0 0.5vmin 1.5vmin rgba(0,0,0,.4);
 }
-.stat .lbl { color: rgba(255,255,255,.55); font-size: 1.4vmin; letter-spacing: 0.3vmin; font-weight: 700; text-transform: uppercase; }
+.stat .lbl { color: #735264; font-size: 1.4vmin; letter-spacing: 0.3vmin; font-weight: 700; text-transform: uppercase; }
 .stat .val { margin-top: 0.4vmin; }
 .stat .big { font-size: 3.2vmin; font-weight: 900; letter-spacing: 0.1vmin;
   font-family: 'Bebas Neue','Impact',sans-serif; }
-.score-num { color: #ffd166; text-shadow: 0 0 2vmin rgba(255,180,80,.4); }
-.timer.low { color: #ff5568; animation: blink 0.8s infinite; }
+.score-num { color: #8b4c16; }
+.timer.low { color: #a52640; animation: blink 0.8s infinite; }
 @keyframes blink { 50% { opacity: .4; } }
 .stars { display: flex; gap: 0.2vmin; margin-top: 0.2vmin; }
-.star { color: rgba(255,255,255,.15); font-size: 1.4vmin; }
-.star.on { color: #ffd166; text-shadow: 0 0 0.5vmin #ffd166; }
+.star { color: #c7acbb; font-size: 1.4vmin; }
+.star.on { color: #9a5917; }
 
 .combo {
   padding: 1.2vmin 2vmin; border-radius: 99px;
@@ -555,7 +550,7 @@ export default {
 
 .ret-btn {
   padding: 1.4vmin 2.2vmin; font-size: 2vmin; font-weight: 700; letter-spacing: 0.2vmin;
-  background: rgba(255,255,255,.08); color: #fff;
+  background: #fffafc; color: #682f47;
   border: 0.2vmin solid rgba(255,255,255,.15); border-radius: 1vmin; cursor: pointer;
 }
 .ret-btn:hover { background: rgba(255,80,90,.3); border-color: rgba(255,80,90,.5); }
@@ -574,7 +569,7 @@ export default {
   width: 100%; height: 100%;
   max-height: 82vh;
   padding: 1.5vmin;
-  background: linear-gradient(180deg, rgba(255,255,255,.03), rgba(0,0,0,.15));
+  background: linear-gradient(180deg, rgba(255,255,255,.5), rgba(153,95,116,.08));
   border: 0.3vmin solid rgba(255,255,255,.08); border-radius: 2vmin;
   box-shadow: 0 2vmin 5vmin rgba(0,0,0,.5), 0 0 3vmin rgba(255,60,80,.1) inset;
 }

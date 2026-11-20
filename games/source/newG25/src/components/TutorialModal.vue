@@ -117,16 +117,16 @@ export default {
 <style scoped>
 .mask {
   position: fixed; inset: 0; z-index: 100;
-  background: radial-gradient(ellipse at center, rgba(20,5,15,.85), rgba(0,0,0,.95));
+  background: #f4e2e9;
   backdrop-filter: blur(1vmin);
   display: flex; align-items: center; justify-content: center; padding: 3vmin;
 }
 .modal {
   width: min(92vw, 130vmin); max-height: 92vh;
-  background: linear-gradient(160deg, #241028 0%, #150818 100%);
+  background: #fff9fb;
   border: 0.3vmin solid rgba(255,60,80,.35);
-  border-radius: 2.5vmin; color: #fff;
-  box-shadow: 0 3vmin 8vmin rgba(0,0,0,.7), 0 0 6vmin rgba(255,60,80,.15) inset;
+  border-radius: 2.5vmin; color: #492d38;
+  box-shadow: 0 3vmin 8vmin rgba(113,61,83,.16), 0 0 6vmin rgba(255,60,80,.15) inset;
   display: flex; flex-direction: column; overflow: hidden;
 }
 .head { padding: 3vmin 4vmin 1vmin; text-align: center; border-bottom: 0.15vmin solid rgba(255,255,255,.06); }
@@ -218,7 +218,7 @@ export default {
   0%,100% { transform: translateY(0); box-shadow: 0 0.6vmin 0 #111, 0 1vmin 2vmin rgba(0,0,0,.5); }
   50% { transform: translateY(0.4vmin); box-shadow: 0 0.2vmin 0 #111, 0 0.4vmin 1vmin rgba(0,0,0,.5); }
 }
-.key-hint { color: rgba(255,255,255,.5); font-size: 2vmin; }
+.key-hint { color: #735264; font-size: 2vmin; }
 
 /* Step 3 */
 .demo-strike { position: relative; }
@@ -237,7 +237,7 @@ export default {
 }
 .hit-mark {
   position: absolute; top: 20%; right: 20%;
-  font-size: 4vmin; font-weight: 900; color: #ffd166;
+  font-size: 4vmin; font-weight: 900; color: #8b4c16;
   text-shadow: 0 0 3vmin #ff3b4c, 0.3vmin 0.3vmin 0 #6b0716;
   animation: hitAnim 1.6s infinite;
   letter-spacing: 0.3vmin;
@@ -249,7 +249,7 @@ export default {
 }
 .score-pop {
   position: absolute; bottom: 30%; right: 25%;
-  font-size: 3vmin; font-weight: 800; color: #22c55e;
+  font-size: 3vmin; font-weight: 800; color: #17663d;
   text-shadow: 0 0 2vmin #22c55e;
   animation: scorePop 1.6s infinite;
 }
@@ -264,7 +264,7 @@ export default {
   text-align: center; padding: 2vmin;
 }
 .tut-icon { font-size: 8vmin; margin-bottom: 2vmin; filter: drop-shadow(0 1vmin 2vmin rgba(255,60,80,.3)); }
-.desc { color: rgba(255,255,255,.85); font-size: 2.4vmin; line-height: 1.7; letter-spacing: 0.1vmin; }
+.desc { color: #563744; font-size: 2.4vmin; line-height: 1.7; letter-spacing: 0.1vmin; }
 
 .foot {
   padding: 2vmin 4vmin 3vmin; display: flex; justify-content: space-between; align-items: center;
@@ -280,13 +280,13 @@ export default {
 .nav { display: flex; gap: 1.5vmin; }
 .btn {
   padding: 1.4vmin 3vmin; border-radius: 1vmin; border: 0.2vmin solid rgba(255,255,255,.2);
-  background: rgba(255,255,255,.06); color: #fff; cursor: pointer;
+  background: #f6e6ed; color: #682f47; cursor: pointer;
   font-size: 2vmin; font-weight: 700; letter-spacing: 0.2vmin;
   transition: all .2s;
 }
 .btn:hover { background: rgba(255,255,255,.14); transform: translateY(-0.2vmin); }
 .btn.primary {
-  background: linear-gradient(135deg, #ff3b4c, #b8102a);
+  background: linear-gradient(135deg, #c3314c, #97172d); color: #fff;
   border-color: transparent; box-shadow: 0 0.8vmin 2vmin rgba(255,60,80,.4);
 }
 .btn.ghost { background: transparent; opacity: .7; }

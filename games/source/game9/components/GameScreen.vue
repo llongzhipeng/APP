@@ -418,7 +418,7 @@ export default {
   height: 100%;
   display: flex;
   flex-direction: column;
-  background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+  background: linear-gradient(145deg, #fff9e9, #f5e9c7);
   overflow: hidden;
 }
 
@@ -554,7 +554,7 @@ export default {
   width: 100%;
 }
 .memorize-hint {
-  color: rgba(0, 212, 255, 0.7);
+  color: #40627c;
   font-size: 0.85rem;
   letter-spacing: 0.1em;
   margin: 0;
@@ -563,8 +563,8 @@ export default {
 .digit {
   font-size: min(6rem, 12vw);
   font-weight: 900;
-  color: #4A90E2;
-  background: rgba(74, 144, 226, 0.08);
+  color: #245481;
+  background: #fffdf7;
   border: 0.15rem solid rgba(74, 144, 226, 0.3);
   border-radius: 0.8rem;
   width: min(5rem, 11vw);
@@ -682,18 +682,18 @@ export default {
 }
 .feedback-icon { font-size: min(5rem, 15vw); font-weight: 900; line-height: 1; }
 .feedback-text { font-size: min(1.4rem, 4vw); font-weight: 700; }
-.feedback-score { font-size: min(1.1rem, 3vw); color: rgba(255,255,255,0.7); }
+.feedback-score { font-size: min(1.1rem, 3vw); color: #4d5559; }
 .diff-notice {
   font-size: min(0.85rem, 2.5vw);
   padding: 0.3rem 0.8rem;
   border-radius: 1rem;
   font-weight: 600;
 }
-.feedback.correct .feedback-icon, .feedback.correct .feedback-text { color: #4ade80; }
-.feedback.wrong .feedback-icon, .feedback.wrong .feedback-text { color: #f87171; }
-.feedback.timeout .feedback-icon, .feedback.timeout .feedback-text { color: #fbbf24; }
-.diff-notice.up { background: rgba(74, 222, 128, 0.15); color: #4ade80; border: 0.05rem solid rgba(74, 222, 128, 0.3); }
-.diff-notice.down { background: rgba(251, 191, 36, 0.15); color: #fbbf24; border: 0.05rem solid rgba(251, 191, 36, 0.3); }
+.feedback.correct .feedback-icon, .feedback.correct .feedback-text { color: #17663d; }
+.feedback.wrong .feedback-icon, .feedback.wrong .feedback-text { color: #9c283b; }
+.feedback.timeout .feedback-icon, .feedback.timeout .feedback-text { color: #79510e; }
+.diff-notice.up { background: rgba(74, 222, 128, 0.15); color: #17663d; border: 0.05rem solid rgba(74, 222, 128, 0.3); }
+.diff-notice.down { background: rgba(251, 191, 36, 0.15); color: #79510e; border: 0.05rem solid rgba(251, 191, 36, 0.3); }
 
 /* Exit confirm overlay */
 .exit-overlay {

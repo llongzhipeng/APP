@@ -123,14 +123,14 @@ export default {
 .tutorial-overlay {
   position: fixed;
   inset: 0;
-  background: rgba(0,0,0,0.75);
+  background: #f3e8d9;
   display: flex;
   align-items: center;
   justify-content: center;
   z-index: 100;
 }
 .tutorial-box {
-  background: linear-gradient(160deg, #0e1e3a, #060e1e);
+  background: #fffdf7;
   border: 0.2vmin solid rgba(100,180,255,0.3);
   border-radius: 2vmin;
   padding: 3vmin 4vmin;
@@ -139,20 +139,20 @@ export default {
   flex-direction: column;
   align-items: center;
   gap: 2vmin;
-  box-shadow: 0 2vmin 6vmin rgba(0,0,0,0.6);
+  box-shadow: 0 2vmin 6vmin rgba(84,66,42,.18);
 }
-.tutorial-title { color: #e8f0ff; font-size: 3vmin; font-weight: 800; }
+.tutorial-title { color: #2d4158; font-size: 3vmin; font-weight: 800; }
 .step-dots { display: flex; gap: 1.2vmin; }
-.dot { width: 1.5vmin; height: 1.5vmin; border-radius: 50%; background: rgba(255,255,255,0.25); transition: background 0.3s; }
+.dot { width: 1.5vmin; height: 1.5vmin; border-radius: 50%; background: #d5c3a8; transition: background 0.3s; }
 .dot.active { background: #4A90D9; }
 .demo-area { width: 100%; min-height: 28vmin; display: flex; align-items: center; justify-content: center; }
 .demo-step { display: flex; flex-direction: column; align-items: center; gap: 1.5vmin; width: 100%; }
 .demo-layout { display: flex; align-items: center; gap: 2vmin; justify-content: center; }
 .demo-left, .demo-right { display: flex; flex-direction: column; align-items: center; gap: 1vmin; }
-.demo-label { font-size: 1.6vmin; color: rgba(232,240,255,0.6); }
+.demo-label { font-size: 1.6vmin; color: #50637a; }
 .demo-block { width: 10vmin; height: 10vmin; }
 .target-block svg { width: 100%; height: 100%; filter: drop-shadow(0 0.3vmin 1vmin rgba(0,0,0,0.5)); }
-.demo-arrow-right { font-size: 4vmin; color: rgba(232,240,255,0.5); }
+.demo-arrow-right { font-size: 4vmin; color: #50637a; }
 .demo-options-preview { display: flex; gap: 1vmin; }
 .demo-options-preview.grid2 { display: grid; grid-template-columns: repeat(2,1fr); gap: 1vmin; }
 .demo-opt {
@@ -168,20 +168,20 @@ export default {
 .demo-opt.opt-correct { background: rgba(46,125,50,0.7); border-color: rgba(76,175,80,0.6); }
 .demo-opt.opt-wrong { background: rgba(198,40,40,0.7); border-color: rgba(244,67,54,0.6); }
 .check-mark { position: absolute; font-size: 3vmin; color: #4caf50; font-weight: 900; }
-.demo-hint-text { font-size: 2vmin; color: rgba(232,240,255,0.8); text-align: center; }
+.demo-hint-text { font-size: 2vmin; color: #3e5068; text-align: center; }
 .success-step { gap: 2vmin; }
 .success-anim { font-size: 8vmin; animation: pop 0.6s ease-out; }
 @keyframes pop { 0% { transform: scale(0); } 70% { transform: scale(1.2); } 100% { transform: scale(1); } }
-.score-preview { font-size: 4vmin; font-weight: 900; color: #ffd700; text-shadow: 0 0 2vmin rgba(255,215,0,0.5); }
+.score-preview { font-size: 4vmin; font-weight: 900; color: #815108; }
 .tutorial-nav { width: 100%; display: flex; justify-content: space-between; align-items: center; margin-top: 1vmin; }
 .nav-arrows { display: flex; gap: 1.5vmin; }
 .nav-btn {
   padding: 1.2vmin 2.5vmin; font-size: 1.8vmin; border-radius: 1vmin; cursor: pointer;
-  background: rgba(255,255,255,0.1); border: 0.2vmin solid rgba(255,255,255,0.2);
-  color: #e8f0ff; transition: all 0.2s; font-weight: 600;
+  background: #f3e9db; border: 0.2vmin solid #e4d4bb;
+  color: #2d4158; transition: all 0.2s; font-weight: 600;
 }
 .nav-btn:hover:not(:disabled) { background: rgba(255,255,255,0.2); }
 .nav-btn:disabled { opacity: 0.3; cursor: default; }
-.nav-btn.arrow-btn.primary { background: linear-gradient(135deg, #2A5EA8, #4A90D9); border-color: rgba(100,180,255,0.4); }
+.nav-btn.arrow-btn.primary { color: #fff; background: linear-gradient(135deg, #2A5EA8, #4A90D9); border-color: rgba(100,180,255,0.4); }
 .nav-btn.arrow-btn.primary:hover { background: linear-gradient(135deg, #3A70C0, #5AA8F0); }
 </style>

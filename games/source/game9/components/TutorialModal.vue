@@ -296,7 +296,7 @@ export default {
 .modal-overlay {
   position: fixed;
   inset: 0;
-  background: rgba(0,0,0,0.8);
+  background: #f5ead2;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -307,7 +307,7 @@ export default {
 }
 
 .tutorial-box {
-  background: linear-gradient(135deg, #0e1228, #161c38);
+  background: #fffaf0; color: #384357;
   border: 0.1rem solid rgba(0, 212, 255, 0.3);
   border-radius: 1.2rem;
   padding: 1.5rem 2rem;
@@ -317,7 +317,7 @@ export default {
   display: flex;
   flex-direction: column;
   gap: 1rem;
-  box-shadow: 0 0 3rem rgba(0, 0, 0, 0.6);
+  box-shadow: 0 12px 40px rgba(88, 70, 34, 0.18);
   overflow-y: auto;
 }
 
@@ -328,7 +328,7 @@ export default {
 }
 
 .tut-title {
-  color: #00d4ff;
+  color: #245481;
   font-size: 1.1rem;
   margin: 0;
   letter-spacing: 0.05em;
@@ -338,13 +338,13 @@ export default {
 .dot {
   width: 0.45rem; height: 0.45rem;
   border-radius: 50%;
-  background: rgba(255,255,255,0.2);
+  background: #c9bc9d;
   transition: background 0.3s, transform 0.3s;
 }
 .dot.active { background: #00d4ff; transform: scale(1.4); }
 
 .step-hint {
-  color: rgba(255,255,255,0.55);
+  color: #514f48;
   font-size: 0.78rem;
   text-align: center;
   line-height: 1.5;
@@ -353,7 +353,7 @@ export default {
 
 /* Demo board */
 .demo-board {
-  background: rgba(0,0,0,0.3);
+  background: #263951; color: #f7fbff;
   border: 0.08rem solid rgba(255,255,255,0.08);
   border-radius: 0.8rem;
   padding: 1rem;
@@ -634,20 +634,20 @@ export default {
 .btn-skip {
   background: none;
   border: none;
-  color: rgba(255,255,255,0.35);
+  color: #5a5140;
   font-size: 0.8rem;
   cursor: pointer;
   font-family: inherit;
   padding: 0.3rem 0.5rem;
   transition: color 0.2s;
 }
-.btn-skip:hover { color: rgba(255,255,255,0.65); }
+.btn-skip:hover { color: #30291f; }
 
 .nav-btns { display: flex; gap: 0.5rem; }
 .btn-nav {
-  background: rgba(255,255,255,0.08);
-  border: 0.08rem solid rgba(255,255,255,0.18);
-  color: #fff;
+  background: #f5e9ca;
+  border: 0.08rem solid #dfcfa7;
+  color: #374558;
   border-radius: 0.5rem;
   padding: 0.45rem 1rem;
   font-size: 0.85rem;
@@ -658,11 +658,12 @@ export default {
 }
 .btn-nav:hover { background: rgba(255,255,255,0.15); }
 .btn-next, .btn-start {
-  background: linear-gradient(135deg, #00d4ff, #0078ff);
+  background: #2560a0;
+  color: #fff;
   border-color: transparent;
 }
 .btn-next:hover, .btn-start:hover {
-  background: linear-gradient(135deg, #22e0ff, #0088ff);
+  background: #1d4e83;
 }
 
 /* Transitions */

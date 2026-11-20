@@ -150,6 +150,23 @@
     "overview": "game16",
     "steps": []
   },
+  "game17": {
+    "overview": "game17",
+    "steps": [
+      {
+        "anchor": "4张图中有1张与其他不同，点击找出它！",
+        "clip": "game17-step-1"
+      },
+      {
+        "anchor": "答对得分！难度自动调整",
+        "clip": "game17-step-2"
+      },
+      {
+        "anchor": "不同种类+翻转",
+        "clip": "game17-step-3"
+      }
+    ]
+  },
   "game18": {
     "overview": "game18",
     "steps": [

@@ -85,30 +85,30 @@ export default {
 </script>
 
 <style scoped>
-.mask { position: fixed; inset: 0; background: rgba(3,10,22,.75); backdrop-filter: blur(10px);
+.mask { position: fixed; inset: 0; background: #e6efe3; backdrop-filter: blur(10px);
   z-index: 100; display: flex; align-items: center; justify-content: center; }
-.modal { width: min(760px, 94vw); max-height: 92vh; background: linear-gradient(180deg,#0e2447,#061128);
-  border: 1px solid rgba(80,180,255,.35); border-radius: 20px; box-shadow: 0 30px 90px rgba(0,0,0,.6); color: #eaf4ff;
+.modal { width: min(760px, 94vw); max-height: 92vh; background: #fafff7;
+  border: 1px solid rgba(80,180,255,.35); border-radius: 20px; box-shadow: 0 16px 50px rgba(40,76,58,.16); color: #2c4637;
   display: flex; flex-direction: column; overflow: hidden; }
 .mhead { display: flex; justify-content: space-between; align-items: center; padding: 2.2vh 3vh;
   border-bottom: 1px solid rgba(80,180,255,.2); }
-.mhead h2 { margin: 0; font-size: 2.4vh; color: #7ff0ff; letter-spacing: .08em; }
-.idx { margin-left: 1.2vh; font-size: 1.6vh; color: #7ea6d0; font-weight: 400; }
-.skip { padding: 1vh 2vh; background: transparent; color: #a0c4e8; border: 1px solid rgba(120,200,255,.35);
+.mhead h2 { margin: 0; font-size: 2.4vh; color: #245b60; letter-spacing: .08em; }
+.idx { margin-left: 1.2vh; font-size: 1.6vh; color: #4c6759; font-weight: 400; }
+.skip { padding: 1vh 2vh; background: transparent; color: #455d53; border: 1px solid rgba(120,200,255,.35);
   border-radius: 8px; cursor: pointer; font-size: 1.6vh; transition: .2s; }
-.skip:hover { color: #fff; background: rgba(120,200,255,.15); }
+.skip:hover { color: #204f46; background: rgba(120,200,255,.15); }
 
 .mbody { padding: 3vh 3vh 2vh; }
 .stage { display: flex; flex-direction: column; gap: 2.2vh; }
 
-.rule-screen { background: linear-gradient(180deg,#082044,#031029); border: 1px solid rgba(80,180,255,.4);
+.rule-screen { background: #edf6ec; border: 1px solid rgba(80,180,255,.4);
   border-radius: 14px; padding: 2vh; position: relative;
   box-shadow: 0 0 30px rgba(79,172,254,.15) inset; }
-.rs-label { position: absolute; top: .8vh; left: 1.2vh; font-size: 1.2vh; letter-spacing: .3em; color: #4facfe; opacity: .8; }
-.rs-content { text-align: center; font-size: 2.2vh; color: #eaf4ff; letter-spacing: .05em; }
+.rs-label { position: absolute; top: .8vh; left: 1.2vh; font-size: 1.2vh; letter-spacing: .3em; color: #3f6661; opacity: .8; }
+.rs-content { text-align: center; font-size: 2.2vh; color: #2c4637; letter-spacing: .05em; }
 .chip { display: inline-block; margin: 0 .6vh; padding: .4vh 1.2vh; border-radius: 8px; color: #fff; font-weight: 700;
   box-shadow: 0 6px 16px rgba(0,0,0,.3); }
-.hint { color: #7ff0ff; font-style: italic; }
+.hint { color: #245b60; font-style: italic; }
 
 .demo { position: relative; padding: 2vh 0 2vh; background: rgba(255,255,255,.02); border-radius: 14px; border: 1px solid rgba(120,200,255,.1); }
 .conveyor { position: relative; height: 8vh; margin: 0 3vh; background: linear-gradient(180deg,#1c3050,#0a1729);
@@ -145,11 +145,11 @@ export default {
   font-size: 3.2vh; color: #7ed957; font-weight: 900; text-shadow: 0 0 20px rgba(126,217,87,.7); animation: pop .6s ease; }
 @keyframes pop { 0% { opacity: 0; transform: translate(-50%,-50%) scale(.3) } 100% { opacity: 1; transform: translate(-50%,-50%) scale(1) } }
 
-.tip { text-align: center; padding: 1.6vh; font-size: 1.8vh; color: #a0c4e8; letter-spacing: .04em; }
+.tip { text-align: center; padding: 1.6vh; font-size: 1.8vh; color: #455d53; letter-spacing: .04em; }
 
 .mfoot { display: flex; align-items: center; justify-content: space-between; padding: 2vh 3vh;
   border-top: 1px solid rgba(80,180,255,.2); }
-.btn { padding: 1.3vh 2.4vh; background: rgba(255,255,255,.08); color: #eaf4ff;
+.btn { padding: 1.3vh 2.4vh; background: rgba(255,255,255,.08); color: #2c4637;
   border: 1px solid rgba(120,200,255,.35); border-radius: 10px; cursor: pointer; font-size: 1.8vh; font-weight: 600; transition: .2s; }
 .btn:hover:not(:disabled) { background: rgba(80,180,255,.2); }
 .btn:disabled { opacity: .3; cursor: not-allowed; }
