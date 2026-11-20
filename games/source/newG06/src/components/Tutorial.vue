@@ -67,12 +67,12 @@ export default {
 
 <style scoped>
 .modal-mask {
-  position: fixed; inset: 0; background: rgba(0,0,0,.7);
+  position: fixed; inset: 0; background: #f4ead0;
   display: flex; align-items: center; justify-content: center; z-index: 200;
 }
 .modal {
-  background: #1f1850; border: 1px solid #5d4cae; border-radius: 2vmin;
-  padding: 3vmin; color: #fff; width: 70vmin; max-width: 95vw;
+  background: #fffdf6; border: 1px solid #e4d5af; border-radius: 2vmin;
+  padding: 3vmin; color: #392b22; width: 70vmin; max-width: 95vw;
 }
 .modal h2 { text-align: center; font-size: 3vmin; margin-bottom: 2vmin; }
 .demo { display: flex; flex-direction: column; align-items: center; gap: 2vmin; }
@@ -102,10 +102,10 @@ export default {
 .modal-footer { margin-top: 2vmin; display: flex; justify-content: center; gap: 1.5vmin; }
 .menu-btn {
   padding: 1.5vmin 3vmin; font-size: 2vmin; border-radius: 1vmin;
-  border: 1px solid rgba(255,255,255,.3); background: rgba(255,255,255,.1);
-  color: #fff; cursor: pointer;
+  border: 1px solid #e4d5af; background: #f6edd8;
+  color: #392b22; cursor: pointer;
 }
-.menu-btn:hover:not(:disabled) { background: rgba(255,255,255,.2); }
+.menu-btn:hover:not(:disabled) { background: #efe2c2; }
 .menu-btn:disabled { opacity: .4; cursor: not-allowed; }
 .menu-btn.primary {
   background: linear-gradient(180deg, #f6c04a, #c98212); border-color: #f6c04a;

@@ -493,45 +493,45 @@ export default {
   background:
     radial-gradient(ellipse at 20% 0%, rgba(80,180,255,.14), transparent 45%),
     radial-gradient(ellipse at 80% 100%, rgba(179,127,235,.12), transparent 55%),
-    linear-gradient(180deg,#0d2a4d 0%,#061225 55%,#030814 100%);
-  color: #eaf4ff; user-select: none; }
+    linear-gradient(180deg,#f5fbf0 0%,#e8f1e3 65%,#dcead9 100%);
+  color: #2c4637; user-select: none; }
 
 /* ==== HUD ==== */
 .hud { position: absolute; top: 0; left: 0; right: 0; z-index: 10; padding: 2vh 3vw;
   display: grid; grid-template-columns: auto 1fr auto; gap: 2vw; align-items: center; }
 .hud-left { display: flex; gap: 1.5vw; }
 .stat { padding: 1.2vh 1.6vh; min-width: 90px;
-  background: linear-gradient(180deg,rgba(255,255,255,.08),rgba(255,255,255,.02));
+  background: #fcfff9;
   border: 1px solid rgba(120,200,255,.25); border-radius: 12px; backdrop-filter: blur(10px);
   box-shadow: 0 8px 24px rgba(0,0,0,.2); }
-.stat .lbl { font-size: 1.2vh; letter-spacing: .2em; color: #7ea6d0; text-transform: uppercase; }
+.stat .lbl { font-size: 1.2vh; letter-spacing: .2em; color: #4c6759; text-transform: uppercase; }
 .stat .val { font-size: 2.6vh; font-weight: 800; margin-top: .3vh;
-  background: linear-gradient(180deg,#eaf4ff,#a0c4e8); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
-.val.diff .lv { background: linear-gradient(90deg,#b37feb,#722ed1); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
-.val.score { background: linear-gradient(90deg,#ffd453,#ff8a5b); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
-.val.time { color: #7ff0ff; background: none; -webkit-text-fill-color: initial; font-variant-numeric: tabular-nums; }
-.val.time.danger { color: #ff6b6b; animation: dpulse .8s ease infinite; }
+  color: #254735; }
+.val.diff .lv { color:#674588; }
+.val.score { color:#824c19; }
+.val.time { color: #245b60; background: none; -webkit-text-fill-color: initial; font-variant-numeric: tabular-nums; }
+.val.time.danger { color: #a3263a; animation: dpulse .8s ease infinite; }
 @keyframes dpulse { 50% { opacity: .5 } }
 
 .hud-center { display: flex; justify-content: center; }
 .ruleboard { position: relative; width: min(560px, 44vw); padding: 1.6vh 3vh 1.4vh;
-  background: linear-gradient(180deg,#082044,#031029);
+  background: #f9fff7;
   border: 1px solid rgba(80,180,255,.5); border-radius: 16px;
   box-shadow: 0 0 40px rgba(79,172,254,.25) inset, 0 20px 40px rgba(0,0,0,.4); overflow: hidden; }
 .rb-glow { position: absolute; inset: -20% -30% auto -30%; height: 60%; background: radial-gradient(ellipse,rgba(79,172,254,.35),transparent 70%); pointer-events: none; }
-.rb-label { font-size: 1.2vh; letter-spacing: .3em; color: #4facfe; opacity: .85; }
+.rb-label { font-size: 1.2vh; letter-spacing: .3em; color: #3f6661; opacity: .85; }
 .rb-content { font-size: 2.4vh; margin-top: .6vh; letter-spacing: .04em; text-align: center; }
 .chip { display: inline-block; margin: 0 .6vh; padding: .4vh 1.6vh; border-radius: 8px; color: #fff; font-weight: 800;
   box-shadow: 0 6px 16px rgba(0,0,0,.4); }
-.qbar { margin-top: 1.2vh; height: 4px; background: rgba(255,255,255,.08); border-radius: 2px; overflow: hidden; }
+.qbar { margin-top: 1.2vh; height: 4px; background: #d3e3d9; border-radius: 2px; overflow: hidden; }
 .qbar-fill { height: 100%; transition: width .1s linear; box-shadow: 0 0 10px currentColor; }
 
 .hud-right { display: flex; gap: 1vh; }
-.hbtn { padding: 1.2vh 2vh; background: rgba(255,80,80,.15); color: #ffb3b3;
+.hbtn { padding: 1.2vh 2vh; background: #f8e4e6; color: #90263b;
   border: 1px solid rgba(255,107,107,.4); border-radius: 10px; cursor: pointer; font-size: 1.7vh; font-weight: 600;
   transition: .2s; backdrop-filter: blur(8px); }
-.hbtn:hover { background: rgba(255,80,80,.25); color: #fff; }
-.hbtn.ghost { background: rgba(255,255,255,.08); color: #eaf4ff; border-color: rgba(120,200,255,.35); }
+.hbtn:hover { background: #f3d4d8; }
+.hbtn.ghost { background: #fcfff9; color: #2c4637; border-color: rgba(120,200,255,.35); }
 .hbtn.ghost:hover { background: rgba(80,180,255,.2); }
 
 /* ==== 工厂舞台 ==== */
@@ -660,11 +660,11 @@ export default {
 .feedback { position: absolute; top: 40%; left: 50%; transform: translate(-50%,-50%);
   padding: 2vh 3vh; border-radius: 20px; text-align: center; z-index: 25;
   backdrop-filter: blur(10px); box-shadow: 0 20px 60px rgba(0,0,0,.5); }
-.feedback.correct { background: rgba(126,217,87,.2); border: 2px solid #7ed957; color: #d4ffb0; }
-.feedback.wrong { background: rgba(255,107,107,.2); border: 2px solid #ff6b6b; color: #ffd0d0; }
+.feedback.correct { background: #ddf5e1; border: 2px solid #4c9967; color: #1c5c39; }
+.feedback.wrong { background: #fce5e6; border: 2px solid #c3676b; color: #8c273a; }
 .fb-ico { font-size: 5vh; font-weight: 900; line-height: 1; }
 .fb-text { margin-top: .5vh; font-size: 1.8vh; letter-spacing: .1em; }
-.fb-score { margin-top: .5vh; font-size: 2.4vh; font-weight: 900; color: #ffd453; }
+.fb-score { margin-top: .5vh; font-size: 2.4vh; font-weight: 900; color: inherit; }
 .feedback-enter-active, .feedback-leave-active { transition: all .3s cubic-bezier(.2,.9,.3,1.2); }
 .feedback-enter, .feedback-leave-to { opacity: 0; transform: translate(-50%,-40%) scale(.7); }
 
@@ -735,10 +735,9 @@ export default {
 
 /* ==== 倒计时 ==== */
 .countdown { position: absolute; inset: 0; z-index: 50; display: flex; align-items: center; justify-content: center;
-  background: rgba(3,10,22,.6); backdrop-filter: blur(6px); }
+  background: rgba(238,247,234,.74); backdrop-filter: blur(6px); }
 .cd-num { font-size: 20vh; font-weight: 900; letter-spacing: .1em;
-  background: linear-gradient(180deg,#4facfe,#00f2fe); -webkit-background-clip: text; -webkit-text-fill-color: transparent;
-  text-shadow: 0 0 60px rgba(79,172,254,.6); animation: cdpulse .9s ease infinite; }
+  color: #245b60; animation: cdpulse .9s ease infinite; }
 @keyframes cdpulse { 0% { opacity: 0; transform: scale(.6) } 60% { opacity: 1; transform: scale(1.15) } 100% { opacity: 1; transform: scale(1) } }
 
 /* ==== 暂停弹窗 ==== */

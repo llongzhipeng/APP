@@ -262,9 +262,7 @@ function updateBalls(dt) {
 /* ─── Drawing ───────────────────────────────────────────── */
 function drawStar(ctx, cx, cy, r) {
   ctx.save()
-  ctx.fillStyle = '#FFD700'
-  ctx.shadowColor = '#FFD700'
-  ctx.shadowBlur = 10
+  ctx.fillStyle = '#b57103'
   ctx.beginPath()
   for (let i = 0; i < 5; i++) {
     const a = (i * 4 * Math.PI / 5) - Math.PI / 2
@@ -284,8 +282,7 @@ function draw(ts) {
   const w = c.width, h = c.height
 
   // Background
-  ctx.fillStyle = '#0d1117'
-  ctx.fillRect(0, 0, w, h)
+  ctx.clearRect(0, 0, w, h)
 
   const r = getBallRadius()
   const phaseElapsed = ts - (phaseStartTs || ts)
@@ -313,7 +310,7 @@ function draw(ts) {
       const pulse = Math.sin(phaseElapsed / 320) * 0.5 + 0.5
       ctx.beginPath()
       ctx.arc(b.x, b.y, r + 6 + pulse * 7, 0, Math.PI * 2)
-      ctx.strokeStyle = `rgba(255,215,0,${0.55 + pulse * 0.45})`
+      ctx.strokeStyle = `rgba(151,94,0,${0.65 + pulse * 0.35})`
       ctx.lineWidth = 3
       ctx.stroke()
       drawStar(ctx, b.x, b.y - r - 16, 9)
@@ -335,7 +332,7 @@ function draw(ts) {
     ctx.arc(b.x, b.y, r, 0, Math.PI * 2)
     ctx.fillStyle = '#4A90E2'
     ctx.fill()
-    ctx.strokeStyle = '#fff'
+    ctx.strokeStyle = '#28608f'
     ctx.lineWidth = 2
     ctx.stroke()
   })
@@ -356,11 +353,11 @@ function draw(ts) {
     ctx.textBaseline = 'middle'
 
     if (gs.feedback === 'correct') {
-      ctx.fillStyle = '#4CAF50'
+      ctx.fillStyle = '#17663d'
       ctx.shadowColor = '#4CAF50'
       ctx.shadowBlur = 20
     } else {
-      ctx.fillStyle = '#F44336'
+      ctx.fillStyle = '#9c283b'
       ctx.shadowColor = '#F44336'
       ctx.shadowBlur = 20
     }
@@ -613,7 +610,7 @@ onUnmounted(() => {
   height: 100%;
   display: flex;
   flex-direction: column;
-  background: #0d1117;
+  background: linear-gradient(145deg, #f2fbf3, #dfeee1);
   overflow: hidden;
 }
 

@@ -374,23 +374,25 @@ export default {
   width: 100%; height: 100%;
   display: flex; flex-direction: column;
   padding: 1.5vmin;
+  background: linear-gradient(145deg, #fff6f9, #f5e4ec);
+  color: #3b2537;
   overflow: hidden;
 }
 .header {
   display: flex; align-items: center; justify-content: space-between;
   padding: 1vmin 2vmin;
-  background: rgba(255,255,255,.06); border-radius: 1.5vmin;
+  background: #fffafc; border: 1px solid #e7ccd9; border-radius: 1.5vmin;
   flex-shrink: 0; flex-wrap: wrap; gap: 1.5vmin;
 }
 .info-group { display: flex; gap: clamp(16px, 4vmin, 40px); flex-wrap: wrap; }
 .info-item { display: flex; flex-direction: column; align-items: center; gap: 0.3vmin; }
-.info-label { font-size: clamp(11px, 1.6vmin, 18px); color: #7a9abc; text-transform: uppercase; letter-spacing: .05em; white-space: nowrap; }
-.info-val { font-size: clamp(18px, 2.8vmin, 30px); font-weight: 700; color: #e0eaf8; }
-.info-val.score { color: #f1c40f; }
-.info-val.urgent { color: #e74c3c; animation: blink 0.6s infinite; }
+.info-label { font-size: clamp(11px, 1.6vmin, 18px); color: #6b5062; text-transform: uppercase; letter-spacing: .05em; white-space: nowrap; }
+.info-val { font-size: clamp(18px, 2.8vmin, 30px); font-weight: 700; color: #3b2537; }
+.info-val.score { color: #87501a; }
+.info-val.urgent { color: #a12636; animation: blink 0.6s infinite; }
 @keyframes blink { 0%,100%{opacity:1} 50%{opacity:0.4} }
 .btn-return {
-  background: rgba(231,76,60,.2); color: #e87a6e;
+  background: #f9e2e7; color: #922839;
   padding: clamp(8px, 1vmin, 14px) clamp(16px, 2.5vmin, 32px);
   border-radius: 1.2vmin;
   font-size: clamp(14px, 2vmin, 22px); font-weight: 600;
@@ -400,23 +402,23 @@ export default {
 .btn-return:hover { background: rgba(231,76,60,.35); }
 .header-actions { display: flex; align-items: center; gap: 1.5vmin; flex-shrink: 0; }
 .btn-skip {
-  background: rgba(255,255,255,.1); color: #c5d8f5;
+  background: #f1e3ee; color: #54354b;
   padding: clamp(8px, 1vmin, 14px) clamp(16px, 2.5vmin, 32px);
   border-radius: 1.2vmin;
   font-size: clamp(14px, 2vmin, 22px); font-weight: 600;
   border: 1px solid rgba(255,255,255,.2); transition: all .2s;
 }
-.btn-skip:hover { background: rgba(255,255,255,.2); }
+.btn-skip:hover { background: #e9d5e4; }
 
 .question-bar {
   display: flex; align-items: center; justify-content: center;
   gap: 1.5vmin; padding: 1vmin 1.5vmin;
   flex-shrink: 0; flex-wrap: wrap; min-height: 6vmin;
 }
-.phase-text { font-size: clamp(16px, 2.6vmin, 28px); color: #c5d8f5; font-weight: 500; }
-.color-badge { width: clamp(20px, 3.6vmin, 40px); height: clamp(20px, 3.6vmin, 40px); border-radius: 0.8vmin; border: 2px solid rgba(255,255,255,.3); flex-shrink: 0; }
-.color-name { font-size: clamp(18px, 2.8vmin, 30px); font-weight: 700; color: #fff; }
-.mem-count { font-size: clamp(20px, 3.2vmin, 34px); font-weight: 700; color: #7eb8f7; min-width: 3vmin; text-align: center; }
+.phase-text { font-size: clamp(16px, 2.6vmin, 28px); color: #52364b; font-weight: 500; }
+.color-badge { width: clamp(20px, 3.6vmin, 40px); height: clamp(20px, 3.6vmin, 40px); border-radius: 0.8vmin; border: 2px solid #704f64; flex-shrink: 0; }
+.color-name { font-size: clamp(18px, 2.8vmin, 30px); font-weight: 700; color: #3b2537; }
+.mem-count { font-size: clamp(20px, 3.2vmin, 34px); font-weight: 700; color: #69528a; min-width: 3vmin; text-align: center; }
 
 .board-wrap {
   flex: 1 1 0; min-height: 0;

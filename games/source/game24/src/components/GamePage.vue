@@ -3,8 +3,8 @@
     <svg viewBox="0 0 1600 900" class="bg-svg" preserveAspectRatio="xMidYMid slice">
       <defs>
         <linearGradient id="bgGrad" x1="0" y1="0" x2="0" y2="1">
-          <stop offset="0%" stop-color="#0a1428"/>
-          <stop offset="100%" stop-color="#1a2a50"/>
+          <stop offset="0%" stop-color="#fff8ed"/>
+          <stop offset="100%" stop-color="#f2e5d4"/>
         </linearGradient>
       </defs>
       <rect width="1600" height="900" fill="url(#bgGrad)"/>
@@ -354,7 +354,7 @@ export default {
 <style scoped>
 .game-page {
   width: 100vw; height: 100vh;
-  background: #0a1428;
+  background: #fff8ed;
   display: flex; flex-direction: column;
   overflow: hidden; position: relative;
 }
@@ -367,20 +367,20 @@ export default {
 }
 .hud-left { display: flex; gap: 2vmin; }
 .hud-item {
-  background: rgba(10,30,70,0.85); backdrop-filter: blur(4px);
+  background: #fffdf8; backdrop-filter: blur(4px);
   padding: 1.2vmin 2vmin; border-radius: 1.5vmin;
   border: 0.2vmin solid rgba(74,144,217,0.5);
   display: flex; flex-direction: column; align-items: center; gap: 0.3vmin;
 }
-.hud-label { font-size: 1.2vmin; color: rgba(74,144,217,0.9); }
-.hud-value { font-size: 2.5vmin; font-weight: 800; color: #e8f0ff; }
-.level-badge { color: #ffd700; }
-.time-urgent { color: #fca5a5 !important; animation: blink 0.6s step-end infinite; }
+.hud-label { font-size: 1.2vmin; color: #50637a; }
+.hud-value { font-size: 2.5vmin; font-weight: 800; color: #2d4158; }
+.level-badge { color: #815108; }
+.time-urgent { color: #a2293d !important; animation: blink 0.6s step-end infinite; }
 @keyframes blink { 50% { opacity: 0.3; } }
 .hud-center { flex: 1; text-align: center; display: flex; align-items: center; justify-content: center; padding: 0 2vmin; }
 .task-msg {
-  font-size: 2vmin; color: #e8f0ff; font-weight: 700;
-  background: rgba(10,30,70,0.85); backdrop-filter: blur(6px);
+  font-size: 2vmin; color: #2d4158; font-weight: 700;
+  background: #fffdf8; backdrop-filter: blur(6px);
   padding: 1.5vmin 3vmin; border-radius: 2vmin;
   border: 0.2vmin solid rgba(74,144,217,0.5);
 }
@@ -409,10 +409,10 @@ export default {
 }
 .left-panel { flex-shrink: 0; }
 .right-panel { flex-shrink: 0; }
-.panel-label { font-size: 1.7vmin; color: rgba(232,240,255,0.75); font-weight: 600; text-align: center; }
+.panel-label { font-size: 1.7vmin; color: #3e5068; font-weight: 600; text-align: center; }
 
 .target-wrap, .tangram-wrap {
-  background: rgba(10,30,70,0.7); border: 0.3vmin solid rgba(74,144,217,0.5);
+  background: #fffdf7; border: 0.3vmin solid rgba(74,144,217,0.5);
   border-radius: 2vmin; padding: 2vmin;
   box-shadow: 0 0.5vmin 2vmin rgba(74,144,217,0.2);
   display: flex; align-items: center; justify-content: center;

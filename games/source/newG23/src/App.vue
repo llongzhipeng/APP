@@ -113,7 +113,7 @@
 
     <!-- ================= TUTORIAL ================= -->
     <transition name="fade">
-    <div v-if="view==='tutorial'" class="page panel" key="tutorial">
+    <div v-if="view==='tutorial'" class="page panel tutorial-page" key="tutorial">
       <div class="card mid">
         <div class="card-head">
           <h2>{{ t('tutorial') }}</h2>
@@ -851,6 +851,18 @@ button { font-family:inherit; }
 .hc-bar-fill { height:100%; background: linear-gradient(90deg,#22c55e,#3b82f6); transition: width .4s; }
 
 /* ====== tutorial ====== */
+.tutorial-page { background:linear-gradient(145deg,#fff6fa,#f1e7f7); color:#352944; }
+.tutorial-page .card { background:#fffafd; border-color:#e4d4e9; }
+.tutorial-page .tutor-demo { background:#f4edf7; border-color:#e4d4e9; }
+.tutorial-page .demo-hint { background:#eae0f0; }
+.tutorial-page .demo-word { background:#dbe2ee; }
+.tutorial-page .chip.ok { color:#17663d; }
+.tutorial-page .chip.no { color:#9c283b; }
+.tutorial-page .dot { background:#d6c5e3; }
+.tutorial-page .dot.on { background:#6350a5; }
+.tutorial-page .btn.ghost, .tutorial-page .btn.text { color:#4b3761; }
+.tutorial-page .btn.ghost { border-color:#dbcbe4; }
+
 .steps-dots { display:flex; gap:0.4em; }
 .dot { width:0.6em; height:0.6em; border-radius:50%; background: rgba(255,255,255,0.2); transition: all .3s; }
 .dot.on { background: #a5b4fc; width:1.6em; border-radius:1em; }
@@ -905,21 +917,22 @@ button { font-family:inherit; }
 .dur-actions { display:flex; justify-content:space-between; align-items:center; gap:1em; margin-top:0.5em; }
 
 /* ====== game ====== */
-.game { justify-content:flex-start; padding:0; }
+.game { justify-content:flex-start; padding:0; background:linear-gradient(145deg,#fff6fa,#f1e7f7); color:#352944; }
 .topbar { width:100%; display:grid; grid-template-columns: 1fr auto 1fr; align-items:center; gap:1em; padding:1.2em 1.8em; }
 .hud { display:flex; gap:0.8em; justify-self:start; }
-.hud-item { background:rgba(255,255,255,0.08); border:1px solid rgba(255,255,255,0.1); padding:0.5em 1em; border-radius:0.7em; min-width:5em; }
+.hud-item { background:#fffafd; border:1px solid #e4d4e9; padding:0.5em 1em; border-radius:0.7em; min-width:5em; }
 .hud-lbl { font-size:0.75em; opacity:0.6; letter-spacing:0.1em; text-transform:uppercase; }
 .hud-val { font-size:1.3em; font-weight:700; margin-top:0.1em; }
 .hud-val.mono { font-variant-numeric: tabular-nums; }
-.topbar .icon-btn.round { justify-self:end; }
+.topbar .icon-btn.round { justify-self:end; background:#fffafd; color:#4b3761; border-color:#dbcbe4; }
+.topbar-actions .btn.ghost { background:#fffafd; color:#4b3761; border-color:#dbcbe4; }
 .topbar-actions { justify-self:end; display:flex; gap:0.6em; align-items:center; }
 .btn.small { padding:0.55em 1.2em; font-size:0.95em; }
 
 .rule-pill {
   justify-self:center;
-  background: rgba(255,255,255,0.08);
-  border: 1px solid rgba(255,255,255,0.15);
+  background: #fffafd;
+  border: 1px solid #e4d4e9;
   padding: 0.7em 1.6em; border-radius: 2em;
   font-size: 1.25em; font-weight:500; white-space: nowrap;
   display:inline-flex; align-items:center; gap:0.5em;
@@ -928,7 +941,7 @@ button { font-family:inherit; }
 }
 .rp-ico { font-size:1.1em; }
 
-.progress-track { width:calc(100% - 3.6em); margin: 0 1.8em; height:0.35em; background:rgba(255,255,255,0.08); border-radius:1em; overflow:hidden; }
+.progress-track { width:calc(100% - 3.6em); margin: 0 1.8em; height:0.35em; background:#e1d2e7; border-radius:1em; overflow:hidden; }
 .progress-fill { height:100%; background: linear-gradient(90deg,#22d3ee,#6366f1,#ec4899); transition: width 1s linear; }
 
 .stage { flex:1; display:flex; flex-direction:column; align-items:center; justify-content:center; width:100%; gap:1.5em; position:relative; padding:1em; }
@@ -956,8 +969,8 @@ button { font-family:inherit; }
 
 .q-timer-ring { position:relative; display:inline-block; }
 .q-timer-ring svg { transform: rotate(-90deg); }
-.ring-bg { fill:none; stroke:rgba(255,255,255,0.1); stroke-width:5; }
-.ring-fg { fill:none; stroke:url(#lg1); stroke-width:5; stroke-linecap:round; transition: stroke-dashoffset 1s linear; stroke:#a5b4fc; }
+.ring-bg { fill:none; stroke:#d7c7e3; stroke-width:5; }
+.ring-fg { fill:none; stroke:url(#lg1); stroke-width:5; stroke-linecap:round; transition: stroke-dashoffset 1s linear; stroke:#6350a5; }
 .q-timer-txt { position:absolute; inset:0; display:flex; align-items:center; justify-content:center; font-size:1.4em; font-weight:700; }
 
 .answers { display:flex; gap:1.5em; }
@@ -980,16 +993,16 @@ button { font-family:inherit; }
 .feedback { position:fixed; inset:0; display:flex; flex-direction:column; align-items:center; justify-content:center; pointer-events:none; z-index:200; }
 .fb-icon { font-size:9em; font-weight:900; filter: drop-shadow(0 8px 24px rgba(0,0,0,0.4)); }
 .fb-text { font-size:2em; font-weight:700; margin-top:0.2em; }
-.feedback.ok { color:#4ade80; }
-.feedback.no { color:#f87171; }
+.feedback.ok { color:#17663d; }
+.feedback.no { color:#9c283b; }
 
 .level-toast {
   position:absolute; top:1em; left:50%; transform: translateX(-50%);
   padding:0.6em 1.2em; border-radius:2em; display:flex; align-items:center; gap:0.5em;
   font-weight:700; box-shadow:0 8px 24px rgba(0,0,0,0.3);
 }
-.level-toast.up { background: linear-gradient(135deg,#22c55e,#10b981); }
-.level-toast.down { background: linear-gradient(135deg,#f97316,#ef4444); }
+.level-toast.up { background:#dcf5e6; color:#17663d; }
+.level-toast.down { background:#fbe1e8; color:#9c283b; }
 
 /* ====== modal ====== */
 .modal { position:fixed; inset:0; background: rgba(0,0,0,0.55); backdrop-filter: blur(4px); display:flex; align-items:center; justify-content:center; z-index:100; }

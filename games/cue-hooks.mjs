@@ -19,6 +19,7 @@ const hooks = {
   game14: ['totalCorrect.value', '', 'currentLevel.value', 'totalAnswered.value'],
   game15: ['correctRounds.value', 'wrongRounds.value', 'difficulty.value'],
   game16: ['this.successQ', 'this.failQ', 'this.level'],
+  game17: ['correctRounds.value', 'wrongRounds.value', 'difficulty.value'],
   game18: ['totalCorrect.value', 'totalWrong.value', 'level.value'],
   game19: ['correctRounds.value', 'wrongRounds.value', 'difficulty.value'],
   game20: ['this.totalCorrect', 'this.totalWrong', 'this.level'],

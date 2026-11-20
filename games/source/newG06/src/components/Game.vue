@@ -379,8 +379,8 @@ export default {
 <style scoped>
 .game {
   position: relative; width: 100%; height: 100%;
-  background: #1a1140;
-  color: #fff; overflow: hidden;
+  background: linear-gradient(155deg, #fff9e8, #f4ead0);
+  color: #392b22; overflow: hidden;
   display: flex; flex-direction: column;
 }
 .hud {
@@ -390,19 +390,19 @@ export default {
 }
 .hud-left { display: flex; gap: 2vmin; }
 .hud-item {
-  background: rgba(0,0,0,.45); border: 1px solid rgba(255,255,255,.25);
+  background: #fffdf6; border: 1px solid #e4d5af;
   padding: 1vmin 2vmin; border-radius: 1vmin; font-size: 2vmin;
 }
 .hud-center { display: flex; justify-content: center; flex: 1; }
 .capsule {
   display: inline-flex; flex-direction: column; align-items: center; gap: .6vmin;
   padding: 1.2vmin 2.5vmin;
-  background: linear-gradient(180deg, rgba(255,255,255,.14), rgba(255,255,255,.05));
-  border: 1px solid rgba(255,255,255,.25);
+  background: #fffdf6;
+  border: 1px solid #e4d5af;
   border-radius: 2.2vmin;
   box-shadow: 0 .4vmin 1.2vmin rgba(0,0,0,.35), inset 0 .1vmin 0 rgba(255,255,255,.15);
   backdrop-filter: blur(4px);
-  font-size: 2vmin; color: #fff;
+  font-size: 2vmin; color: #392b22;
   max-width: 90%;
 }
 .capsule-row {
@@ -421,15 +421,15 @@ export default {
 }
 .capsule .rule-text { opacity: .9; white-space: nowrap; }
 .capsule .phase-text { font-weight: bold; white-space: nowrap; font-size: 1.9vmin; }
-.capsule .phase-text.memorize { color: #f6c04a; }
-.capsule .phase-text.play     { color: #5cffb0; }
+.capsule .phase-text.memorize { color: #815108; }
+.capsule .phase-text.play     { color: #146446; }
 .capsule .phase-text b { font-variant-numeric: tabular-nums; margin-left: .3vmin; }
 .hud-right { display: flex; gap: 1.2vmin; align-items: center; }
 .back-btn {
   padding: 1.2vmin 2.5vmin; font-size: 2vmin; border-radius: 1vmin;
-  background: rgba(200,40,40,.5); color: #fff; border: 1px solid rgba(255,255,255,.3); cursor: pointer;
+  background: #f8e2dd; color: #8a2434; border: 1px solid rgba(255,255,255,.3); cursor: pointer;
 }
-.back-btn:hover { background: rgba(220,60,60,.7); }
+.back-btn:hover { background: #f4cec8; }
 .skip-btn {
   padding: 1.2vmin 2.5vmin; font-size: 2vmin; border-radius: 1vmin;
   background: rgba(120,120,140,.5); color: #fff;
@@ -506,7 +506,7 @@ export default {
   display: flex; align-items: center; justify-content: center; z-index: 300;
 }
 .modal {
-  background: #1f1850; border: 1px solid #5d4cae; border-radius: 2vmin;
+  background: #1f1850; color: #fff; border: 1px solid #5d4cae; border-radius: 2vmin;
   padding: 3vmin 4vmin; color: #fff; min-width: 40vmin; text-align: center;
 }
 .modal p { font-size: 2.4vmin; margin-bottom: 2vmin; }

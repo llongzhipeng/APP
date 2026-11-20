@@ -72,11 +72,11 @@ export default {
 
 <style scoped>
 .overlay {
-  position: fixed; inset: 0; background: rgba(0,0,0,.7);
+  position: fixed; inset: 0; background: #f3e3ec;
   display: flex; align-items: center; justify-content: center; z-index: 100;
 }
 .modal {
-  background: #16213e; border-radius: 2vmin; padding: 3vmin;
+  background: #fff9fc; color: #3b2537; border: 1px solid #e7ccd9; border-radius: 2vmin; padding: 3vmin;
   width: min(70vmin, 92vw); max-height: 92vh; overflow-y: auto;
   display: flex; flex-direction: column;
   align-items: center; gap: 2.5vmin;
@@ -89,13 +89,13 @@ export default {
   transition: background .5s; border: 2px solid rgba(255,255,255,.15);
 }
 .hidden-block { background: #2a3a5a !important; }
-.demo-label { font-size: 2.2vmin; color: #a0c4f5; text-align: center; }
+.demo-label { font-size: 2.2vmin; color: #6b5062; text-align: center; }
 .question-card {
   display: flex; align-items: center; gap: 1.5vmin;
-  background: rgba(255,255,255,.08); border-radius: 1.5vmin;
+  background: #f3e5ee; border-radius: 1.5vmin;
   padding: 1.2vmin 2.5vmin;
 }
-.q-arrow { font-size: 3.5vmin; font-weight: 700; color: #fff; }
+.q-arrow { font-size: 3.5vmin; font-weight: 700; color: #54354b; }
 .q-color-box { width: 4vmin; height: 4vmin; border-radius: 0.8vmin; border: 2px solid rgba(255,255,255,.3); }
 .correct-pulse { animation: pulse .6s ease; }
 @keyframes pulse { 0%,100%{transform:scale(1)} 50%{transform:scale(1.2)} }
@@ -110,17 +110,17 @@ export default {
   flex-wrap: wrap; justify-content: center; width: 100%;
 }
 .btn-skip {
-  background: transparent; color: #7a8aaa;
+  background: transparent; color: #6b5062;
   font-size: clamp(13px, 1.8vmin, 18px); text-decoration: underline;
   padding: 0.6vmin 1.2vmin;
 }
 .btn-nav {
-  background: rgba(255,255,255,.1); color: #c5d8f5;
+  background: #f1e3ee; color: #54354b;
   padding: clamp(8px, 1.2vmin, 16px) clamp(16px, 3vmin, 30px);
   border-radius: 1.2vmin; font-size: clamp(14px, 2vmin, 22px);
   min-width: 12vmin;
 }
-.btn-nav:hover { background: rgba(255,255,255,.18); }
+.btn-nav:hover { background: #e9d5e4; }
 .btn-done {
   background: #3a7bd5; color: #fff;
   padding: clamp(8px, 1.2vmin, 16px) clamp(16px, 3vmin, 30px);

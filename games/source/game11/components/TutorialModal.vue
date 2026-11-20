@@ -61,7 +61,7 @@ let startTime = null
 let stepState = null
 
 /* ── helpers ─────────────────────────────────────────────── */
-function drawBall(ctx, x, y, r, color = '#4A90E2', strokeColor = '#fff') {
+function drawBall(ctx, x, y, r, color = '#4A90E2', strokeColor = '#28608f') {
   ctx.beginPath()
   ctx.arc(x, y, r, 0, Math.PI * 2)
   ctx.fillStyle = color
@@ -71,7 +71,7 @@ function drawBall(ctx, x, y, r, color = '#4A90E2', strokeColor = '#fff') {
   ctx.stroke()
 }
 
-function drawStar(ctx, cx, cy, r, color = '#FFD700') {
+function drawStar(ctx, cx, cy, r, color = '#b57103') {
   ctx.save()
   ctx.fillStyle = color
   ctx.shadowColor = color
@@ -125,7 +125,7 @@ function drawStep1(ctx, w, h, elapsed) {
     const pulse = Math.sin((loopT - 400) / 350) * 0.5 + 0.5
     ctx.beginPath()
     ctx.arc(cx1, cy1, r + 6 + pulse * 7, 0, Math.PI * 2)
-    ctx.strokeStyle = `rgba(255,215,0,${0.55 + pulse * 0.45})`
+    ctx.strokeStyle = `rgba(151,94,0,${0.65 + pulse * 0.35})`
     ctx.lineWidth = 3
     ctx.stroke()
 
@@ -267,7 +267,7 @@ function drawStep4(ctx, w, h, elapsed) {
     ctx.globalAlpha = sp > 0.8 ? 1 - (sp - 0.8) / 0.2 : sp / 0.15 > 1 ? 1 : sp / 0.15
     ctx.globalAlpha = Math.min(1, sp * 5)
     ctx.font = `bold ${Math.min(w, h) * 0.14}px Arial`
-    ctx.fillStyle = '#FFD700'
+    ctx.fillStyle = '#815108'
     ctx.textAlign = 'center'
     ctx.shadowColor = '#FF8C00'
     ctx.shadowBlur = 10
@@ -307,13 +307,6 @@ function render(ts) {
   const h = canvas.height
 
   ctx.clearRect(0, 0, w, h)
-
-  // Background
-  const grad = ctx.createLinearGradient(0, 0, 0, h)
-  grad.addColorStop(0, '#1a1035')
-  grad.addColorStop(1, '#0d0820')
-  ctx.fillStyle = grad
-  ctx.fillRect(0, 0, w, h)
 
   switch (currentStep.value) {
     case 0: drawStep1(ctx, w, h, elapsed); break
@@ -372,7 +365,7 @@ onUnmounted(() => {
 .tutorial-overlay {
   position: fixed;
   inset: 0;
-  background: rgba(102, 78, 162, 0.5);
+  background: #e5f1e6;
   backdrop-filter: blur(4px);
   display: flex;
   align-items: center;
@@ -426,6 +419,7 @@ onUnmounted(() => {
   height: 100%;
   display: block;
   border-radius: 12px;
+  background: linear-gradient(145deg, #f2fbf3, #dfeee1);
 }
 
 .nav-row {
