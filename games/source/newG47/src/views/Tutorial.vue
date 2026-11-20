@@ -10,7 +10,7 @@
       <div class="body">
         <transition name="fade" mode="out-in">
           <div class="step" :key="step">
-            <div class="demo">
+            <div class="demo" :class="{ 'demo-quiz-frame': step === 3 }">
               <!-- 步骤1: 观察被高亮物品的位置 -->
               <div v-if="step === 1" class="room-demo">
                 <Room :scene="demoScene" :placements="demoPlacements" />
@@ -114,11 +114,13 @@ export default {
 .step { display: grid; grid-template-columns: 1.2fr 1fr; gap: 4vmin; align-items: center; }
 @media (max-width: 720px) { .step { grid-template-columns: 1fr; } }
 .demo { aspect-ratio: 4/3; position: relative; border-radius: 2vmin; overflow: hidden; background: #000; }
+.demo-quiz-frame { aspect-ratio: auto; }
 .room-demo { width: 100%; height: 100%; position: relative; }
 .demo-label { position: absolute; top: 1.5vmin; left: 1.5vmin; background: rgba(0,0,0,0.7); padding: 1.2vmin 2vmin; border-radius: 999px; font-size: 2vmin; z-index: 10; font-weight: 600; }
 .demo-label.pulse { animation: p 1s ease infinite; }
 @keyframes p { 50% { transform: scale(1.05); background: rgba(239, 71, 111, 0.9); } }
 .quiz-demo, .score-demo { width: 100%; height: 100%; display: flex; flex-direction: column; justify-content: center; align-items: center; padding: 3vmin; background: linear-gradient(135deg, #34497a, #1a1a3e); gap: 2vmin; }
+.quiz-demo { height: auto; }
 .q { font-size: 2.2vmin; text-align: center; margin-bottom: 1vmin; font-weight: 600; }
 .opts { display: grid; grid-template-columns: 1fr 1fr; gap: 1.4vmin; width: 100%; }
 .opt {

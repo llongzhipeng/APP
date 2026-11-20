@@ -1,0 +1,20 @@
+[data-training-tutorial] {
+  box-sizing: border-box;
+  max-height: var(--tutorial-viewport-max) !important;
+  max-height: min(var(--tutorial-original-max), var(--tutorial-viewport-max)) !important;
+  min-height: 0 !important;
+  overflow-y: auto !important;
+  overscroll-behavior: contain;
+}
+
+[data-training-tutorial] [data-tutorial-font] {
+  font-size: var(--tutorial-font-size) !important;
+  line-height: 1.35 !important;
+  white-space: normal !important;
+  overflow-wrap: anywhere;
+  transition-property: color, background-color, border-color, opacity, transform, box-shadow !important;
+}
+
+[data-training-tutorial] [data-tutorial-font="button"] {
+  min-height: var(--tutorial-touch-height) !important;
+}

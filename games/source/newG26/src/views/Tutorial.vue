@@ -135,6 +135,7 @@ export default {
 .demo {
   display: grid;
   grid-template-columns: 1fr 1.1fr 1fr;
+  grid-template-rows: minmax(0, 1fr);
   gap: 0.6rem;
   align-items: center;
   flex: 1 1 auto;
@@ -154,7 +155,7 @@ export default {
   transition: transform .3s ease;
   overflow: hidden;
 }
-.demo-mn >>> .metronome { max-height: calc(100% - 1.8rem); }
+.demo-mn >>> .metronome { min-height: 0; max-height: calc(100% - 2.5rem); }
 .demo-mn >>> .mn-chip { display: none; } /* 教程用下方 mn-tag，避免与中间按键叠字 */
 .demo-mn.left  { color: var(--left); }
 .demo-mn.right { color: var(--right); }

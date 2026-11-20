@@ -65,8 +65,10 @@ for (const directory of directories) {
         import { initializeGameBridge } from ${JSON.stringify(join(bridge, 'session.js'))};
         import { initializeTrainingAudio } from ${JSON.stringify(join(bridge, 'audio/cues.js'))};
         import { installGameControls } from ${JSON.stringify(join(bridge, 'controls.js'))};
+        import { initializeTutorialReading } from ${JSON.stringify(join(bridge, 'tutorial-reading.js'))};
         Vue.config.productionTip = false;
         initializeTrainingAudio(${JSON.stringify(directory)});
+        initializeTutorialReading(${JSON.stringify(directory)});
         initializeGameBridge();
         new Vue({ render: h => h(App) }).$mount('#app');
         installGameControls();
