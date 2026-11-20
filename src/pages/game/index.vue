@@ -121,6 +121,7 @@ function saveResult() {
   })()
     .then(() => {
       saved = true
+      uni.$emit('today-training-record-saved', { planId, taskId: task.value.id })
       status.value = '已记录本次训练'
       uni.showToast({ title: '训练已记录', icon: 'success' })
       return true

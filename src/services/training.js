@@ -32,7 +32,7 @@ function request(path, method, data, token) {
     uni.request({
       url: baseUrl + path, method, data,
       header: {
-        ...(method === 'POST' ? { 'Content-Type': 'application/json' } : {}),
+        ...(method === 'POST' ? { 'Content-Type': 'application/json' } : { 'Cache-Control': 'no-cache' }),
         ...(token ? { Authorization: 'Bearer ' + token } : {}),
       },
       timeout: 12000,

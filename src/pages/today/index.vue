@@ -1,7 +1,7 @@
 <script setup>
 import { getTrainingLanguage, setTrainingLanguage } from '../../services/language'
 import { computed, ref } from 'vue'
-import { onPullDownRefresh, onShow } from '@dcloudio/uni-app'
+import { onLoad, onPullDownRefresh, onShow, onUnload } from '@dcloudio/uni-app'
 import Brand from '../../components/Brand.vue'
 import TrainingCard from '../../components/TrainingCard.vue'
 import { catalogCategory, games, trainingCategories } from '../../services/games'
@@ -39,7 +39,20 @@ const dateText = computed(() => {
   const [year, month, day] = (plan.value?.date || dayKey()).split('-').map(Number)
   return `${month}月${day}日 星期${'日一二三四五六'[new Date(year, month - 1, day).getDay()]}`
 })
+const pendingTasks = new Set()
+const syncing = ref(false)
+const syncNotice = ref('')
 let lastLoad = 0
+
+function markSaved({ planId, taskId }) {
+  if (plan.value?.id === planId) pendingTasks.add(taskId)
+}
+
+onLoad(() => uni.$on('today-training-record-saved', markSaved))
+onUnload(() => {
+  lastLoad++
+  uni.$off('today-training-record-saved', markSaved)
+})
 
 async function refresh() {
   const current = getSession()
@@ -51,14 +64,28 @@ async function refresh() {
   session.value = current
   busy.value = true
   error.value = ''
+  syncNotice.value = ''
+  syncing.value = pendingTasks.size > 0
   try {
-    const next = await getTodayPlan(current)
-    if (load === lastLoad) plan.value = next
+    for (const delay of [0, 800, 1600]) {
+      if (delay) await new Promise(resolve => setTimeout(resolve, delay))
+      if (load !== lastLoad) return
+      const next = await getTodayPlan(current)
+      if (load !== lastLoad) return
+      if (plan.value?.id !== next.id) pendingTasks.clear()
+      plan.value = next
+      for (const task of next.tasks) {
+        if (task.completed) pendingTasks.delete(task.id)
+      }
+      if (pendingTasks.size === 0) break
+    }
+    if (pendingTasks.size) syncNotice.value = '训练记录已提交，后台尚未更新完成状态。可刷新方案查看。'
   } catch (cause) {
     if (load === lastLoad) error.value = cause.message
   } finally {
     if (load === lastLoad) {
       busy.value = false
+      syncing.value = false
       uni.stopPullDownRefresh()
     }
   }
@@ -113,6 +140,9 @@ function openPractice(game) {
             <button class="secondary" :disabled="busy" @click="refresh">{{ busy ? '刷新中…' : '刷新方案' }}</button>
             <button v-if="showTrainingLibrary" class="secondary" @click="view = 'library'">全部训练</button>
           </view>
+        </view>
+        <view v-if="syncing || syncNotice" class="sync-notice" role="status">
+          {{ syncing ? '正在同步训练进度…' : syncNotice }}
         </view>
         <view v-if="plan" class="progress-card">
           <view class="progress-summary">
@@ -197,6 +227,7 @@ function openPractice(game) {
 .headline { display: block; color: #233b75; font-size: 27px; font-weight: 800; line-height: 1.25; }
 .library-description { margin-top: 5px; }
 .progress-card, .section { border-radius: 13px; border: 1px solid #dce5f2; background: #fff; box-shadow: 0 3px 10px #1c3d7310; }
+.sync-notice { margin-bottom: 12px; color: #536686; font-size: 14px; }
 .progress-card { padding: 15px 18px; margin-bottom: 16px; }
 .stat-label { font-size: 13px; color: #536686; font-weight: 600; }
 .total { display: flex; align-items: baseline; gap: 6px; margin-top: 2px; color: #536686; font-weight: 650; }
