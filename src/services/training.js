@@ -23,6 +23,10 @@ export function logout() {
   uni.reLaunch({ url: '/pages/login/index' })
 }
 
+function invalidPinError() {
+  return Object.assign(new Error('PIN 码不正确'), { code: 'INVALID_PIN' })
+}
+
 function request(path, method, data, token) {
   return new Promise((resolve, reject) => {
     uni.request({
@@ -38,6 +42,11 @@ function request(path, method, data, token) {
           resolve(body.data)
           return
         }
+        if (path === '/login/pin' && statusCode < 500 &&
+            ([400, 401].includes(statusCode) || ['400', '401'].includes(String(code)))) {
+          reject(invalidPinError())
+          return
+        }
         if (token && (statusCode === 401 || String(code) === '401')) {
           if (getSession()?.token === token) logout()
           reject(new Error('登录已过期，请重新登录'))
@@ -46,7 +55,7 @@ function request(path, method, data, token) {
         reject(new Error(typeof body?.msg === 'string' && body.msg.trim()
           ? body.msg : token ? '请求失败，请刷新后重试' : '登录失败，请检查训练码和 PIN'))
       },
-      fail() { reject(new Error('网络连接失败，请检查网络后重试')) },
+      fail() { reject(Object.assign(new Error('网络连接失败，请检查网络后重试'), { code: 'NETWORK_ERROR' })) },
     })
   })
 }
@@ -54,7 +63,7 @@ function request(path, method, data, token) {
 export async function signIn(trainingCode, pin) {
   let session
   if (isDemo) {
-    if (trainingCode.toUpperCase() !== demoCode || pin !== demoPin) throw new Error('训练码或 PIN 不正确')
+    if (trainingCode.toUpperCase() !== demoCode || pin !== demoPin) throw invalidPinError()
     session = { token: 'local-demo', patient: { id: 'demo', name: '演示用户', storeNo: 'DEMO-001' } }
   } else {
     const data = await request('/login/pin', 'POST', { code: trainingCode, pin })
