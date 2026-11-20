@@ -369,6 +369,7 @@
 
 <script>
 import { messages } from './i18n.js'
+import audioManifest from '../public/audio/manifest.json'
 import { DIFF, buildQuestion } from './words.js'
 import Teacher from './Teacher.vue'
 import { resolveArchiveId, submitPbGameEndRecord, toPbGameSeconds } from '@/views/game/utils/pbGameAppHelper'
@@ -384,7 +385,7 @@ export default {
   components: { Teacher },
   data() {
     return {
-      lang: (localStorage.getItem(LANG_KEY) || (navigator.language||'zh').startsWith('zh') ? 'zh' : 'en'),
+      lang: localStorage.getItem(LANG_KEY) === 'en' ? 'en' : 'zh',
       screen: 'home',
       showRules: false,
       showHistory: false,
@@ -421,8 +422,6 @@ export default {
       qTickId: null,
       listenTimeouts: [],
       voices: [],
-      // Audio manifest: { zh: {word: filename}, en: {...} }
-      audioManifest: null,
       archiveId: -1, // 患者 archiveId
       showBatchSkip: false, // 是否显示批次跳过
     }
@@ -518,7 +517,6 @@ export default {
     this.updateScale()
     window.addEventListener('resize', this.updateScale)
     this.initTTS()
-    this.loadAudioManifest()
     applyBatchTutorialEntry(GAME_TYPE, {
       setDuration: (dur) => { this.durationMin = dur },
       openTutorial: () => { this.goTutorial() },
@@ -573,7 +571,7 @@ export default {
     startGame() {
       // Warm up TTS on user gesture — some tablets need a synchronous
       // speak() call inside a user tap to unlock later utterances.
-      this.warmUpTTS()
+      if (this.lang === 'en') this.warmUpTTS()
       this.totalDuration = this.durationMin * 60
       this.remaining = this.totalDuration
       this.level = getBatchStartDifficultyForGame(GAME_TYPE)
@@ -659,13 +657,13 @@ export default {
       }
       this.speakOne(w, advance)
     },
-    // Unified speak: play pre-generated Yunyang MP3.
+    // Use the recorded word bank for the selected language.
     // Fall back to native TTS only if the local file is missing.
     speakOne(word, onDone) {
       this._speakLocal(word, onDone)
     },
     _speakLocal(word, onDone) {
-      const map = this.audioManifest && this.audioManifest[this.lang]
+      const map = audioManifest[this.lang]
       const fname = map && map[word]
       if (!fname) {
         this.log(`local "${word}" → not in manifest, falling back to native`)
@@ -683,7 +681,14 @@ export default {
       try {
         const audio = new Audio(url)
         audio.preload = 'auto'
-        audio.onplay = () => this.log(`local "${word}" → onplay`)
+        const fb = setTimeout(() => {
+          if (advanced) return
+          advanced = true
+          audio.pause()
+          this._speakNative(word, onDone)
+        }, 3000)
+        this.listenTimeouts.push(fb)
+        audio.onplay = () => clearTimeout(fb)
         audio.onended = () => { this.log(`local "${word}" → onended`); advance('local-onended') }
         audio.onerror = () => {
           const err = audio.error
@@ -697,33 +702,40 @@ export default {
             if (!advanced) { advanced = true; this._speakNative(word, onDone) }
           })
         }
-        const fb = setTimeout(() => {
-          if (!advanced) {
-            this.log(`local "${word}" → 3s timeout, falling back to native`)
-            advanced = true
-            this._speakNative(word, onDone)
-          }
-        }, 3000)
-        this.listenTimeouts.push(fb)
       } catch(e) {
         this.log(`local speak threw: ${e.message}`)
         this._speakNative(word, onDone)
       }
     },
-    loadAudioManifest() {
-      fetch('audio/manifest.json')
-        .then(r => r.ok ? r.json() : Promise.reject(new Error('HTTP '+r.status)))
-        .then(m => {
-          this.audioManifest = m
-          const zc = Object.keys(m.zh||{}).length
-          const ec = Object.keys(m.en||{}).length
-          this.log(`✅ audio manifest loaded: zh=${zc}, en=${ec}`)
-        })
-        .catch(e => {
-          this.log(`❌ audio manifest load failed: ${e.message} — will fall back to native TTS`)
-        })
-    },
     _speakNative(word, onDone, voiceMatch) {
+      if (this.lang === 'zh') {
+        // A WebView may ignore a requested locale and use its default English voice.
+        const voices = window.speechSynthesis?.getVoices() || []
+        const mandarin = voices.find(v => /^(?:zh[-_]CN|zh[-_]Hans(?:[-_]CN)?|cmn(?:[-_]Hans)?(?:[-_]CN)?)$/i.test(v.lang))
+        if (!mandarin || !window.SpeechSynthesisUtterance) {
+          onDone?.('mandarin-unavailable')
+          return
+        }
+        const utterance = new SpeechSynthesisUtterance(word)
+        utterance.voice = mandarin
+        utterance.lang = mandarin.lang
+        utterance.rate = 0.94
+        let finished = false
+        const finish = () => {
+          if (finished) return
+          finished = true
+          onDone?.('mandarin-fallback')
+        }
+        utterance.onend = finish
+        utterance.onerror = finish
+        this.listenTimeouts.push(setTimeout(finish, 3000))
+        try { window.speechSynthesis.speak(utterance) } catch { finish() }
+        return
+      }
+      if (!window.speechSynthesis || !window.SpeechSynthesisUtterance) {
+        this._speakCloud(word, onDone)
+        return
+      }
       const u = new SpeechSynthesisUtterance(word)
       u.lang = this.lang === 'zh' ? 'zh-CN' : 'en-US'
       u.rate = 0.85

@@ -769,7 +769,7 @@ export default {
   data() {
     return {
       view: 'home',
-      lang: (localStorage.getItem(LANG_KEY) || (navigator.language && navigator.language.startsWith('zh') ? 'zh' : 'en')),
+      lang: localStorage.getItem(LANG_KEY) === 'en' ? 'en' : 'zh',
       difficulties: DIFFICULTIES,
       tutStep: 0,
       tutAnim: 0,
