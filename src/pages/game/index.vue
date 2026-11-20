@@ -16,6 +16,7 @@ let game
 let result
 let savePromise
 let saved = false
+let attemptedSave = false
 let leaving = false
 let promptOpen = false
 let skipping = false
@@ -42,7 +43,7 @@ onLoad(async ({ plan, task: taskId, practice }) => {
     }
     const dailyPlan = await getTodayPlan(session)
     const selected = dailyPlan.tasks.find(item => matchId(item.id, taskId))
-    if (!matchId(dailyPlan.id, plan) || !selected || selected.completed) {
+    if (!matchId(dailyPlan.id, plan) || !selected?.playable || selected.completed) {
       throw new Error('任务已变更或已完成，请返回查看今日方案')
     }
     game = findGame(selected.gameKey)
@@ -108,7 +109,16 @@ function saveResult() {
   if (saved) return Promise.resolve(true)
   if (savePromise) return savePromise
   status.value = '正在保存…'
-  savePromise = completeTask(session, planId, task.value.id, result)
+  savePromise = (async () => {
+    if (attemptedSave) {
+      const latest = await getTodayPlan(session)
+      const row = latest.tasks.find(item => item.id === task.value.id)
+      if (latest.id !== planId || !row) throw new Error('今日计划已变更')
+      if (row.completed) return
+    }
+    attemptedSave = true
+    await completeTask(session, planId, task.value, result)
+  })()
     .then(() => {
       saved = true
       status.value = '已记录本次训练'
@@ -166,7 +176,7 @@ async function skipTask() {
       const latest = await getTodayPlan(session)
       const index = latest.tasks.findIndex(item => item.id === task.value.id)
       if (String(latest.id) === String(planId) && index !== -1) {
-        const next = latest.tasks.slice(index + 1).find(item => !item.completed && findGame(item.gameKey))
+        const next = latest.tasks.slice(index + 1).find(item => !item.completed && item.playable)
         if (next) {
           destination = `/pages/game/index?plan=${encodeURIComponent(planId)}&task=${encodeURIComponent(next.id)}`
         }

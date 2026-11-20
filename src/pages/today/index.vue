@@ -20,11 +20,19 @@ function switchLanguage() {
   setTrainingLanguage(language.value)
 }
 const tasks = computed(() => plan.value?.tasks ?? [])
-const nextTask = computed(() => tasks.value.find(task => !task.completed))
+const nextTask = computed(() => tasks.value.find(task => !task.completed && task.playable))
 const canOpenTask = computed(() => !busy.value && !error.value && !openingTask.value)
 const library = computed(() => games.filter(game => catalogCategory(game) === category.value))
 const completed = computed(() => tasks.value.filter(task => task.completed).length)
-const remaining = computed(() => tasks.value.reduce((sum, task) => sum + (task.completed ? 0 : task.estimatedMinutes), 0))
+const remaining = computed(() => tasks.value.reduce((sum, task) =>
+  sum + (task.completed ? 0 : Math.max(0, task.estimatedMinutes - task.completedMinutes)), 0))
+function taskNote(task) {
+  const parts = [task.estimatedMinutes + ' 分钟', '难度 ' + task.difficulty + ' 级']
+  if (task.completed || task.completedMinutes) parts.push('已训练 ' + Number(task.completedMinutes.toFixed(2)) + ' 分钟')
+  if (task.completed && task.updatedAt) parts.push('状态更新于 ' + task.updatedAt)
+  if (!task.completed && !task.playable) parts.push('暂不可启动')
+  return parts.join(' · ')
+}
 const percent = computed(() => tasks.value.length ? Math.round(100 * completed.value / tasks.value.length) : 0)
 const dateText = computed(() => {
   const [year, month, day] = (plan.value?.date || dayKey()).split('-').map(Number)
@@ -59,7 +67,7 @@ onShow(refresh)
 onPullDownRefresh(refresh)
 
 function openTask(task) {
-  if (!canOpenTask.value || !task || task.completed) return
+  if (!canOpenTask.value || !task?.playable || task.completed) return
   const planId = encodeURIComponent(plan.value.id)
   const taskId = encodeURIComponent(task.id)
   openingTask.value = true
@@ -122,7 +130,7 @@ function openPractice(game) {
               </view>
               <view class="time-stat">
                 <text class="stat-label">剩余时长</text>
-                <view class="minutes">{{ remaining }} <text>分钟</text></view>
+                <view class="minutes">{{ Number(remaining.toFixed(2)) }} <text>分钟</text></view>
               </view>
             </view>
             <view class="progress-line">
@@ -145,8 +153,8 @@ function openPractice(game) {
             <view v-else-if="!tasks.length" class="empty">今天暂无训练任务</view>
             <view v-else class="daily-list">
               <TrainingCard v-for="task in tasks" :key="task.id" task-row :game-key="task.gameKey" :title="task.title"
-                :note="`${task.estimatedMinutes} 分钟 · 难度 ${task.difficulty} 级`"
-                :completed="task.completed" :disabled="task.completed || !canOpenTask" @select="openTask(task)" />
+                :note="taskNote(task)"
+                :completed="task.completed" :disabled="task.completed || !task.playable || !canOpenTask" @select="openTask(task)" />
             </view>
           </view>
         </template>
