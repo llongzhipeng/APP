@@ -1,3 +1,4 @@
+import { bindTrainingLanguage } from '@/language.js'
 import { reactive } from '@vue/composition-api'
 
 export const langState = reactive({ current: 'zh' })
@@ -179,3 +180,5 @@ export function t(key) {
   const locale = translations[langState.current] || {}
   return locale[key] !== undefined ? locale[key] : key
 }
+
+bindTrainingLanguage(() => langState.current, value => { langState.current = value })

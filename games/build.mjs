@@ -66,11 +66,14 @@ for (const directory of directories) {
         import { initializeTrainingAudio } from ${JSON.stringify(join(bridge, 'audio/cues.js'))};
         import { installGameControls } from ${JSON.stringify(join(bridge, 'controls.js'))};
         import { initializeTutorialReading } from ${JSON.stringify(join(bridge, 'tutorial-reading.js'))};
+        import { bindComponentLanguage, finishLanguageSetup } from ${JSON.stringify(join(bridge, 'language.js'))};
+        App.mixins = [...(App.mixins || []), { beforeMount() { bindComponentLanguage(this, ${JSON.stringify(['newG23', 'newG44', 'newG45'].includes(directory) ? 'cn' : 'zh')}) } }];
         Vue.config.productionTip = false;
         initializeTrainingAudio(${JSON.stringify(directory)});
         initializeTutorialReading(${JSON.stringify(directory)});
         initializeGameBridge();
         new Vue({ render: h => h(App) }).$mount('#app');
+        finishLanguageSetup();
         installGameControls();
       `
     },

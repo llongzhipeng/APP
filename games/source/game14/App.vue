@@ -63,6 +63,7 @@ export default {
 </script>
 
 <script setup>
+import { bindTrainingLanguage } from '@/language.js'
 import { ref ,getCurrentInstance, onMounted} from '@vue/composition-api'
 import { applyBatchTutorialEntry, afterBatchTutorial } from '@/utils/pbGameBatchEntry'
 import './style.css'
@@ -76,6 +77,7 @@ import HistoryModal from './components/HistoryModal.vue'
 import api from '@/api';
 import { getTrainTypeForGame } from '@/utils/pbGameRegistry';
 const language = ref('zh')
+bindTrainingLanguage(() => language.value, value => { language.value = value })
 const view = ref('home')
 const showRules = ref(false)
 const showHistory = ref(false)

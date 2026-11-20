@@ -1,3 +1,4 @@
+import { getTrainingLanguage } from './language.js'
 const definitions = [
   [1, 'jyjz', '记忆矩阵', '记忆力', 'memory-matrix'],
   [2, 'jyhsz', '记忆画师', '记忆力', 'memory-painter'],
@@ -93,7 +94,7 @@ export function gameURL(game, task, channel) {
   // #endif
   const requestedSeconds = Number(task.durationSeconds ?? (task.estimatedMinutes * 60))
   const seconds = requestedSeconds > 0 && Number.isFinite(requestedSeconds) ? Math.round(requestedSeconds) : 180
-  const query = Object.entries({ game: game.key, channel, platform, seconds, difficulty: task.difficulty })
+  const query = Object.entries({ game: game.key, channel, platform, seconds, difficulty: task.difficulty, lang: getTrainingLanguage() })
     .map(([key, value]) => key + '=' + encodeURIComponent(value)).join('&')
   return `${prefix}/${game.directory}/index.html?${query}`
 }

@@ -1,3 +1,4 @@
+import { bindTrainingLanguage } from '@/language.js'
 // Simple reactive store shared across components
 import Vue from 'vue'
 import { dict } from './i18n'
@@ -36,3 +37,5 @@ export const actions = {
     localStorage.removeItem(HISTORY_KEY)
   }
 }
+
+bindTrainingLanguage(() => store.lang, actions.setLang)

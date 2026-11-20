@@ -1,4 +1,5 @@
 import { replayInstructions } from './audio/cues.js'
+import { trainingLanguage } from './language.js'
 import { leave, skip } from './session.js'
 
 export function installGameControls() {
@@ -29,6 +30,17 @@ export function installGameControls() {
     </details>
   `
   const panel = root.querySelector('details')
+  function localize() {
+    const english = trainingLanguage() === 'en'
+    const summary = root.querySelector('summary')
+    summary.title = english ? 'Game controls' : '游戏操作'
+    summary.setAttribute('aria-label', summary.title)
+    root.querySelector('[data-action="return"]').textContent = english ? 'Back' : '返回'
+    root.querySelector('[data-action="skip"]').textContent = english ? 'Skip' : '跳过'
+    root.querySelector('[data-action="replay"]').textContent = english ? 'Replay instructions' : '重听玩法'
+  }
+  localize()
+  panel.addEventListener('toggle', localize)
   root.querySelector('.menu').addEventListener('click', event => {
     const action = event.target.dataset.action
     if (!action) return

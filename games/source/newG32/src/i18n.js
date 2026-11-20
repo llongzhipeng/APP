@@ -1,3 +1,4 @@
+import { bindTrainingLanguage } from '@/language.js'
 // Simple reactive i18n for Vue 2
 import Vue from 'vue'
 
@@ -200,3 +201,5 @@ export const i18nMixin = {
     t(key) { void this.lang; return translate(key) },
   },
 }
+
+bindTrainingLanguage(() => state.lang, value => { state.lang = value })

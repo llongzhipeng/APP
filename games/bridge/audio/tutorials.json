@@ -4,7 +4,8 @@
     "steps": [
       {
         "anchor": "① 观察：记住方块点亮顺序",
-        "clip": "game1-step-1"
+        "clip": "game1-step-1",
+        "enAnchor": "① Observe: Memorize lighting order"
       }
     ]
   },
@@ -16,8 +17,9 @@
     "overview": "game3",
     "steps": [
       {
-        "anchor": "请找出以下物品中的足球",
-        "clip": "game3-step-1"
+        "anchor": "系统会显示要找的物品名称",
+        "clip": "game3-step-1",
+        "enAnchor": "The system shows the target object name"
       }
     ]
   },
@@ -26,19 +28,23 @@
     "steps": [
       {
         "anchor": "认识目标值",
-        "clip": "game4-step-1"
+        "clip": "game4-step-1",
+        "enAnchor": "Step 1: Know the Target"
       },
       {
         "anchor": "选择卡片",
-        "clip": "game4-step-2"
+        "clip": "game4-step-2",
+        "enAnchor": "Step 2: Select Cards"
       },
       {
         "anchor": "卡片消失与刷新",
-        "clip": "game4-step-3"
+        "clip": "game4-step-3",
+        "enAnchor": "Step 3: Cards Disappear & Refresh"
       },
       {
         "anchor": "智能难度调整",
-        "clip": "game4-step-4"
+        "clip": "game4-step-4",
+        "enAnchor": "Step 4: Smart Difficulty Adjustment"
       }
     ]
   },
@@ -47,15 +53,18 @@
     "steps": [
       {
         "anchor": "系统会显示需要购买的商品名称，请仔细记住它们！",
-        "clip": "game5-step-1"
+        "clip": "game5-step-1",
+        "enAnchor": "The system will display the items you need to buy. Remember them!"
       },
       {
         "anchor": "从货架上找到并选择所需商品，注意记住价格！",
-        "clip": "game5-step-2"
+        "clip": "game5-step-2",
+        "enAnchor": "Find and select the required items from the shelf. Remember the prices!"
       },
       {
         "anchor": "记住商品价格，计算总价，然后从4个选项中选择正确答案",
-        "clip": "game5-step-3"
+        "clip": "game5-step-3",
+        "enAnchor": "Remember item prices, calculate the total, then choose the correct answer from 4 options"
       }
     ]
   },
@@ -64,11 +73,13 @@
     "steps": [
       {
         "anchor": "屏幕上会出现许多带有数字和字母的气泡，你需要根据屏幕顶部显示的题目要求，刺破指定的气泡。",
-        "clip": "game6-step-1"
+        "clip": "game6-step-1",
+        "enAnchor": "Bubbles with numbers and letters will float up on screen. Pop the correct bubbles according to the task shown at the top."
       },
       {
         "anchor": "点击正确的气泡即可将其刺破并获得分数。点击错误的气泡不会有任何反应，请仔细辨别！",
-        "clip": "game6-step-2"
+        "clip": "game6-step-2",
+        "enAnchor": "Tap the correct bubble to pop it and earn points. Tapping a wrong bubble has no effect — be precise!"
       }
     ]
   },
@@ -77,7 +88,8 @@
     "steps": [
       {
         "anchor": "屏幕中央会出现一个颜色词（红/绿/蓝/黄），请判断文字的字体颜色（而非文字含义），并点击下方对应的颜色按钮。",
-        "clip": "game7-step-1"
+        "clip": "game7-step-1",
+        "enAnchor": "A color word (Red/Green/Blue/Yellow) will appear on screen. Select the FONT COLOR of the word (not its meaning) by clicking the correct button below."
       }
     ]
   },
@@ -86,7 +98,8 @@
     "steps": [
       {
         "anchor": "屏幕中间会显示4~5张参考卡片，屏幕下方有一张目标卡片。根据顶部显示的规则（颜色 / 数量 / 形状），从参考卡片中选出与目标卡片相匹配的一张。",
-        "clip": "game8-step-1"
+        "clip": "game8-step-1",
+        "enAnchor": "4–5 reference cards appear in the center. A target card appears at the bottom. Based on the rule shown at the top (Color / Quantity / Shape), click the reference card that matches the target."
       }
     ]
   },
@@ -95,11 +108,13 @@
     "steps": [
       {
         "anchor": "请按照数字出现的顺序依次输入",
-        "clip": "game9-step-1"
+        "clip": "game9-step-1",
+        "enAnchor": "Enter digits in the order they appeared"
       },
       {
         "anchor": "请按照数字出现的逆序依次输入",
-        "clip": "game9-step-2"
+        "clip": "game9-step-2",
+        "enAnchor": "Enter digits in reverse order"
       }
     ]
   },
@@ -108,7 +123,8 @@
     "steps": [
       {
         "anchor": "路径消失后，点击格子来重现路径（蓝色高亮引导）。",
-        "clip": "game10-step-1"
+        "clip": "game10-step-1",
+        "enAnchor": "After path fades, click cells to retrace it (blue = your path)."
       }
     ]
   },
@@ -129,11 +145,13 @@
     "steps": [
       {
         "anchor": "看图片，选择正确的类别",
-        "clip": "game14-step-1"
+        "clip": "game14-step-1",
+        "enAnchor": "Look at the image and select the correct category"
       },
       {
         "anchor": "找出与其他3个不同的那一个，点击它",
-        "clip": "game14-step-2"
+        "clip": "game14-step-2",
+        "enAnchor": "Find the item that is different from the other 3 and click it"
       }
     ]
   },
@@ -142,7 +160,8 @@
     "steps": [
       {
         "anchor": "用铲子点击化石消失的位置",
-        "clip": "game15-step-1"
+        "clip": "game15-step-1",
+        "enAnchor": "Click where the fossils disappeared!"
       }
     ]
   },
@@ -155,15 +174,18 @@
     "steps": [
       {
         "anchor": "4张图中有1张与其他不同，点击找出它！",
-        "clip": "game17-step-1"
+        "clip": "game17-step-1",
+        "enAnchor": "1 of 4 images differs — tap to find it!"
       },
       {
         "anchor": "答对得分！难度自动调整",
-        "clip": "game17-step-2"
+        "clip": "game17-step-2",
+        "enAnchor": "Correct = score! Difficulty auto-adjusts"
       },
       {
         "anchor": "不同种类+翻转",
-        "clip": "game17-step-3"
+        "clip": "game17-step-3",
+        "enAnchor": "Different type + flipped"
       }
     ]
   },
@@ -172,7 +194,8 @@
     "steps": [
       {
         "anchor": "判断该面孔是否出现过",
-        "clip": "game18-step-1"
+        "clip": "game18-step-1",
+        "enAnchor": "Judge if this face appeared"
       }
     ]
   },
@@ -181,11 +204,13 @@
     "steps": [
       {
         "anchor": "先点击左侧一张图片（高亮选中）",
-        "clip": "game19-step-1"
+        "clip": "game19-step-1",
+        "enAnchor": "Click a left image to select it"
       },
       {
         "anchor": "再点击右侧关联图片完成配对",
-        "clip": "game19-step-2"
+        "clip": "game19-step-2",
+        "enAnchor": "Click the matching right image to pair"
       }
     ]
   },
@@ -194,11 +219,13 @@
     "steps": [
       {
         "anchor": "屏幕下方显示目标物",
-        "clip": "game20-step-1"
+        "clip": "game20-step-1",
+        "enAnchor": "Target shown at bottom"
       },
       {
         "anchor": "点击与目标物相同的物品",
-        "clip": "game20-step-2"
+        "clip": "game20-step-2",
+        "enAnchor": "Click items matching the target"
       }
     ]
   },
@@ -207,15 +234,18 @@
     "steps": [
       {
         "anchor": "小鱼出现，记住它们身上的数字！",
-        "clip": "game21-step-1"
+        "clip": "game21-step-1",
+        "enAnchor": "Fish appear with numbers — memorize them!"
       },
       {
         "anchor": "数字隐藏了，凭记忆找到顺序！",
-        "clip": "game21-step-2"
+        "clip": "game21-step-2",
+        "enAnchor": "Numbers are hidden — remember the order!"
       },
       {
         "anchor": "按数字从小到大依次点击小鱼！",
-        "clip": "game21-step-3"
+        "clip": "game21-step-3",
+        "enAnchor": "Click fish from smallest to largest number!"
       }
     ]
   },
@@ -224,7 +254,8 @@
     "steps": [
       {
         "anchor": "屏幕上显示物体图片",
-        "clip": "game22-step-1"
+        "clip": "game22-step-1",
+        "enAnchor": "Object images appear on screen"
       }
     ]
   },
@@ -233,7 +264,8 @@
     "steps": [
       {
         "anchor": "挂锁上有形状镂空的锁孔，选择钥匙齿板形状与锁孔一致的那把",
-        "clip": "game23-step-1"
+        "clip": "game23-step-1",
+        "enAnchor": "The padlock has shape keyholes. Pick the key whose bit shape matches."
       }
     ]
   },
@@ -242,7 +274,8 @@
     "steps": [
       {
         "anchor": "观察左侧目标积木的形状",
-        "clip": "game24-step-1"
+        "clip": "game24-step-1",
+        "enAnchor": "Observe the target shape on the left"
       }
     ]
   },
@@ -251,7 +284,8 @@
     "steps": [
       {
         "anchor": "选择数量最多的一项！",
-        "clip": "game25-step-1"
+        "clip": "game25-step-1",
+        "enAnchor": "Choose the item with the most!"
       }
     ]
   },
@@ -264,7 +298,8 @@
     "steps": [
       {
         "anchor": "② 按顺序点击词语放入句子带",
-        "clip": "newG02-step-1"
+        "clip": "newG02-step-1",
+        "enAnchor": "② Tap words one by one to fill the belt"
       }
     ]
   },
@@ -281,7 +316,8 @@
     "steps": [
       {
         "anchor": "点击顾客点过的所有菜品（顺序不限）",
-        "clip": "newG05-step-1"
+        "clip": "newG05-step-1",
+        "enAnchor": "Click all dishes (order not required)"
       }
     ]
   },
@@ -290,11 +326,13 @@
     "steps": [
       {
         "anchor": "步骤 1：仔细观察并记忆卡牌图案及位置",
-        "clip": "newG06-step-1"
+        "clip": "newG06-step-1",
+        "enAnchor": "Step 1: Watch and memorize the cards and their positions."
       },
       {
         "anchor": "步骤 2：卡牌翻回背面，凭记忆点击两张相同图案的卡牌",
-        "clip": "newG06-step-2"
+        "clip": "newG06-step-2",
+        "enAnchor": "Step 2: Cards flip back. Click two cards with the same image."
       }
     ]
   },
@@ -303,11 +341,13 @@
     "steps": [
       {
         "anchor": "第一步：记住黑羊的位置（3 秒）",
-        "clip": "newG07-step-1"
+        "clip": "newG07-step-1",
+        "enAnchor": "Step 1: Memorize the black sheep positions (3s)"
       },
       {
         "anchor": "第二步：羊群消失后，点击黑羊所在的位置",
-        "clip": "newG07-step-2"
+        "clip": "newG07-step-2",
+        "enAnchor": "Step 2: After the sheep disappear, click where the black sheep were"
       }
     ]
   },
@@ -324,15 +364,18 @@
     "steps": [
       {
         "anchor": "系统会显示购物清单里的物品，请仔细记住！",
-        "clip": "newG10-step-1"
+        "clip": "newG10-step-1",
+        "enAnchor": "The system shows the shopping list. Remember all the items!"
       },
       {
         "anchor": "点击物品也可放入购物车，再次点击可取消",
-        "clip": "newG10-step-2"
+        "clip": "newG10-step-2",
+        "enAnchor": "💡\nClicking an item also adds it; click again to remove"
       },
       {
         "anchor": "选完全部物品后点击\"确认购物\"或等待时间结束",
-        "clip": "newG10-step-3"
+        "clip": "newG10-step-3",
+        "enAnchor": "When done, click \"Confirm\" or wait for time to run out"
       }
     ]
   },
@@ -345,15 +388,18 @@
     "steps": [
       {
         "anchor": "第一步：屏幕会展示一张面孔，请仔细观察面部情绪",
-        "clip": "newG12-step-1"
+        "clip": "newG12-step-1",
+        "enAnchor": "Step 1: A face will appear. Watch its expression carefully."
       },
       {
         "anchor": "第三步：从下方选项中选择正确的情绪",
-        "clip": "newG12-step-2"
+        "clip": "newG12-step-2",
+        "enAnchor": "Step 3: Choose the correct emotion from the options."
       },
       {
         "anchor": "选择正确将得到分数，让我们开始训练吧！",
-        "clip": "newG12-step-3"
+        "clip": "newG12-step-3",
+        "enAnchor": "A correct answer earns points. Let's begin!"
       }
     ]
   },
@@ -362,15 +408,18 @@
     "steps": [
       {
         "anchor": "屏幕上会出现要购票的人群和票价",
-        "clip": "newG13-step-1"
+        "clip": "newG13-step-1",
+        "enAnchor": "People to buy tickets appear on screen with their prices"
       },
       {
         "anchor": "根据题目要求计算总价",
-        "clip": "newG13-step-2"
+        "clip": "newG13-step-2",
+        "enAnchor": "Calculate the total according to the question"
       },
       {
         "anchor": "在下方选项中选择正确答案",
-        "clip": "newG13-step-3"
+        "clip": "newG13-step-3",
+        "enAnchor": "Choose the correct answer from options below"
       }
     ]
   },
@@ -379,11 +428,13 @@
     "steps": [
       {
         "anchor": "仔细听广播播报的数字，按听到的顺序依次输入",
-        "clip": "newG14-step-1"
+        "clip": "newG14-step-1",
+        "enAnchor": "Listen carefully to the broadcast, then enter the digits in the same order"
       },
       {
         "anchor": "仔细听广播播报的数字，按听到的逆序依次输入",
-        "clip": "newG14-step-2"
+        "clip": "newG14-step-2",
+        "enAnchor": "Listen carefully to the broadcast, then enter the digits in reverse order"
       }
     ]
   },
@@ -396,7 +447,8 @@
     "steps": [
       {
         "anchor": "第一步：观察花园中的小狗",
-        "clip": "newG17-step-1"
+        "clip": "newG17-step-1",
+        "enAnchor": "Step 1: Watch the garden dogs"
       }
     ]
   },
@@ -409,7 +461,8 @@
     "steps": [
       {
         "anchor": "点击相邻方格移动货车，规划最短路线",
-        "clip": "newG20-step-1"
+        "clip": "newG20-step-1",
+        "enAnchor": "Click adjacent cells to move. Plan shortest route."
       }
     ]
   },
@@ -422,7 +475,8 @@
     "steps": [
       {
         "anchor": "使用键盘 ← ↑ → 键，或点击屏幕下方按钮切换赛道。",
-        "clip": "newG22-step-1"
+        "clip": "newG22-step-1",
+        "enAnchor": "Use ← ↑ → keys or tap the buttons at the bottom of the screen."
       }
     ]
   },
@@ -435,11 +489,13 @@
     "steps": [
       {
         "anchor": "第一步：米字格中会出现一个黑色汉字，请集中注意力记住它。",
-        "clip": "newG24-step-1"
+        "clip": "newG24-step-1",
+        "enAnchor": "Step 1: A black Chinese character appears in the grid — memorize it."
       },
       {
         "anchor": "第三步：屏幕两侧会出现候选偏旁，请把正确的偏旁拖到米字格里。",
-        "clip": "newG24-step-2"
+        "clip": "newG24-step-2",
+        "enAnchor": "Step 3: Candidate radicals appear on both sides. Drag the correct ones onto the grid."
       }
     ]
   },
@@ -448,11 +504,13 @@
     "steps": [
       {
         "anchor": "屏幕中会出现彩色靶心，请注意目标颜色。",
-        "clip": "newG25-step-1"
+        "clip": "newG25-step-1",
+        "enAnchor": "Colored targets appear on screen. Note the required color."
       },
       {
         "anchor": "点击对应颜色的靶心即可完成打击。",
-        "clip": "newG25-step-2"
+        "clip": "newG25-step-2",
+        "enAnchor": "Click the matching target to score a hit."
       }
     ]
   },
@@ -461,7 +519,8 @@
     "steps": [
       {
         "anchor": "平板端请直接触摸左右两侧",
-        "clip": "newG26-step-1"
+        "clip": "newG26-step-1",
+        "enAnchor": "On tablet, tap the left/right side of screen"
       }
     ]
   },
@@ -470,11 +529,13 @@
     "steps": [
       {
         "anchor": "进入房间，仔细观察被高亮的物品，记住它的位置、颜色和数量。",
-        "clip": "newG27-step-1"
+        "clip": "newG27-step-1",
+        "enAnchor": "Enter the room and observe the highlighted items. Remember their color, position and count."
       },
       {
         "anchor": "倒计时结束后，房间将会消失，屏幕将出现题目。",
-        "clip": "newG27-step-2"
+        "clip": "newG27-step-2",
+        "enAnchor": "When countdown ends, the room disappears and a question appears."
       }
     ]
   },
@@ -483,11 +544,13 @@
     "steps": [
       {
         "anchor": "第一步：观察厨房，找到闪烁高亮的安全隐患。",
-        "clip": "newG28-step-1"
+        "clip": "newG28-step-1",
+        "enAnchor": "Step 1: Observe the kitchen and find the blinking hazards."
       },
       {
         "anchor": "第二步：直接点击隐患位置进行识别。",
-        "clip": "newG28-step-2"
+        "clip": "newG28-step-2",
+        "enAnchor": "Step 2: Tap directly on the hazard to identify it."
       }
     ]
   },
@@ -496,11 +559,13 @@
     "steps": [
       {
         "anchor": "用鼠标点击红色陨石即可摧毁它。",
-        "clip": "newG29-step-1"
+        "clip": "newG29-step-1",
+        "enAnchor": "Click on a red asteroid to destroy it."
       },
       {
         "anchor": "灰色陨石是友好的，请勿点击它！",
-        "clip": "newG29-step-2"
+        "clip": "newG29-step-2",
+        "enAnchor": "Gray asteroids are friendly — do NOT click them!"
       }
     ]
   },
@@ -509,19 +574,23 @@
     "steps": [
       {
         "anchor": "这位客人是什么表情？",
-        "clip": "newG30-step-1"
+        "clip": "newG30-step-1",
+        "enAnchor": "What's this customer's emotion?"
       },
       {
         "anchor": "点击你认为正确的选项",
-        "clip": "newG30-step-2"
+        "clip": "newG30-step-2",
+        "enAnchor": "Tap the correct option"
       },
       {
         "anchor": "答对了！获得分数。",
-        "clip": "newG30-step-3"
+        "clip": "newG30-step-3",
+        "enAnchor": "Correct! You get points."
       },
       {
         "anchor": "答错则不得分，继续下一位客人。",
-        "clip": "newG30-step-4"
+        "clip": "newG30-step-4",
+        "enAnchor": "Wrong answers get no points. Next customer."
       }
     ]
   },
@@ -530,11 +599,13 @@
     "steps": [
       {
         "anchor": "第二步：记住敲击的顺序和音调",
-        "clip": "newG31-step-1"
+        "clip": "newG31-step-1",
+        "enAnchor": "Step 2: Remember the tapping order and pitches"
       },
       {
         "anchor": "第三步：按相同顺序点击瓶子复现旋律",
-        "clip": "newG31-step-2"
+        "clip": "newG31-step-2",
+        "enAnchor": "Step 3: Click the bottles in the same order"
       }
     ]
   },
@@ -543,7 +614,8 @@
     "steps": [
       {
         "anchor": "高等难度：点击非三角形中的数字",
-        "clip": "newG32-step-1"
+        "clip": "newG32-step-1",
+        "enAnchor": "Hard: tap numbers NOT inside a triangle\nSkip the triangles"
       }
     ]
   },
@@ -552,15 +624,18 @@
     "steps": [
       {
         "anchor": "① 观察场景中的物品与虚拟人物的所在位置。",
-        "clip": "newG33-step-1"
+        "clip": "newG33-step-1",
+        "enAnchor": "① Observe the table and the positions of the virtual characters."
       },
       {
         "anchor": "② 阅读题目：请以指定人物的视角判断物品的方向。",
-        "clip": "newG33-step-2"
+        "clip": "newG33-step-2",
+        "enAnchor": "② Read the question — take the perspective of the specified character."
       },
       {
         "anchor": "③ 从四个方向选项中选择正确答案。",
-        "clip": "newG33-step-3"
+        "clip": "newG33-step-3",
+        "enAnchor": "③ Choose the correct direction from the four options."
       }
     ]
   },
@@ -577,15 +652,18 @@
     "steps": [
       {
         "anchor": "课堂上，老师会依次朗读一组词语，请仔细聆听。",
-        "clip": "newG36-step-1"
+        "clip": "newG36-step-1",
+        "enAnchor": "The teacher reads a sequence of words aloud. Listen carefully."
       },
       {
         "anchor": "按照老师朗读的先后顺序，牢牢记住每一个词。",
-        "clip": "newG36-step-2"
+        "clip": "newG36-step-2",
+        "enAnchor": "Memorize both the words and their order."
       },
       {
         "anchor": "在下方按钮中，按老师的朗读顺序依次点击相同词语。",
-        "clip": "newG36-step-3"
+        "clip": "newG36-step-3",
+        "enAnchor": "Tap the buttons below in the exact order they were spoken."
       }
     ]
   },
@@ -594,11 +672,13 @@
     "steps": [
       {
         "anchor": "观察上方规则屏，明确本题的分类要求。",
-        "clip": "newG37-step-1"
+        "clip": "newG37-step-1",
+        "enAnchor": "Read the rule board to know the current sorting requirement."
       },
       {
         "anchor": "请将绿色放入对应分类桶",
-        "clip": "newG37-step-2"
+        "clip": "newG37-step-2",
+        "enAnchor": "Sort Green into the right bin"
       }
     ]
   },
@@ -607,7 +687,8 @@
     "steps": [
       {
         "anchor": "👆 从下方选项中选择正确数字",
-        "clip": "newG38-step-1"
+        "clip": "newG38-step-1",
+        "enAnchor": "👆 Pick the correct number from options below"
       }
     ]
   },
@@ -616,11 +697,13 @@
     "steps": [
       {
         "anchor": "虫子会从四周爬向花朵，鼠标点击将其消灭，每只 +5 分。",
-        "clip": "newG39-step-1"
+        "clip": "newG39-step-1",
+        "enAnchor": "Bugs crawl toward the flower. Click to squash them. +5 points each."
       },
       {
         "anchor": "周边树木会随机起火，点击火焰将其扑灭，每处 +10 分。",
-        "clip": "newG39-step-2"
+        "clip": "newG39-step-2",
+        "enAnchor": "Trees around the flower may catch fire. Click to put them out. +10 points each."
       }
     ]
   },
@@ -629,7 +712,8 @@
     "steps": [
       {
         "anchor": "仔细观察 A 侧亮点位置，闪烁位置就是应该在 B 侧选择的答案。",
-        "clip": "newG40-step-1"
+        "clip": "newG40-step-1",
+        "enAnchor": "Watch the highlighted cell on A. The blinking cell on B shows the correct answer."
       }
     ]
   },
@@ -642,7 +726,8 @@
     "steps": [
       {
         "anchor": "仔细记住人物的姓名、年龄、性别、职业等信息。",
-        "clip": "newG42-step-1"
+        "clip": "newG42-step-1",
+        "enAnchor": "Remember the name, age, gender, occupation and other info."
       }
     ]
   },
@@ -651,15 +736,18 @@
     "steps": [
       {
         "anchor": "第一步：观察展示的图片碎片，记住它的花纹或颜色特征。",
-        "clip": "newG43-step-1"
+        "clip": "newG43-step-1",
+        "enAnchor": "Step 1: observe the fragment and remember its pattern."
       },
       {
         "anchor": "第二步：屏幕会出现蝴蝶，点击蝴蝶完成干扰任务。",
-        "clip": "newG43-step-2"
+        "clip": "newG43-step-2",
+        "enAnchor": "Step 2: butterflies appear — click them (distraction)."
       },
       {
         "anchor": "第三步：从若干张完整图片中选择与碎片对应的那一张。",
-        "clip": "newG43-step-3"
+        "clip": "newG43-step-3",
+        "enAnchor": "Step 3: pick the full image that contains the fragment."
       }
     ]
   },
@@ -668,19 +756,23 @@
     "steps": [
       {
         "anchor": "观察题目要求的目标时间，如 3:00",
-        "clip": "newG44-step-1"
+        "clip": "newG44-step-1",
+        "enAnchor": "Read the target time first, e.g. 3:00"
       },
       {
         "anchor": "按住时针或分针，直接拖动它们旋转",
-        "clip": "newG44-step-2"
+        "clip": "newG44-step-2",
+        "enAnchor": "Press and drag the hour or minute hand"
       },
       {
         "anchor": "把指针拖到目标位置，然后点击\"提交答案\"",
-        "clip": "newG44-step-3"
+        "clip": "newG44-step-3",
+        "enAnchor": "Align to target, then press Submit"
       },
       {
         "anchor": "高难度下容错范围极小，请精准对位！",
-        "clip": "newG44-step-4"
+        "clip": "newG44-step-4",
+        "enAnchor": "High level = tiny tolerance. Be precise!"
       }
     ]
   },
@@ -689,7 +781,8 @@
     "steps": [
       {
         "anchor": "游戏中，请从四个选项中选出正确的展开图案。",
-        "clip": "newG45-step-1"
+        "clip": "newG45-step-1",
+        "enAnchor": "In the game, choose the correct unfolded pattern from four options."
       }
     ]
   },
@@ -698,15 +791,18 @@
     "steps": [
       {
         "anchor": "游戏开始后左右两侧会呈现一组物体，其中有若干处不同。仔细比对每一个细节。",
-        "clip": "newG46-step-1"
+        "clip": "newG46-step-1",
+        "enAnchor": "Two similar scenes appear side by side with several small differences. Compare every detail carefully."
       },
       {
         "anchor": "发现不同后，直接在任意一侧点击该物体。命中会显示绿色对勾并加分。",
-        "clip": "newG46-step-2"
+        "clip": "newG46-step-2",
+        "enAnchor": "When you spot a difference, click directly on it on either side. A green check appears and points are added."
       },
       {
         "anchor": "点错位置会震动提示，并扣除 2 秒回合时间；超时未完成会显示未找到的位置。",
-        "clip": "newG46-step-3"
+        "clip": "newG46-step-3",
+        "enAnchor": "Wrong clicks shake the frame and cost 2 seconds. If the timer runs out, unfound spots are revealed."
       }
     ]
   },
@@ -715,11 +811,13 @@
     "steps": [
       {
         "anchor": "进入房间，仔细观察被高亮的物品位于房间的哪个位置区。",
-        "clip": "newG47-step-1"
+        "clip": "newG47-step-1",
+        "enAnchor": "Look at which area of the room the highlighted items are in."
       },
       {
         "anchor": "请回忆刚才花瓶出现的位置？",
-        "clip": "newG47-step-2"
+        "clip": "newG47-step-2",
+        "enAnchor": "Where did the vase appear?"
       }
     ]
   },
@@ -728,7 +826,8 @@
     "steps": [
       {
         "anchor": "用鼠标或手指拖动下方的收集器，去接住开心的星星。",
-        "clip": "newG48-step-1"
+        "clip": "newG48-step-1",
+        "enAnchor": "Use your mouse or finger to drag the basket to catch happy stars."
       }
     ]
   },
@@ -737,11 +836,13 @@
     "steps": [
       {
         "anchor": "第一步：观察厨房场景，识别出现的安全隐患。",
-        "clip": "newG49-step-1"
+        "clip": "newG49-step-1",
+        "enAnchor": "Step 1: Observe the kitchen and identify the hazard."
       },
       {
         "anchor": "请选择正确的处理方式",
-        "clip": "newG49-step-2"
+        "clip": "newG49-step-2",
+        "enAnchor": "Pick the correct response"
       }
     ]
   },
@@ -754,7 +855,8 @@
     "steps": [
       {
         "anchor": "② 观察中间的图片，思考它们的正确顺序",
-        "clip": "newG51-step-1"
+        "clip": "newG51-step-1",
+        "enAnchor": "② Look at the images in the middle and think about the correct order"
       }
     ]
   },
@@ -763,15 +865,18 @@
     "steps": [
       {
         "anchor": "示例1：全脸出现，从 3 个情绪选项中选择正确的一项。",
-        "clip": "newG52-step-1"
+        "clip": "newG52-step-1",
+        "enAnchor": "Ex.1: Full face shown, choose the correct emotion from 3 options."
       },
       {
         "anchor": "示例2：下半张脸被遮挡，观察上半张脸和眼睛判断情绪。",
-        "clip": "newG52-step-2"
+        "clip": "newG52-step-2",
+        "enAnchor": "Ex.2: Lower face covered, rely on the upper face and eyes."
       },
       {
         "anchor": "示例3：仅显示眼睛区域，靠眼神判断情绪，红色为错误，绿色为正确。",
-        "clip": "newG52-step-3"
+        "clip": "newG52-step-3",
+        "enAnchor": "Ex.3: Only eyes shown. Green = correct, red = wrong."
       }
     ]
   }

@@ -1,4 +1,5 @@
 import tutorials from './tutorials.json'
+import { trainingLanguage } from '../language.js'
 
 let tutorial
 let tutorialOpen = false
@@ -17,7 +18,8 @@ let stopped = false
 
 function play(clip, previous) {
   previous?.pause()
-  const player = new Audio(`../training-audio/${clip}.mp3`)
+  const folder = trainingLanguage() === 'en' ? 'en/' : ''
+  const player = new Audio(`../training-audio/${folder}${clip}.mp3`)
   player.play().catch(() => {})
   return player
 }
@@ -71,11 +73,13 @@ function cancelVoice() {
 function readTutorial(force = false) {
   if (!tutorial) return
   const screenText = document.body.innerText || ''
+  const language = trainingLanguage()
   const clip = tutorialOpen
-    ? tutorial.steps.find(step => screenText.includes(step.anchor))?.clip || tutorial.overview
+    ? tutorial.steps.find(step => screenText.includes(language === 'en' ? step.enAnchor : step.anchor))?.clip || tutorial.overview
     : tutorial.overview
-  if (!force && clip === lastTutorialClip) return
-  lastTutorialClip = clip
+  const key = language + '/' + clip
+  if (!force && key === lastTutorialClip) return
+  lastTutorialClip = key
   cancelVoice()
   voice = play(clip)
 }

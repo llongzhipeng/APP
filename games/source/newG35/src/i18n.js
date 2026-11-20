@@ -1,3 +1,4 @@
+import { bindTrainingLanguage } from '@/language.js'
 // Bilingual dictionary. Simple reactive-friendly getter via Vue.observable.
 import Vue from 'vue'
 
@@ -234,3 +235,5 @@ export const i18nMixin = {
     t(key, params) { return translate(key, params) },
   },
 }
+
+bindTrainingLanguage(() => i18n.locale, setLocale)

@@ -1,3 +1,4 @@
+import { bindTrainingLanguage } from '@/language.js'
 import Vue from 'vue'
 
 export const i18n = Vue.observable({
@@ -186,3 +187,5 @@ export function t(key) {
 }
 
 export function setLang(lang) { i18n.lang = lang }
+
+bindTrainingLanguage(() => i18n.lang, setLang)

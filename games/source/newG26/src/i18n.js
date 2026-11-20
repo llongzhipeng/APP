@@ -1,3 +1,4 @@
+import { bindTrainingLanguage } from '@/language.js'
 import Vue from 'vue'
 
 const dict = {
@@ -259,3 +260,5 @@ export default {
     V.mixin(i18nMixin)
   },
 }
+
+bindTrainingLanguage(() => i18nStore.lang, setLang)

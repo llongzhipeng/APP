@@ -40,6 +40,7 @@
 </template>
 
 <script>
+import { bindTrainingLanguage } from '@/language.js'
 
 import { ref, computed,getCurrentInstance,provide, onMounted } from '@vue/composition-api'
 import { applyBatchTutorialEntry, afterBatchTutorial } from '@/utils/pbGameBatchEntry'
@@ -69,6 +70,7 @@ export default {
     const archiveId = ref(resolveArchiveId(instance.proxy.$route));
     provide('archiveId', archiveId);
     const lang = ref('zh')
+    bindTrainingLanguage(() => lang.value, value => { lang.value = value })
     const page = ref('home')
     const gameDuration = ref(60)
 
