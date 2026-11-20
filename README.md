@@ -10,7 +10,7 @@
 
 教程使用较大的说明文字和翻页按钮，按平板屏幕尺寸适配。内容超出屏幕时可以在教程卡片内上下滑动。
 
-教程玩法、已适配的翻页提示和难度语音使用随安装包提供的普通话音频。正确和错误使用不同的短提示音，原游戏的刺激音频照常播放。语音片段由 [Kokoro-82M-v1.1-zh](https://huggingface.co/hexgrad/Kokoro-82M-v1.1-zh) 的 zf_090 普通话女声生成，仅打包生成后的音频，开发代码中的教程文本和提示映射位于 `games/bridge/audio/`。
+教程和难度提示采用 MeloTTS 中文普通话合成女声。游戏内题目、数字、颜色和词语听辨采用基于 AISHELL-3 母语普通话语料训练的 VITS 音色。两套音频都随安装包提供，可离线播放。答题提示、门铃和旋律等音效使用各自的声音。[教程语音模型](https://huggingface.co/myshell-ai/MeloTTS-Chinese) · [训练题语音语料](https://www.openslr.org/93/)
 
 ## Android 平板安装
 
