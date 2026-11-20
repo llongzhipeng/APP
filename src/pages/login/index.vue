@@ -22,11 +22,13 @@ const copy = computed(() => english.value ? {
   title: 'Pediatric Cognitive Rehabilitation System',
   description: 'Enter the training code and PIN from your clinician.',
   code: 'Training code', pin: 'PIN', start: 'Start training', loading: 'Signing in…',
+  invalidPin: 'Incorrect PIN.', networkError: 'Network connection failed. Try again.', signInError: 'Sign-in failed. Try again.',
   demo: 'Demo access', fill: 'Use demo credentials', required: 'Enter your training code and PIN.',
 } : {
   title: '儿童认知康复训练系统',
   description: '请输入医生提供的训练码和 PIN',
   code: '训练码', pin: 'PIN 密码', start: '开始训练', loading: '登录中…',
+  invalidPin: 'PIN 码不正确', networkError: '网络连接失败，请检查网络后重试',
   demo: '演示登录', fill: '填入演示账号', required: '请输入训练码和 PIN。',
 })
 
@@ -56,7 +58,9 @@ async function submit() {
     await signIn(code.value.trim(), pin.value.trim())
     openToday()
   } catch (cause) {
-    error.value = english.value ? 'Sign-in failed. Check your training code, PIN and connection.' : cause.message
+    if (cause.code === 'INVALID_PIN') error.value = copy.value.invalidPin
+    else if (cause.code === 'NETWORK_ERROR') error.value = copy.value.networkError
+    else error.value = english.value ? copy.value.signInError : cause.message
   } finally {
     busy.value = false
   }
