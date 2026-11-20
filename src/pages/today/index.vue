@@ -13,6 +13,7 @@ const busy = ref(false)
 const openingTask = ref(false)
 const error = ref('')
 const view = ref('today')
+const showTrainingLibrary = false
 const category = ref(trainingCategories[0][0])
 const language = ref(getTrainingLanguage())
 function switchLanguage() {
@@ -27,7 +28,7 @@ const completed = computed(() => tasks.value.filter(task => task.completed).leng
 const remaining = computed(() => tasks.value.reduce((sum, task) =>
   sum + (task.completed ? 0 : Math.max(0, task.estimatedMinutes - task.completedMinutes)), 0))
 function taskNote(task) {
-  const parts = [task.estimatedMinutes + ' 分钟', '难度 ' + task.difficulty + ' 级']
+  const parts = [task.estimatedMinutes + ' 分钟', task.difficulty == null ? '难度待配置' : '难度 ' + task.difficulty + ' 级']
   if (task.completed || task.completedMinutes) parts.push('已训练 ' + Number(task.completedMinutes.toFixed(2)) + ' 分钟')
   if (task.completed && task.updatedAt) parts.push('状态更新于 ' + task.updatedAt)
   if (!task.completed && !task.playable) parts.push('暂不可启动')
@@ -110,7 +111,7 @@ function openPractice(game) {
           </view>
           <view class="heading-actions">
             <button class="secondary" :disabled="busy" @click="refresh">{{ busy ? '刷新中…' : '刷新方案' }}</button>
-            <button class="secondary" @click="view = 'library'">全部训练</button>
+            <button v-if="showTrainingLibrary" class="secondary" @click="view = 'library'">全部训练</button>
           </view>
         </view>
         <view v-if="plan" class="progress-card">
