@@ -9,8 +9,22 @@ export async function loadTrialCatalog() {
   return catalog
 }
 
-export function openTrial(game, { difficulty = 1, seconds = 180, lang = 'zh' } = {}) {
+export function buildTrialURL(game, { channel, difficulty = 1, seconds = 180, lang = 'zh' }) {
   if (!/^(?:game|newG)\d+$/.test(game.directory)) throw new Error('无效的游戏目录')
+  const url = new URL('games/' + game.directory + '/index.html', base)
+  url.search = new URLSearchParams({
+    game: game.gameType, channel, platform: 'h5', seconds, difficulty, lang,
+  })
+  return url
+}
+
+export function isTrialMessage(event, frame, gameType, channel) {
+  const message = event.data
+  return event.origin === base.origin && event.source === frame.contentWindow &&
+    message?.source === 'training-game' && message.channel === channel && message.gameType === gameType
+}
+
+export function openTrial(game, { difficulty = 1, seconds = 180, lang = 'zh' } = {}) {
   if (base.origin !== location.origin) throw new Error('试玩组件需要和管理系统部署在同一来源')
   if (!document.querySelector('link[data-training-trial]')) {
     const style = document.createElement('link')
@@ -22,10 +36,7 @@ export function openTrial(game, { difficulty = 1, seconds = 180, lang = 'zh' } =
 
   activeDialog?.close()
   const channel = crypto.randomUUID()
-  const url = new URL('games/' + game.directory + '/index.html', base)
-  url.search = new URLSearchParams({
-    game: game.gameType, channel, platform: 'h5', seconds, difficulty, lang,
-  })
+  const url = buildTrialURL(game, { channel, difficulty, seconds, lang })
 
   const dialog = document.createElement('dialog')
   dialog.className = 'training-trial'
@@ -44,11 +55,8 @@ export function openTrial(game, { difficulty = 1, seconds = 180, lang = 'zh' } =
   dialog.append(header, iframe)
 
   function receive(event) {
-    if (event.origin !== base.origin || event.source !== iframe.contentWindow) return
-    const message = event.data
-    if (message?.source !== 'training-game' || message.channel !== channel ||
-        message.gameType !== game.gameType) return
-    if (message.type === 'exit' || message.type === 'skip') dialog.close()
+    if (!isTrialMessage(event, iframe, game.gameType, channel)) return
+    if (event.data.type === 'exit' || event.data.type === 'skip') dialog.close()
   }
 
   dialog.addEventListener('close', () => {

@@ -1,0 +1,15 @@
+# Include inside the game host's HTTPS server block.
+# Copy public/training-preview to /srv/brain-games/public/training-preview.
+# Replace both occurrences of the sample admin origin.
+root /srv/brain-games/public;
+
+location /training-preview/ {
+    try_files $uri =404;
+    add_header Content-Security-Policy "frame-ancestors 'self' https://admin.example.com" always;
+}
+
+location = /training-preview/catalog.json {
+    try_files $uri =404;
+    add_header Content-Security-Policy "frame-ancestors 'self' https://admin.example.com" always;
+    add_header Access-Control-Allow-Origin "https://admin.example.com" always;
+}
