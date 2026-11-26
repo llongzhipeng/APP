@@ -1,0 +1,563 @@
+{
+  "categories": [
+    {
+      "key": "视空间能力",
+      "label": "视空间能力"
+    },
+    {
+      "key": "记忆力",
+      "label": "记忆能力"
+    },
+    {
+      "key": "执行能力",
+      "label": "执行能力"
+    },
+    {
+      "key": "注意力",
+      "label": "注意能力"
+    },
+    {
+      "key": "抽象能力",
+      "label": "抽象能力"
+    },
+    {
+      "key": "运算能力",
+      "label": "计算能力"
+    },
+    {
+      "key": "语言能力",
+      "label": "语言能力"
+    },
+    {
+      "key": "社会能力",
+      "label": "社会能力"
+    }
+  ],
+  "games": [
+    {
+      "gameType": "jyjz",
+      "title": "记忆矩阵",
+      "category": "记忆力",
+      "directory": "game1",
+      "cover": "covers/jyjz.jpg"
+    },
+    {
+      "gameType": "jyhsz",
+      "title": "记忆画师",
+      "category": "记忆力",
+      "directory": "game2",
+      "cover": "covers/jyhsz.jpg"
+    },
+    {
+      "gameType": "xwsd",
+      "title": "寻物圣殿",
+      "category": "抽象能力",
+      "directory": "game3",
+      "cover": "covers/xwsd.jpg"
+    },
+    {
+      "gameType": "sslk",
+      "title": "速算连连看",
+      "category": "运算能力",
+      "directory": "game4",
+      "cover": "covers/sslk.jpg"
+    },
+    {
+      "gameType": "csgw",
+      "title": "超市购物",
+      "category": "运算能力",
+      "directory": "game5",
+      "cover": "covers/csgw.jpg"
+    },
+    {
+      "gameType": "szqb",
+      "title": "数字快捕",
+      "category": "执行能力",
+      "directory": "game6",
+      "cover": "covers/szqb.jpg"
+    },
+    {
+      "gameType": "ystz",
+      "title": "颜色挑战",
+      "category": "注意力",
+      "directory": "game7",
+      "cover": "covers/ystz.jpg"
+    },
+    {
+      "gameType": "ljlt",
+      "title": "逻辑链条",
+      "category": "抽象能力",
+      "directory": "game8",
+      "cover": "covers/ljlt.jpg"
+    },
+    {
+      "gameType": "szfb",
+      "title": "数字风暴",
+      "category": "记忆力",
+      "directory": "game9",
+      "cover": "covers/szfb.jpg"
+    },
+    {
+      "gameType": "mzxh",
+      "title": "迷宫巡航",
+      "category": "记忆力",
+      "directory": "game10",
+      "cover": "covers/mzxh.jpg"
+    },
+    {
+      "gameType": "dtqq",
+      "title": "动态追球",
+      "category": "注意力",
+      "directory": "game11",
+      "cover": "covers/dtqq.jpg"
+    },
+    {
+      "gameType": "bdx",
+      "title": "比大小",
+      "category": "抽象能力",
+      "directory": "game12",
+      "cover": "covers/bdx.jpg"
+    },
+    {
+      "gameType": "qbqz",
+      "title": "残缺补全",
+      "category": "视空间能力",
+      "directory": "game13",
+      "cover": "covers/qbqz.jpg"
+    },
+    {
+      "gameType": "wpgl",
+      "title": "物品归类",
+      "category": "抽象能力",
+      "directory": "game14",
+      "cover": "covers/wpgl.jpg"
+    },
+    {
+      "gameType": "hsxb",
+      "title": "化石寻宝",
+      "category": "记忆力",
+      "directory": "game15",
+      "cover": "covers/hsxb.jpg"
+    },
+    {
+      "gameType": "hylx",
+      "title": "海洋序列",
+      "category": "执行能力",
+      "directory": "game16",
+      "cover": "covers/hylx.jpg"
+    },
+    {
+      "gameType": "spotdiff",
+      "title": "找不同",
+      "category": "视空间能力",
+      "directory": "game17",
+      "cover": "covers/spotdiff.jpg"
+    },
+    {
+      "gameType": "mjmy",
+      "title": "面孔记忆",
+      "category": "社会能力",
+      "directory": "game18",
+      "cover": "covers/mjmy.jpg"
+    },
+    {
+      "gameType": "lxds",
+      "title": "联想大师",
+      "category": "抽象能力",
+      "directory": "game19",
+      "cover": "covers/lxds.jpg"
+    },
+    {
+      "gameType": "zlss",
+      "title": "注意力搜索",
+      "category": "注意力",
+      "directory": "game20",
+      "cover": "covers/zlss.jpg"
+    },
+    {
+      "gameType": "szlx",
+      "title": "数字连线",
+      "category": "记忆力",
+      "directory": "game21",
+      "cover": "covers/szlx.jpg"
+    },
+    {
+      "gameType": "mcgf",
+      "title": "命名工坊",
+      "category": "抽象能力",
+      "directory": "game22",
+      "cover": "covers/mcgf.jpg"
+    },
+    {
+      "gameType": "yspp",
+      "title": "钥匙匹配",
+      "category": "记忆力",
+      "directory": "game23",
+      "cover": "covers/yspp.jpg"
+    },
+    {
+      "gameType": "jmtz",
+      "title": "积木挑战",
+      "category": "抽象能力",
+      "directory": "game24",
+      "cover": "covers/jmtz.jpg"
+    },
+    {
+      "gameType": "slbj",
+      "title": "数量比较",
+      "category": "运算能力",
+      "directory": "game25",
+      "cover": "covers/slbj.jpg"
+    },
+    {
+      "gameType": "hmtz",
+      "title": "海马体挑战",
+      "category": "记忆力",
+      "directory": "newG01",
+      "cover": "covers/hmtz.jpg"
+    },
+    {
+      "gameType": "lccj",
+      "title": "连词成句",
+      "category": "语言能力",
+      "directory": "newG02",
+      "cover": "covers/lccj.jpg"
+    },
+    {
+      "gameType": "syz",
+      "title": "数鸭子",
+      "category": "运算能力",
+      "directory": "newG03",
+      "cover": "covers/syz.jpg"
+    },
+    {
+      "gameType": "yshy",
+      "title": "颜色回忆",
+      "category": "记忆力",
+      "directory": "newG04",
+      "cover": "covers/yshy.jpg"
+    },
+    {
+      "gameType": "ctdc",
+      "title": "餐厅点餐",
+      "category": "记忆力",
+      "directory": "newG05",
+      "cover": "covers/ctdc.jpg"
+    },
+    {
+      "gameType": "jyfp",
+      "title": "记忆翻牌",
+      "category": "记忆力",
+      "directory": "newG06",
+      "cover": "covers/jyfp.jpg"
+    },
+    {
+      "gameType": "xzhy",
+      "title": "寻找黑羊",
+      "category": "记忆力",
+      "directory": "newG07",
+      "cover": "covers/xzhy.jpg"
+    },
+    {
+      "gameType": "slzt",
+      "title": "数列侦探",
+      "category": "抽象能力",
+      "directory": "newG08",
+      "cover": "covers/slzt.jpg"
+    },
+    {
+      "gameType": "dds",
+      "title": "打地鼠",
+      "category": "注意力",
+      "directory": "newG09",
+      "cover": "covers/dds.jpg"
+    },
+    {
+      "gameType": "gwqd",
+      "title": "购物清单",
+      "category": "记忆力",
+      "directory": "newG10",
+      "cover": "covers/gwqd.jpg"
+    },
+    {
+      "gameType": "xzxm",
+      "title": "寻找小猫",
+      "category": "注意力",
+      "directory": "newG11",
+      "cover": "covers/xzxm.jpg"
+    },
+    {
+      "gameType": "qxjy",
+      "title": "情绪记忆",
+      "category": "社会能力",
+      "directory": "newG12",
+      "cover": "covers/qxjy.jpg"
+    },
+    {
+      "gameType": "dwygp",
+      "title": "动物园购票",
+      "category": "运算能力",
+      "directory": "newG13",
+      "cover": "covers/dwygp.jpg"
+    },
+    {
+      "gameType": "szfbyy",
+      "title": "数字风暴（语音版）",
+      "category": "记忆力",
+      "directory": "newG14",
+      "cover": "covers/szfbyy.jpg"
+    },
+    {
+      "gameType": "zysxt",
+      "title": "左右手协调",
+      "category": "视空间能力",
+      "directory": "newG15",
+      "cover": "covers/zysxt.jpg"
+    },
+    {
+      "gameType": "xgws",
+      "title": "小狗喂食",
+      "category": "记忆力",
+      "directory": "newG17",
+      "cover": "covers/xgws.jpg"
+    },
+    {
+      "gameType": "cyjc",
+      "title": "成语纠错",
+      "category": "语言能力",
+      "directory": "newG19",
+      "cover": "covers/cyjc.jpg"
+    },
+    {
+      "gameType": "shdr",
+      "title": "送货达人",
+      "category": "执行能力",
+      "directory": "newG20",
+      "cover": "covers/shdr.jpg"
+    },
+    {
+      "gameType": "xxlx",
+      "title": "星星连线",
+      "category": "记忆力",
+      "directory": "newG21",
+      "cover": "covers/xxlx.jpg"
+    },
+    {
+      "gameType": "jssc",
+      "title": "极速赛车",
+      "category": "注意力",
+      "directory": "newG22",
+      "cover": "covers/jssc.jpg"
+    },
+    {
+      "gameType": "stct",
+      "title": "视听冲突",
+      "category": "注意力",
+      "directory": "newG23",
+      "cover": "covers/stct.jpg"
+    },
+    {
+      "gameType": "hzxly",
+      "title": "汉字训练营",
+      "category": "语言能力",
+      "directory": "newG24",
+      "cover": "covers/hzxly.jpg"
+    },
+    {
+      "gameType": "qjyx",
+      "title": "拳击游戏",
+      "category": "注意力",
+      "directory": "newG25",
+      "cover": "covers/qjyx.jpg"
+    },
+    {
+      "gameType": "jzqj",
+      "title": "节奏敲击",
+      "category": "执行能力",
+      "directory": "newG26",
+      "cover": "covers/jzqj.jpg"
+    },
+    {
+      "gameType": "jyzbtxj",
+      "title": "记忆藏宝图（细节）",
+      "category": "记忆力",
+      "directory": "newG27",
+      "cover": "covers/jyzbtxj.jpg"
+    },
+    {
+      "gameType": "aqcfsb",
+      "title": "安全厨房（识别）",
+      "category": "执行能力",
+      "directory": "newG28",
+      "cover": "covers/aqcfsb.jpg"
+    },
+    {
+      "gameType": "xhshz",
+      "title": "星海守护者",
+      "category": "注意力",
+      "directory": "newG29",
+      "cover": "covers/xhshz.jpg"
+    },
+    {
+      "gameType": "bqblbd",
+      "title": "表情便利店",
+      "category": "社会能力",
+      "directory": "newG30",
+      "cover": "covers/bqblbd.jpg"
+    },
+    {
+      "gameType": "yjfzj",
+      "title": "音阶复制机",
+      "category": "记忆力",
+      "directory": "newG31",
+      "cover": "covers/yjfzj.jpg"
+    },
+    {
+      "gameType": "ktxx",
+      "title": "课堂学习",
+      "category": "执行能力",
+      "directory": "newG32",
+      "cover": "covers/ktxx.jpg"
+    },
+    {
+      "gameType": "sjzh",
+      "title": "视角转换",
+      "category": "视空间能力",
+      "directory": "newG33",
+      "cover": "covers/sjzh.jpg"
+    },
+    {
+      "gameType": "ktccy",
+      "title": "看图猜成语",
+      "category": "语言能力",
+      "directory": "newG34",
+      "cover": "covers/ktccy.jpg"
+    },
+    {
+      "gameType": "cyfl",
+      "title": "词义分类",
+      "category": "语言能力",
+      "directory": "newG35",
+      "cover": "covers/cyfl.jpg"
+    },
+    {
+      "gameType": "cyfs",
+      "title": "词语复述",
+      "category": "记忆力",
+      "directory": "newG36",
+      "cover": "covers/cyfs.jpg"
+    },
+    {
+      "gameType": "fltzs",
+      "title": "分类挑战赛",
+      "category": "抽象能力",
+      "directory": "newG37",
+      "cover": "covers/fltzs.jpg"
+    },
+    {
+      "gameType": "yhjsq",
+      "title": "烟花计数器",
+      "category": "注意力",
+      "directory": "newG38",
+      "cover": "covers/yhjsq.jpg"
+    },
+    {
+      "gameType": "shhd",
+      "title": "守护花朵",
+      "category": "执行能力",
+      "directory": "newG39",
+      "cover": "covers/shhd.jpg"
+    },
+    {
+      "gameType": "kjjx",
+      "title": "空间镜像",
+      "category": "视空间能力",
+      "directory": "newG40",
+      "cover": "covers/kjjx.jpg"
+    },
+    {
+      "gameType": "tktxj",
+      "title": "太空探险家",
+      "category": "注意力",
+      "directory": "newG41",
+      "cover": "covers/tktxj.jpg"
+    },
+    {
+      "gameType": "rwda",
+      "title": "人物档案",
+      "category": "记忆力",
+      "directory": "newG42",
+      "cover": "covers/rwda.jpg"
+    },
+    {
+      "gameType": "ptds",
+      "title": "拼图大师",
+      "category": "记忆力",
+      "directory": "newG43",
+      "cover": "covers/ptds.jpg"
+    },
+    {
+      "gameType": "szszs",
+      "title": "时钟设置师",
+      "category": "执行能力",
+      "directory": "newG44",
+      "cover": "covers/szszs.jpg"
+    },
+    {
+      "gameType": "zhzt",
+      "title": "折痕侦探",
+      "category": "视空间能力",
+      "directory": "newG45",
+      "cover": "covers/zhzt.jpg"
+    },
+    {
+      "gameType": "hyjj",
+      "title": "火眼金睛",
+      "category": "视空间能力",
+      "directory": "newG46",
+      "cover": "covers/hyjj.jpg"
+    },
+    {
+      "gameType": "jyzbtwz",
+      "title": "记忆藏宝图（位置）",
+      "category": "记忆力",
+      "directory": "newG47",
+      "cover": "covers/jyzbtwz.jpg"
+    },
+    {
+      "gameType": "qxsjzl",
+      "title": "情绪收集之旅",
+      "category": "社会能力",
+      "directory": "newG48",
+      "cover": "covers/qxsjzl.jpg"
+    },
+    {
+      "gameType": "aqcfwd",
+      "title": "安全厨房（问答）",
+      "category": "执行能力",
+      "directory": "newG49",
+      "cover": "covers/aqcfwd.jpg"
+    },
+    {
+      "gameType": "cytk",
+      "title": "成语填空",
+      "category": "语言能力",
+      "directory": "newG50",
+      "cover": "covers/cytk.jpg"
+    },
+    {
+      "gameType": "ghdr",
+      "title": "规划达人",
+      "category": "执行能力",
+      "directory": "newG51",
+      "cover": "covers/ghdr.jpg"
+    },
+    {
+      "gameType": "ysdx",
+      "title": "眼神读心",
+      "category": "社会能力",
+      "directory": "newG52",
+      "cover": "covers/ysdx.jpg"
+    }
+  ]
+}

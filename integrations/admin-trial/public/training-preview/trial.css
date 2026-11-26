@@ -1,0 +1,36 @@
+.training-trial {
+  position: fixed;
+  inset: 0;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  width: 100vw;
+  height: 100dvh;
+  max-width: none;
+  max-height: none;
+  background: #f3f7fa;
+  color: #213857;
+}
+.training-trial[open] { display: flex; flex-direction: column; }
+.training-trial header {
+  display: flex;
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 4px 16px;
+  border-bottom: 1px solid #dde5f1;
+  background: white;
+}
+.training-trial button {
+  padding: 0 12px;
+  min-height: 44px;
+  border: 1px solid #cbd9ef;
+  border-radius: 6px;
+  background: #fff;
+  color: #2949ac;
+  font: inherit;
+  cursor: pointer;
+}
+.training-trial iframe { flex: 1; width: 100%; min-height: 0; border: 0; }
